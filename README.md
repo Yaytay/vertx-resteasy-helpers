@@ -1,4 +1,11 @@
 # Vertx RESTEasy Helpers
+
+[![Latest release](https://img.shields.io/github/release/yaytay/vertx-resteasy-helpers.svg)](https://github.com/yaytay/vertx-resteasy-helpers/latest)
+[![License](https://img.shields.io/github/license/yaytay/vertx-resteasy-helpers)](https://github.com/yaytay/vertx-resteasy-helpers/blob/master/LICENCE.md)
+[![Issues](https://img.shields.io/github/issues/yaytay/vertx-resteasy-helpers)](https://github.com/yaytay/vertx-resteasy-helpers/issues)
+[![Build Status](https://github.com/yaytay/vertx-resteasy-helpers/actions/workflows/buildtest.yml/badge.svg)](https://github.com/Yaytay/vertx-resteasy-helpers/actions/workflows/buildtest.yml)
+[![CodeCov](https://codecov.io/gh/Yaytay/vertx-resteasy-helpers/branch/main/graph/badge.svg?token=ACHVK20T9Q)](https://codecov.io/gh/Yaytay/vertx-resteasy-helpers)
+
 A few helpers for using Resteasy JAX-RS with a Vert.x HTTP Server.
 
 There helpers currently in the library are:
