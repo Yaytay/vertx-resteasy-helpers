@@ -532,40 +532,6 @@
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.4.1</version>
       </plugin>
-
-      <plugin>
-        <groupId>io.fabric8</groupId>
-        <artifactId>docker-maven-plugin</artifactId>
-        <version>0.40.2</version>
-        <executions>
-          <execution>
-            <phase>deploy</phase>
-            <goals>
-              <goal>build</goal>
-            </goals>
-            <id>build</id>
-          </execution>
-        </executions>
-        <configuration>
-          <verbose>true</verbose>
-          <imagePullPolicy>IfNotPresent</imagePullPolicy>
-          <images>
-            <image>
-              <alias>${project.artifactId}</alias>
-              <name>${project.artifactId}-${parsedVersion.majorVersion}-${parsedVersion.minorVersion}:${project.version}</name>
-              <build>
-                <tags>
-                  <tag>${project.version}</tag>
-                </tags>
-                <nocache/>
-                <dockerFile>${project.basedir}/src/main/docker/Dockerfile</dockerFile>
-                <contextDir>${project.basedir}/</contextDir>
-              </build>
-            </image>
-          </images>
-          <dockerHost>${env.DOCKER_HOST}</dockerHost>
-        </configuration>
-      </plugin>
       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
