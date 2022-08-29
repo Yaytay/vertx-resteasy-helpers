@@ -7,6 +7,8 @@
   <artifactId>vertx-resteasy-helpers</artifactId>
   <version>0.0.0</version>
   <name>Vertx RESTEasy Helpers</name>
+  <description>A few helpers for using Resteasy JAX-RS with a Vert.x HTTP Server.</description>
+  <url>https://github.com/Yaytay/vertx-resteasy-helpers</url>
 
   <properties>
     <jdk.version>17</jdk.version>
