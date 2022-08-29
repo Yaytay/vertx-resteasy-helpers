@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -10,10 +12,32 @@
   <description>A few helpers for using Resteasy JAX-RS with a Vert.x HTTP Server.</description>
   <url>https://github.com/Yaytay/vertx-resteasy-helpers</url>
 
+  <licenses>
+    <license>
+      <name>General Public License 3.0</name>
+      <url>https://opensource.org/licenses/GPL-3.0</url>
+    </license>
+  </licenses>
+  
+  <developers>
+    <developer>
+      <id>yaytay</id>
+      <name>Jim Talbut</name>
+      <email>jim-vertx-resteasy-helpers @ spudsoft.co.uk</email>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git@github.com:Yaytay/vertx-resteasy-helpers.git</connection>
+    <developerConnection>scm:git:ssh://github.com:Yaytay/vertx-resteasy-helpers.git</developerConnection>
+    <url>https://github.com/Yaytay/vertx-resteasy-helpers.git</url>
+  </scm>  
+
   <properties>
     <jdk.version>17</jdk.version>
     <vertx.version>4.3.3</vertx.version>
-    <slf4j.version>1.7.36</slf4j.version>
+    <slf4j.version>[1.7,)</slf4j.version>
+    <logback.version>[1.2,)</logback.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <junit-jupiter.version>5.9.0</junit-jupiter.version>
     <junit-platform.version>1.8.2</junit-platform.version>
@@ -71,7 +95,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.2.10</version>
+      <version>${logback.version}</version>
 	  <scope>test</scope>
     </dependency>
     <dependency>
@@ -297,7 +321,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>10.3.2</version>
+            <version>10.3.3</version>
           </dependency>
         </dependencies>
       </plugin>
