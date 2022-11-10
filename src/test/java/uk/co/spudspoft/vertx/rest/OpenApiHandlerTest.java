@@ -13,11 +13,14 @@ import io.swagger.v3.oas.integration.SwaggerConfiguration;
 import io.swagger.v3.oas.integration.api.OpenAPIConfiguration;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
+import io.vertx.core.MultiMap;
 import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
+import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.impl.headers.HeadersMultiMap;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.RoutingContext;
 import io.vertx.junit5.VertxExtension;
 import io.vertx.junit5.VertxTestContext;
 import jakarta.ws.rs.core.Application;
@@ -34,8 +37,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.mock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.spudspoft.vertx.rest.OpenApiHandler.UiHandler;
 
 /**
  *
@@ -62,6 +68,7 @@ public class OpenApiHandlerTest extends Application {
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
+    router.get("/openapi").handler(openApiHandler.getUiHandler());
 
     httpServer
             .requestHandler(router)
@@ -82,6 +89,10 @@ public class OpenApiHandlerTest extends Application {
                   logger.debug("Open API YAML: {}", body);
                   assertThat(body, containsString("/api/one"));
                   assertThat(body, containsString("/api/two"));
+
+                  body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
+                  logger.debug("Open API UI: {}", body);
+                  
                 });
                 testContext.completeNow();
               });
@@ -221,6 +232,38 @@ public class OpenApiHandlerTest extends Application {
     
     assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList()), null));
     
+  }
+  
+  @Test
+  public void testUiPath() throws Exception {
+    OpenApiHandler apiHandler = new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList()), "/api/");
+    UiHandler uiHandler = apiHandler.getUiHandler();
+    
+    RoutingContext event = mock(RoutingContext.class);
+    HttpServerRequest request = mock(HttpServerRequest.class);
+    Mockito.when(request.host()).thenReturn("bob");
+    Mockito.when(event.request()).thenReturn(request);
+    MultiMap headers = new HeadersMultiMap();
+    headers.set("x-forwarded-proto", "https");
+    Mockito.when(request.headers()).thenReturn(headers);
+    
+    assertEquals("https://bob/openapi.yaml", uiHandler.buildPath(event));    
+    
+    event = mock(RoutingContext.class);
+    request = mock(HttpServerRequest.class);
+    Mockito.when(request.host()).thenReturn("bob");
+    Mockito.when(event.request()).thenReturn(request);
+    Mockito.when(request.isSSL()).thenReturn(false);
+    
+    assertEquals("http://bob/openapi.yaml", uiHandler.buildPath(event));    
+    
+    event = mock(RoutingContext.class);
+    request = mock(HttpServerRequest.class);
+    Mockito.when(request.host()).thenReturn("bob");
+    Mockito.when(event.request()).thenReturn(request);
+    Mockito.when(request.isSSL()).thenReturn(true);
+    
+    assertEquals("https://bob/openapi.yaml", uiHandler.buildPath(event));
   }
   
   @Test

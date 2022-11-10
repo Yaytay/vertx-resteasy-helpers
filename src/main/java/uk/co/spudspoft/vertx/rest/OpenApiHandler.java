@@ -18,6 +18,7 @@ import io.swagger.v3.oas.models.Paths;
 import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
 import io.vertx.core.http.Cookie;
+import io.vertx.core.http.HttpServerRequest;
 import io.vertx.ext.web.RoutingContext;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
@@ -66,6 +67,52 @@ public class OpenApiHandler implements Handler<RoutingContext> {
     }
     
     this.basePath = basePath;
+  }
+  
+  public UiHandler getUiHandler() {
+    return new UiHandler();
+  }
+  
+  public static class UiHandler implements Handler<RoutingContext> {
+
+    public String buildPath(RoutingContext event) {
+      HttpServerRequest request = event.request();      
+      MultiMap headers = request.headers();
+      String proto = headers == null ? null : headers.get("X-Forwarded-Proto");
+      if (proto == null) {
+        proto = request.isSSL() ? "https://" : "http://";
+      } else {
+        proto = proto + "://";
+      }
+      
+      return proto
+              + request.host()
+              + "/openapi.yaml"
+              ;
+    }
+    
+    @Override
+    public void handle(RoutingContext event) {
+
+      String path = buildPath(event);
+      
+      String html = """
+                <!doctype html>
+                <html>
+                  <head>
+                    <script type="module" src="https://unpkg.com/openapi-explorer@0/dist/browser/openapi-explorer.min.js"></script>
+                  </head>
+                  <body>
+                    <openapi-explorer spec-url="PATH"> </openapi-explorer>
+                  </body>
+                </html>
+                """
+              .replaceAll("PATH", path);      
+      
+      event.response().setStatusCode(200).end(html);
+      
+    }
+    
   }
 
   /**
