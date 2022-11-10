@@ -8,7 +8,7 @@
 
 A few helpers for using Resteasy JAX-RS with a Vert.x HTTP Server.
 
-There helpers currently in the library are:
+The helpers currently in the library are:
 - JaxRsHandler
 - OpenApiHandler
 - Timer
