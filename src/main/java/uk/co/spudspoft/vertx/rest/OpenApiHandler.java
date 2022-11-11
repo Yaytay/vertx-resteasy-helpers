@@ -8,7 +8,9 @@ package uk.co.spudspoft.vertx.rest;
 import io.swagger.v3.core.filter.OpenAPISpecFilter;
 import io.swagger.v3.core.filter.SpecFilter;
 import io.swagger.v3.core.util.Json;
+import io.swagger.v3.core.util.Json31;
 import io.swagger.v3.core.util.Yaml;
+import io.swagger.v3.core.util.Yaml31;
 import io.swagger.v3.jaxrs2.integration.JaxrsOpenApiContextBuilder;
 import io.swagger.v3.oas.integration.api.OpenAPIConfiguration;
 import io.swagger.v3.oas.integration.api.OpenApiContext;
@@ -182,13 +184,21 @@ public class OpenApiHandler implements Handler<RoutingContext> {
         response.putHeader("Access-Control-Request-Method", "GET");
         // response.putHeader("Access-Control-Allow-Origin", openApiConfig.getUiUrl());
         response.putHeader("Content-Type", "application/yaml");
-        response.end(pretty ? Yaml.pretty(oas) : Yaml.mapper().writeValueAsString(oas));
+        if (config.isOpenAPI31()) {
+          response.end(pretty ? Yaml31.pretty(oas) : Yaml31.mapper().writeValueAsString(oas));
+        } else {
+          response.end(pretty ? Yaml.pretty(oas) : Yaml.mapper().writeValueAsString(oas));
+        }
       } else {
         var response = event.response();
         response.putHeader("Access-Control-Request-Method", "GET");
         // response.putHeader("Access-Control-Allow-Origin", openApiConfig.getUiUrl());
         response.putHeader("Content-Type", MediaType.APPLICATION_JSON);
-        response.end(pretty ? Json.pretty(oas) : Json.mapper().writeValueAsString(oas));
+        if (config.isOpenAPI31()) {
+          response.end(pretty ? Json31.pretty(oas) : Json31.mapper().writeValueAsString(oas));
+        } else {
+          response.end(pretty ? Json.pretty(oas) : Json.mapper().writeValueAsString(oas));
+        }
       }
     } catch (Throwable ex) {
       logger.error("failed to generate {}: ",

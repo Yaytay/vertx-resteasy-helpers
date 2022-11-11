@@ -8,7 +8,6 @@ import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
-import io.restassured.http.ContentType;
 import io.swagger.v3.oas.integration.SwaggerConfiguration;
 import io.swagger.v3.oas.integration.api.OpenAPIConfiguration;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -28,11 +27,14 @@ import jakarta.ws.rs.core.Application;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
+import static java.util.regex.Pattern.DOTALL;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.matchesRegex;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -92,7 +94,8 @@ public class OpenApiHandlerTest extends Application {
                   assertThat(body, containsString("/api/one"));
                   assertThat(body, containsString("/api/two"));
                   assertThat(body, containsString("3.0.1"));
-                  assertThat(body, containsString("type"));
+                  Pattern pattern = Pattern.compile(".*field1:[\\s\\n]+type.*", DOTALL);
+                  assertThat(body, matchesRegex(pattern));
 
                   body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API UI: {}", body);
@@ -140,7 +143,8 @@ public class OpenApiHandlerTest extends Application {
                   assertThat(body, containsString("/api/one"));
                   assertThat(body, containsString("/api/two"));
                   assertThat(body, containsString("3.1.0"));
-                  assertThat(body, containsString("type"));
+                  Pattern pattern = Pattern.compile(".*field1:[\\s\\n]+type.*", DOTALL);
+                  assertThat(body, matchesRegex(pattern));
 
                   body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API UI: {}", body);
