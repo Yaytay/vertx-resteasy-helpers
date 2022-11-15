@@ -16,10 +16,17 @@
  */
 package uk.co.spudspoft.vertx.rest;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 /**
  *
  * @author njt
  */
+@Schema(
+        description = """
+                      This is the response type.
+                      """
+)
 public class ResponseType {
   
   private String field1;

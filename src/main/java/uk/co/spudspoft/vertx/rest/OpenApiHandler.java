@@ -17,6 +17,7 @@ import io.swagger.v3.oas.integration.api.OpenApiContext;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.PathItem;
 import io.swagger.v3.oas.models.Paths;
+import io.swagger.v3.oas.models.media.Schema;
 import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
 import io.vertx.core.http.Cookie;
@@ -42,6 +43,8 @@ public class OpenApiHandler implements Handler<RoutingContext> {
   @SuppressWarnings("constantname")
   private static final Logger logger = LoggerFactory.getLogger(OpenApiHandler.class);
 
+  public static final String SCHEMA_DESCRIPTION = "/schema/description/";
+  
   private final Application app;
   private final OpenAPIConfiguration openApiConfiguration;
   private String openApiContextId;
@@ -175,14 +178,34 @@ public class OpenApiHandler implements Handler<RoutingContext> {
       }
 
       if (oas == null) {
-        logger.error("failed to create OpenAPI object");
+        logger.error("Failed to create OpenAPI object");
         event.fail(404);
+        return ;
       }
 
-      if (event.normalizedPath().endsWith(".yaml")) {
-        var response = event.response();
-        response.putHeader("Access-Control-Request-Method", "GET");
-        // response.putHeader("Access-Control-Allow-Origin", openApiConfig.getUiUrl());
+      var response = event.response();
+      response.putHeader("Access-Control-Request-Method", "GET");
+      
+      String normalizedPath = event.normalizedPath();
+      int startPos = normalizedPath.indexOf(SCHEMA_DESCRIPTION);
+      if (startPos > 0) {
+        String component = normalizedPath.substring(SCHEMA_DESCRIPTION.length() + startPos);
+        logger.debug("Component: {}", component);
+        Schema<?> schema = oas.getComponents().getSchemas().get(component);
+        if (schema == null) {
+          logger.error("Component {} not found in schemas", component);
+          event.fail(404);
+          return ;
+        }
+        String description = schema.getDescription();
+        if (description != null && !description.isEmpty()) {
+          response.putHeader("Content-Type", "text/html");
+          response.end("<html><body>" + description + "</body></html>");
+        } else {
+          response.putHeader("Content-Type", "text/html");
+          response.end("<html><body></body></html>");
+        }
+      } else if (normalizedPath.endsWith(".yaml")) {
         response.putHeader("Content-Type", "application/yaml");
         if (config.isOpenAPI31()) {
           response.end(pretty ? Yaml31.pretty(oas) : Yaml31.mapper().writeValueAsString(oas));
@@ -190,9 +213,6 @@ public class OpenApiHandler implements Handler<RoutingContext> {
           response.end(pretty ? Yaml.pretty(oas) : Yaml.mapper().writeValueAsString(oas));
         }
       } else {
-        var response = event.response();
-        response.putHeader("Access-Control-Request-Method", "GET");
-        // response.putHeader("Access-Control-Allow-Origin", openApiConfig.getUiUrl());
         response.putHeader("Content-Type", MediaType.APPLICATION_JSON);
         if (config.isOpenAPI31()) {
           response.end(pretty ? Json31.pretty(oas) : Json31.mapper().writeValueAsString(oas));

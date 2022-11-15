@@ -123,6 +123,7 @@ public class OpenApiHandlerTest extends Application {
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
+    router.getWithRegex("/openapi/schema/description/.*").handler(openApiHandler);
     router.get("/openapi").handler(openApiHandler.getUiHandler());
 
     httpServer
@@ -146,6 +147,9 @@ public class OpenApiHandlerTest extends Application {
                   Pattern pattern = Pattern.compile(".*field1:[\\s\\n]+type.*", DOTALL);
                   assertThat(body, matchesRegex(pattern));
 
+                  given().get("/openapi/schema/description/Condition").then().log().all().statusCode(404).body(equalTo("Not Found"));
+                  given().get("/openapi/schema/description/ResponseType").then().log().all().statusCode(200).body(equalTo("<html><body>This is the response type.\n</body></html>"));
+                  
                   body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API UI: {}", body);
                   
