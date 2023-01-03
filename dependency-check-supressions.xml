@@ -85,4 +85,9 @@
     <gav regex="false">com.mattbertolini:liquibase-slf4j:4.1.0</gav>
     <cve>CVE-2022-0839</cve>
   </suppress>
+  <suppress>
+    <notes>CVE relates to constructor which is not used by Jackson</notes>
+    <gav>org.yaml:snakeyaml:1.33</gav>
+    <cve>CVE-2022-1471</cve>
+  </suppress>
 </suppressions>
