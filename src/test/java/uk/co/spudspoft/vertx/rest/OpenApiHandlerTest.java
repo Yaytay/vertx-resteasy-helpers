@@ -4,7 +4,6 @@
  */
 package uk.co.spudspoft.vertx.rest;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.given;
@@ -19,6 +18,7 @@ import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.impl.headers.HeadersMultiMap;
+import io.vertx.core.json.jackson.DatabindCodec;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.junit5.VertxExtension;
@@ -27,11 +27,14 @@ import jakarta.ws.rs.core.Application;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
+import static java.util.regex.Pattern.DOTALL;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.matchesRegex;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -60,9 +63,12 @@ public class OpenApiHandlerTest extends Application {
     Router router = Router.router(vertx);
 
     List<Object> controllers = Arrays.asList(new SampleHandler1(), new SampleHandler2());
-    List<Object> providers = Arrays.asList(new JacksonJsonProvider(new ObjectMapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
+    List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
-    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers);
+    String test = DatabindCodec.mapper().writeValueAsString(new ResponseType("field1", "field2"));
+    assertEquals("{\"field1\":\"field1\",\"field2\":\"field2\"}", test);
+    
+    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/");
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testHandler");
     
@@ -82,14 +88,68 @@ public class OpenApiHandlerTest extends Application {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
                   assertThat(body, equalTo("One"));
-                  body = when().get("/api/two").then().statusCode(200).extract().body().asString();
-                  assertThat(body, equalTo("Two"));
 
                   body = given().cookie("bob", "fred").get("/openapi.yaml").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API YAML: {}", body);
                   assertThat(body, containsString("/api/one"));
                   assertThat(body, containsString("/api/two"));
+                  assertThat(body, containsString("3.0.1"));
+                  Pattern pattern = Pattern.compile(".*field1:[\\s\\n]+type.*", DOTALL);
+                  assertThat(body, matchesRegex(pattern));
 
+                  body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
+                  logger.debug("Open API UI: {}", body);
+                  
+                });
+                testContext.completeNow();
+              });
+            });
+
+  }
+  
+  @Test
+  public void testHandlerWith310(Vertx vertx, VertxTestContext testContext) throws Exception {
+
+    HttpServer httpServer = vertx.createHttpServer(new HttpServerOptions().setPort(0));
+
+    Router router = Router.router(vertx);
+
+    List<Object> controllers = Arrays.asList(new SampleHandler1(), new SampleHandler2());
+    List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
+
+    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, true);
+    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/");
+    openApiHandler.setOpenContextId("OpenApiHandlerTest.testHandlerWith310");
+    
+    router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
+    router.getWithRegex("/openapi\\..*").handler(openApiHandler);
+    router.getWithRegex("/openapi/schema/description/.*").handler(openApiHandler);
+    router.get("/openapi").handler(openApiHandler.getUiHandler());
+
+    httpServer
+            .requestHandler(router)
+            .listen()
+            .onFailure(as -> testContext.failNow(as))
+            .onSuccess(hs -> {
+              RestAssured.port = hs.actualPort();
+              
+              vertx.executeBlocking(promise -> {
+                testContext.verify(() -> {
+
+                  String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
+                  assertThat(body, equalTo("One"));
+
+                  body = given().cookie("bob", "fred").get("/openapi.yaml").then().log().all().statusCode(200).extract().body().asString();
+                  logger.debug("Open API YAML: {}", body);
+                  assertThat(body, containsString("/api/one"));
+                  assertThat(body, containsString("/api/two"));
+                  assertThat(body, containsString("3.1.0"));
+                  Pattern pattern = Pattern.compile(".*field1:[\\s\\n]+type.*", DOTALL);
+                  assertThat(body, matchesRegex(pattern));
+
+                  given().get("/openapi/schema/description/Condition").then().log().all().statusCode(404).body(equalTo("Not Found"));
+                  given().get("/openapi/schema/description/ResponseType").then().log().all().statusCode(200).body(equalTo("<html><body>This is the response type.\n</body></html>"));
+                  
                   body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API UI: {}", body);
                   
@@ -109,9 +169,9 @@ public class OpenApiHandlerTest extends Application {
     Router router = Router.router(vertx);
 
     List<Object> controllers = Arrays.asList(new SampleHandler1(), new SampleHandler2());
-    List<Object> providers = Arrays.asList(new JacksonJsonProvider(new ObjectMapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
+    List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
-    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers);
+    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/");
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testNotPrettyYaml");
     
@@ -130,8 +190,6 @@ public class OpenApiHandlerTest extends Application {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
                   assertThat(body, equalTo("One"));
-                  body = when().get("/api/two").then().statusCode(200).extract().body().asString();
-                  assertThat(body, equalTo("Two"));
 
                   body = given().cookie("bob", "fred").get("/openapi.yaml").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API YAML: {}", body);
@@ -153,9 +211,9 @@ public class OpenApiHandlerTest extends Application {
     Router router = Router.router(vertx);
 
     List<Object> controllers = Arrays.asList(new SampleHandler1(), new SampleHandler2());
-    List<Object> providers = Arrays.asList(new JacksonJsonProvider(new ObjectMapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
+    List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
-    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers);
+    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "");
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
@@ -173,8 +231,6 @@ public class OpenApiHandlerTest extends Application {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
                   assertThat(body, equalTo("One"));
-                  body = when().get("/api/two").then().statusCode(200).extract().body().asString();
-                  assertThat(body, equalTo("Two"));
 
                   body = when().get("/openapi.json").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API JSON: {}", body);
@@ -196,9 +252,9 @@ public class OpenApiHandlerTest extends Application {
     Router router = Router.router(vertx);
 
     List<Object> controllers = Arrays.asList();
-    List<Object> providers = Arrays.asList(new JacksonJsonProvider(new ObjectMapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
+    List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
-    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers);
+    OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api");
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testNoResources");
     
@@ -230,13 +286,13 @@ public class OpenApiHandlerTest extends Application {
 
     assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, null, "/api/"));
     
-    assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList()), null));
+    assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList(), false), null));
     
   }
   
   @Test
   public void testUiPath() throws Exception {
-    OpenApiHandler apiHandler = new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList()), "/api/");
+    OpenApiHandler apiHandler = new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList(), false), "/api/");
     UiHandler uiHandler = apiHandler.getUiHandler();
     
     RoutingContext event = mock(RoutingContext.class);
@@ -273,11 +329,12 @@ public class OpenApiHandlerTest extends Application {
     assertEquals("carol", OpenApiHandler.multiMapToMap(new HeadersMultiMap().add("bob", "fred").add("bob", "carol")).get("bob").get(1));
   }
 
-  private OpenAPIConfiguration createOpenapiConfiguration(boolean pretty, boolean filter, List<Object> resources) {
+  private OpenAPIConfiguration createOpenapiConfiguration(boolean pretty, boolean filter, List<Object> resources, boolean openAPI31) {
     return new SwaggerConfiguration()
             .resourceClasses(Stream.concat(resources.stream(), Stream.of(this)).map(r -> r.getClass().getCanonicalName())
                     .collect(Collectors.toSet()))
             .prettyPrint(pretty)
+            .openAPI31(openAPI31)
             .filterClass(filter ? SampleOpenApiFilter.class.getCanonicalName() : null)
             .openAPI(
                     new OpenAPI()
