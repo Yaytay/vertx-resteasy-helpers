@@ -137,7 +137,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
   public void handle(RoutingContext event) {
     logger.trace("Handling OpenAPI request");
     try {
-      JaxrsOpenApiContextBuilder oacb = new JaxrsOpenApiContextBuilder()
+      JaxrsOpenApiContextBuilder<?> oacb = new JaxrsOpenApiContextBuilder<>()
               .application(app);
       oacb.setOpenApiConfiguration(openApiConfiguration);
       if (openApiContextId != null) {

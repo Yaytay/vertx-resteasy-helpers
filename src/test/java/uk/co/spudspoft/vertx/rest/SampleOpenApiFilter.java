@@ -21,6 +21,7 @@ import java.util.Optional;
  *
  * @author njt
  */
+@SuppressWarnings({"rawtypes"})
 public class SampleOpenApiFilter implements OpenAPISpecFilter {
 
   @Override
