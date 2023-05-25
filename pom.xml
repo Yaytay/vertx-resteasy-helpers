@@ -690,7 +690,7 @@
       </plugin>  
           
       <plugin>
-        <groupId>org.=</groupId>
+        <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>0.8.10</version>
         <configuration>
