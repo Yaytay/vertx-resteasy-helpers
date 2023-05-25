@@ -10,6 +10,7 @@ import org.jboss.resteasy.spi.ContextInjector;
 
 /**
  * ContextInjector to inject the vert.x web routing context into the Jax-RS context.
+ * 
  * @author jtalbut
  */
 public class RoutingContextInjector implements ContextInjector<RoutingContext, RoutingContext> {

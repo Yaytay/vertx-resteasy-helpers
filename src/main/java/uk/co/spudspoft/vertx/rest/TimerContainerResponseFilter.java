@@ -21,6 +21,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ * JAX-RS filter to complete metrics on the request context.
+ * The companion TimerContainerRequestFilter is required to set up the metrics.
  *
  * @author njt
  */

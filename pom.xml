@@ -35,13 +35,13 @@
 
   <properties>
     <jdk.version>17</jdk.version>
-    <vertx.version>4.3.7</vertx.version>
+    <vertx.version>4.4.2</vertx.version>
     <jackson.version>[2.14.0,)</jackson.version>
     <slf4j.version>[1.7,)</slf4j.version>
     <logback.version>[1.2,)</logback.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit-jupiter.version>5.9.2</junit-jupiter.version>
-    <junit-platform.version>1.9.2</junit-platform.version>
+    <junit-jupiter.version>5.9.3</junit-jupiter.version>
+    <junit-platform.version>1.9.3</junit-platform.version>
     <fork.count>4</fork.count>
     <argLine></argLine>
   </properties>
@@ -50,12 +50,12 @@
     <dependency>
       <groupId>org.jboss.resteasy</groupId>
       <artifactId>resteasy-vertx</artifactId>
-      <version>6.2.2.Final</version>
+      <version>6.2.4.Final</version>
     </dependency>    
     <dependency>
       <groupId>io.swagger.core.v3</groupId>
       <artifactId>swagger-jaxrs2-jakarta</artifactId>
-      <version>2.2.8</version>
+      <version>2.2.10</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -66,7 +66,7 @@
     <dependency>
       <groupId>io.swagger.core.v3</groupId>
       <artifactId>swagger-annotations-jakarta</artifactId>
-      <version>2.2.8</version>
+      <version>2.2.10</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -82,12 +82,12 @@
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
-      <version>1.10.3</version>
+      <version>1.11.0</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-      <version>2.0.6</version>
+      <version>${slf4j.version}</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
@@ -165,13 +165,13 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.1.1</version>
+      <version>5.3.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>5.1.1</version>
+      <version>5.3.1</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -340,7 +340,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>10.6.0</version>
+            <version>10.11.0</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -348,7 +348,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.0.0-M8</version>
+        <version>3.1.0</version>
         <configuration>
           <forkCount>${fork.count}</forkCount>
           <reuseForks>true</reuseForks>
@@ -366,7 +366,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>3.0.0-M8</version>
+        <version>3.1.0</version>
         <executions>
           <execution>
             <goals>
@@ -398,7 +398,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.8</version>
+        <version>0.8.10</version>
         <executions>
           <execution>
             <id>jacoco-initialize</id>
@@ -581,7 +581,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>3.0.0</version>
+        <version>3.1.0</version>
       </plugin>
     </plugins>
   </build>
@@ -626,9 +626,9 @@
       </plugin>  
           
       <plugin>
-        <groupId>org.jacoco</groupId>
+        <groupId>org.=</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.7</version>
+        <version>0.8.10</version>
         <configuration>
           <dataFile>${project.build.directory}/jacoco-merged.exec</dataFile>
         </configuration>

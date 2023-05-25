@@ -19,7 +19,9 @@ import org.slf4j.LoggerFactory;
 
 
 /**
- *
+ * JAX-RS filter to set up metrics on the request context.
+ * The companion TimerContainerResponseFilter is required to complete the metrics.
+ * 
  * @author njt
  */
 public class TimerContainerRequestFilter implements ContainerRequestFilter {
@@ -60,9 +62,8 @@ public class TimerContainerRequestFilter implements ContainerRequestFilter {
 
   @Override
   public void filter(ContainerRequestContext crc) throws IOException {
-    if (crc instanceof PostMatchContainerRequestContext) {
+    if (crc instanceof PostMatchContainerRequestContext matchedContext) {
       try {
-        PostMatchContainerRequestContext matchedContext = (PostMatchContainerRequestContext) crc;
         Method requestMethod = matchedContext.getResourceMethod().getMethod();
         Timed timed = requestMethod.getAnnotation(Timed.class);
         if (timed != null) {
