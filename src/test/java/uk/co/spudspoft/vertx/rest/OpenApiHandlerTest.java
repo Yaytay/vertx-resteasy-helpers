@@ -291,10 +291,7 @@ public class OpenApiHandlerTest extends Application {
   }
   
   @Test
-  public void testUiPath() throws Exception {
-    OpenApiHandler apiHandler = new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList(), false), "/api/");
-    UiHandler uiHandler = apiHandler.getUiHandler();
-    
+  public void testUiPath() throws Exception {    
     RoutingContext event = mock(RoutingContext.class);
     HttpServerRequest request = mock(HttpServerRequest.class);
     Mockito.when(request.host()).thenReturn("bob");
@@ -303,7 +300,7 @@ public class OpenApiHandlerTest extends Application {
     headers.set("x-forwarded-proto", "https");
     Mockito.when(request.headers()).thenReturn(headers);
     
-    assertEquals("https://bob/openapi.yaml", uiHandler.buildPath(event));    
+    assertEquals("https://bob/openapi.yaml", UiHandler.buildPath(event));    
     
     event = mock(RoutingContext.class);
     request = mock(HttpServerRequest.class);
@@ -311,7 +308,7 @@ public class OpenApiHandlerTest extends Application {
     Mockito.when(event.request()).thenReturn(request);
     Mockito.when(request.isSSL()).thenReturn(false);
     
-    assertEquals("http://bob/openapi.yaml", uiHandler.buildPath(event));    
+    assertEquals("http://bob/openapi.yaml", UiHandler.buildPath(event));    
     
     event = mock(RoutingContext.class);
     request = mock(HttpServerRequest.class);
@@ -319,7 +316,7 @@ public class OpenApiHandlerTest extends Application {
     Mockito.when(event.request()).thenReturn(request);
     Mockito.when(request.isSSL()).thenReturn(true);
     
-    assertEquals("https://bob/openapi.yaml", uiHandler.buildPath(event));
+    assertEquals("https://bob/openapi.yaml", UiHandler.buildPath(event));
   }
   
   @Test

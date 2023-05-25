@@ -43,6 +43,9 @@ public class OpenApiHandler implements Handler<RoutingContext> {
   @SuppressWarnings("constantname")
   private static final Logger logger = LoggerFactory.getLogger(OpenApiHandler.class);
 
+  /**
+   * Request path that will return the description from the OpenAPI document as a standalone HTML document.
+   */
   public static final String SCHEMA_DESCRIPTION = "/schema/description/";
   
   private final Application app;
@@ -74,13 +77,25 @@ public class OpenApiHandler implements Handler<RoutingContext> {
     this.basePath = basePath;
   }
   
+  /**
+   * UiHandler factory method.
+   * @return a new UiHandler object.
+   */
   public UiHandler getUiHandler() {
     return new UiHandler();
   }
   
+  /**
+   * The Vertx handler for converting a request into an HTML page the uses 
+   * <a href="https://github.com/Rhosys/openapi-explorer">OpenAPI-Explorer</a> to reference /openapi.yaml.
+   * 
+   * The HTML page uses <a href="https://www.unpkg.com/">unpkg</a> to reference 
+   * <a href="https://unpkg.com/openapi-explorer@0/dist/browser/openapi-explorer.min.js">openapi-explorer.min.js</a>.
+   * 
+   */
   public static class UiHandler implements Handler<RoutingContext> {
 
-    public String buildPath(RoutingContext event) {
+    static String buildPath(RoutingContext event) {
       HttpServerRequest request = event.request();      
       MultiMap headers = request.headers();
       String proto = headers == null ? null : headers.get("X-Forwarded-Proto");
@@ -115,7 +130,6 @@ public class OpenApiHandler implements Handler<RoutingContext> {
               .replaceAll("PATH", path);      
       
       event.response().setStatusCode(200).end(html);
-      
     }
     
   }
