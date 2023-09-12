@@ -19,6 +19,7 @@ import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.http.impl.headers.HeadersMultiMap;
 import io.vertx.core.json.jackson.DatabindCodec;
+import io.vertx.core.net.impl.HostAndPortImpl;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.junit5.VertxExtension;
@@ -83,7 +84,7 @@ public class OpenApiHandlerTest extends Application {
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
               
-              vertx.executeBlocking(promise -> {
+              vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
@@ -102,6 +103,7 @@ public class OpenApiHandlerTest extends Application {
                   
                 });
                 testContext.completeNow();
+                return null;
               });
             });
 
@@ -133,7 +135,7 @@ public class OpenApiHandlerTest extends Application {
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
               
-              vertx.executeBlocking(promise -> {
+              vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
@@ -155,6 +157,7 @@ public class OpenApiHandlerTest extends Application {
                   
                 });
                 testContext.completeNow();
+                return null;
               });
             });
     
@@ -185,7 +188,7 @@ public class OpenApiHandlerTest extends Application {
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
               
-              vertx.executeBlocking(promise -> {
+              vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
@@ -197,6 +200,7 @@ public class OpenApiHandlerTest extends Application {
                   assertThat(body, containsString("/api/two"));
                 });
                 testContext.completeNow();
+                return null;
               });
             });
     
@@ -226,7 +230,7 @@ public class OpenApiHandlerTest extends Application {
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
               
-              vertx.executeBlocking(promise -> {
+              vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
                   String body = when().get("/api/one").then().statusCode(200).extract().body().asString();
@@ -238,6 +242,7 @@ public class OpenApiHandlerTest extends Application {
                   assertThat(body, containsString("/two"));
                 });
                 testContext.completeNow();
+                return null;
               });
             });
     
@@ -268,13 +273,14 @@ public class OpenApiHandlerTest extends Application {
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
               
-              vertx.executeBlocking(promise -> {
+              vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
                   String body = when().get("/openapi.json").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API JSON: {}", body);
                 });
                 testContext.completeNow();
+                return null;
               });
             });
     
@@ -294,7 +300,7 @@ public class OpenApiHandlerTest extends Application {
   public void testUiPath() throws Exception {    
     RoutingContext event = mock(RoutingContext.class);
     HttpServerRequest request = mock(HttpServerRequest.class);
-    Mockito.when(request.host()).thenReturn("bob");
+    Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 80));
     Mockito.when(event.request()).thenReturn(request);
     MultiMap headers = new HeadersMultiMap();
     headers.set("x-forwarded-proto", "https");
@@ -304,15 +310,15 @@ public class OpenApiHandlerTest extends Application {
     
     event = mock(RoutingContext.class);
     request = mock(HttpServerRequest.class);
-    Mockito.when(request.host()).thenReturn("bob");
+    Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 1234));
     Mockito.when(event.request()).thenReturn(request);
     Mockito.when(request.isSSL()).thenReturn(false);
     
-    assertEquals("http://bob/openapi.yaml", UiHandler.buildPath(event));    
+    assertEquals("http://bob:1234/openapi.yaml", UiHandler.buildPath(event));    
     
     event = mock(RoutingContext.class);
     request = mock(HttpServerRequest.class);
-    Mockito.when(request.host()).thenReturn("bob");
+    Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 443));
     Mockito.when(event.request()).thenReturn(request);
     Mockito.when(request.isSSL()).thenReturn(true);
     

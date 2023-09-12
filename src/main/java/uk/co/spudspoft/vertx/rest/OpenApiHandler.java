@@ -22,6 +22,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
 import io.vertx.core.http.Cookie;
 import io.vertx.core.http.HttpServerRequest;
+import io.vertx.core.net.HostAndPort;
 import io.vertx.ext.web.RoutingContext;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
@@ -85,6 +86,15 @@ public class OpenApiHandler implements Handler<RoutingContext> {
     return new UiHandler();
   }
   
+  private static String hapToHost(HostAndPort hap, boolean isSsl) {
+    int nativePort = isSsl ? 443 : 80;
+    if (hap.port() == nativePort) {
+      return hap.host();
+    } else {
+      return hap.host() + ":" + hap.port();
+    }
+  }
+  
   /**
    * The Vertx handler for converting a request into an HTML page the uses 
    * <a href="https://github.com/Rhosys/openapi-explorer">OpenAPI-Explorer</a> to reference /openapi.yaml.
@@ -99,14 +109,23 @@ public class OpenApiHandler implements Handler<RoutingContext> {
       HttpServerRequest request = event.request();      
       MultiMap headers = request.headers();
       String proto = headers == null ? null : headers.get("X-Forwarded-Proto");
+      HostAndPort hap = request.authority();
+      String host;
       if (proto == null) {
-        proto = request.isSSL() ? "https://" : "http://";
+        if (request.isSSL()) {
+          proto = "https://";
+          host = hapToHost(hap, true);
+        } else {
+          proto = "http://";
+          host = hapToHost(hap, false);
+        }
       } else {
         proto = proto + "://";
+        host = hapToHost(hap, "https".equals(proto));
       }
       
       return proto
-              + request.host()
+              + host
               + "/openapi.yaml"
               ;
     }

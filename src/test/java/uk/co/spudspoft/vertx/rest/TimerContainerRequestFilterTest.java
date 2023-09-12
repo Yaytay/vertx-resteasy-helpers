@@ -136,7 +136,7 @@ public class TimerContainerRequestFilterTest {
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
 
-              vertx.executeBlocking(promise -> {
+              vertx.<Void>executeBlocking(() -> {
 
                 testContext.verify(() -> {
 
@@ -160,6 +160,7 @@ public class TimerContainerRequestFilterTest {
                   assertThat(body, containsString("host=\"localhost:" + hs.actualPort() + "\",method=\"GET\",path_part=\"\",query=\"\",response_code=\"200\""));
                 });
                 testContext.completeNow();
+                return null;
               });
             });
 
