@@ -22,6 +22,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
 import io.vertx.core.http.Cookie;
 import io.vertx.core.http.HttpServerRequest;
+import io.vertx.core.net.HostAndPort;
 import io.vertx.ext.web.RoutingContext;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
@@ -41,7 +42,7 @@ import org.slf4j.LoggerFactory;
 public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
 
   @SuppressWarnings(&quot;constantname&quot;)
-<span class="fc" id="L44">  private static final Logger logger = LoggerFactory.getLogger(OpenApiHandler.class);</span>
+<span class="fc" id="L45">  private static final Logger logger = LoggerFactory.getLogger(OpenApiHandler.class);</span>
 
   /**
    * Request path that will return the description from the OpenAPI document as a standalone HTML document.
@@ -60,29 +61,38 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
    * @param openApiConfiguration The Open API configuration, may be null.
    * @param basePath Base path to be prepended to any paths.
    */
-<span class="fc" id="L63">  public OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath) {</span>
-<span class="fc bfc" id="L64" title="All 2 branches covered.">    if (openApiConfiguration == null) {</span>
-<span class="fc" id="L65">      throw new NullPointerException(&quot;openApiConfiguration may not be null&quot;);</span>
+<span class="fc" id="L64">  public OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath) {</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">    if (openApiConfiguration == null) {</span>
+<span class="fc" id="L66">      throw new NullPointerException(&quot;openApiConfiguration may not be null&quot;);</span>
     }
-<span class="fc bfc" id="L67" title="All 2 branches covered.">    if (basePath == null) {</span>
-<span class="fc" id="L68">      throw new NullPointerException(&quot;basePath may not be null&quot;);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">    if (basePath == null) {</span>
+<span class="fc" id="L69">      throw new NullPointerException(&quot;basePath may not be null&quot;);</span>
     }
-<span class="fc" id="L70">    this.app = app;</span>
-<span class="fc" id="L71">    this.openApiConfiguration = openApiConfiguration;</span>
+<span class="fc" id="L71">    this.app = app;</span>
+<span class="fc" id="L72">    this.openApiConfiguration = openApiConfiguration;</span>
     
-<span class="fc bfc" id="L73" title="All 2 branches covered.">    if (basePath.endsWith(&quot;/&quot;)) {</span>
-<span class="fc" id="L74">      basePath = basePath.substring(0, basePath.length() - 1);</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">    if (basePath.endsWith(&quot;/&quot;)) {</span>
+<span class="fc" id="L75">      basePath = basePath.substring(0, basePath.length() - 1);</span>
     }
     
-<span class="fc" id="L77">    this.basePath = basePath;</span>
-<span class="fc" id="L78">  }</span>
+<span class="fc" id="L78">    this.basePath = basePath;</span>
+<span class="fc" id="L79">  }</span>
   
   /**
    * UiHandler factory method.
    * @return a new UiHandler object.
    */
   public UiHandler getUiHandler() {
-<span class="fc" id="L85">    return new UiHandler();</span>
+<span class="fc" id="L86">    return new UiHandler();</span>
+  }
+  
+  private static String hapToHost(HostAndPort hap, boolean isSsl) {
+<span class="fc bfc" id="L90" title="All 2 branches covered.">    int nativePort = isSsl ? 443 : 80;</span>
+<span class="fc bfc" id="L91" title="All 2 branches covered.">    if (hap.port() == nativePort) {</span>
+<span class="fc" id="L92">      return hap.host();</span>
+    } else {
+<span class="fc" id="L94">      return hap.host() + &quot;:&quot; + hap.port();</span>
+    }
   }
   
   /**
@@ -93,20 +103,29 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
    * &lt;a href=&quot;https://unpkg.com/openapi-explorer@0/dist/browser/openapi-explorer.min.js&quot;&gt;openapi-explorer.min.js&lt;/a&gt;.
    * 
    */
-<span class="fc" id="L96">  public static class UiHandler implements Handler&lt;RoutingContext&gt; {</span>
+<span class="fc" id="L106">  public static class UiHandler implements Handler&lt;RoutingContext&gt; {</span>
 
     static String buildPath(RoutingContext event) {
-<span class="fc" id="L99">      HttpServerRequest request = event.request();      </span>
-<span class="fc" id="L100">      MultiMap headers = request.headers();</span>
-<span class="fc bfc" id="L101" title="All 2 branches covered.">      String proto = headers == null ? null : headers.get(&quot;X-Forwarded-Proto&quot;);</span>
-<span class="fc bfc" id="L102" title="All 2 branches covered.">      if (proto == null) {</span>
-<span class="fc bfc" id="L103" title="All 2 branches covered.">        proto = request.isSSL() ? &quot;https://&quot; : &quot;http://&quot;;</span>
+<span class="fc" id="L109">      HttpServerRequest request = event.request();      </span>
+<span class="fc" id="L110">      MultiMap headers = request.headers();</span>
+<span class="fc bfc" id="L111" title="All 2 branches covered.">      String proto = headers == null ? null : headers.get(&quot;X-Forwarded-Proto&quot;);</span>
+<span class="fc" id="L112">      HostAndPort hap = request.authority();</span>
+      String host;
+<span class="fc bfc" id="L114" title="All 2 branches covered.">      if (proto == null) {</span>
+<span class="fc bfc" id="L115" title="All 2 branches covered.">        if (request.isSSL()) {</span>
+<span class="fc" id="L116">          proto = &quot;https://&quot;;</span>
+<span class="fc" id="L117">          host = hapToHost(hap, true);</span>
+        } else {
+<span class="fc" id="L119">          proto = &quot;http://&quot;;</span>
+<span class="fc" id="L120">          host = hapToHost(hap, false);</span>
+        }
       } else {
-<span class="fc" id="L105">        proto = proto + &quot;://&quot;;</span>
+<span class="fc" id="L123">        proto = proto + &quot;://&quot;;</span>
+<span class="fc" id="L124">        host = hapToHost(hap, &quot;https&quot;.equals(proto));</span>
       }
       
-<span class="fc" id="L108">      return proto</span>
-<span class="fc" id="L109">              + request.host()</span>
+<span class="fc" id="L127">      return proto</span>
+              + host
               + &quot;/openapi.yaml&quot;
               ;
     }
@@ -114,9 +133,9 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
     @Override
     public void handle(RoutingContext event) {
 
-<span class="fc" id="L117">      String path = buildPath(event);</span>
+<span class="fc" id="L136">      String path = buildPath(event);</span>
       
-<span class="fc" id="L119">      String html = &quot;&quot;&quot;</span>
+<span class="fc" id="L138">      String html = &quot;&quot;&quot;</span>
                 &lt;!doctype html&gt;
                 &lt;html&gt;
                   &lt;head&gt;
@@ -127,10 +146,10 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
                   &lt;/body&gt;
                 &lt;/html&gt;
                 &quot;&quot;&quot;
-<span class="fc" id="L130">              .replaceAll(&quot;PATH&quot;, path);      </span>
+<span class="fc" id="L149">              .replaceAll(&quot;PATH&quot;, path);      </span>
       
-<span class="fc" id="L132">      event.response().setStatusCode(200).end(html);</span>
-<span class="fc" id="L133">    }</span>
+<span class="fc" id="L151">      event.response().setStatusCode(200).end(html);</span>
+<span class="fc" id="L152">    }</span>
     
   }
 
@@ -143,148 +162,148 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
    * @return this for fluent usage.
    */
   public OpenApiHandler setOpenContextId(String openContextId) {
-<span class="fc" id="L146">    this.openApiContextId = openContextId;</span>
-<span class="fc" id="L147">    return this;</span>
+<span class="fc" id="L165">    this.openApiContextId = openContextId;</span>
+<span class="fc" id="L166">    return this;</span>
   }
   
   @Override
   public void handle(RoutingContext event) {
-<span class="fc" id="L152">    logger.trace(&quot;Handling OpenAPI request&quot;);</span>
+<span class="fc" id="L171">    logger.trace(&quot;Handling OpenAPI request&quot;);</span>
     try {
-<span class="fc" id="L154">      JaxrsOpenApiContextBuilder&lt;?&gt; oacb = new JaxrsOpenApiContextBuilder&lt;&gt;()</span>
-<span class="fc" id="L155">              .application(app);</span>
-<span class="fc" id="L156">      oacb.setOpenApiConfiguration(openApiConfiguration);</span>
-<span class="fc bfc" id="L157" title="All 2 branches covered.">      if (openApiContextId != null) {</span>
-<span class="fc" id="L158">        oacb.setCtxId(openApiContextId);</span>
+<span class="fc" id="L173">      JaxrsOpenApiContextBuilder&lt;?&gt; oacb = new JaxrsOpenApiContextBuilder&lt;&gt;()</span>
+<span class="fc" id="L174">              .application(app);</span>
+<span class="fc" id="L175">      oacb.setOpenApiConfiguration(openApiConfiguration);</span>
+<span class="fc bfc" id="L176" title="All 2 branches covered.">      if (openApiContextId != null) {</span>
+<span class="fc" id="L177">        oacb.setCtxId(openApiContextId);</span>
       }
-<span class="fc" id="L160">      OpenApiContext ctx = oacb.buildContext(true);</span>
+<span class="fc" id="L179">      OpenApiContext ctx = oacb.buildContext(true);</span>
       
-<span class="fc" id="L162">      OpenAPIConfiguration config = ctx.getOpenApiConfiguration();</span>
-<span class="pc bpc" id="L163" title="1 of 2 branches missed.">      if (config == null) {</span>
-<span class="nc" id="L164">        config = openApiConfiguration;</span>
+<span class="fc" id="L181">      OpenAPIConfiguration config = ctx.getOpenApiConfiguration();</span>
+<span class="pc bpc" id="L182" title="1 of 2 branches missed.">      if (config == null) {</span>
+<span class="nc" id="L183">        config = openApiConfiguration;</span>
       }
       
-<span class="fc" id="L167">      boolean pretty = false;</span>
-<span class="fc bfc" id="L168" title="All 2 branches covered.">      if (Boolean.TRUE.equals(config.isPrettyPrint())) {</span>
-<span class="fc" id="L169">        pretty = true;</span>
+<span class="fc" id="L186">      boolean pretty = false;</span>
+<span class="fc bfc" id="L187" title="All 2 branches covered.">      if (Boolean.TRUE.equals(config.isPrettyPrint())) {</span>
+<span class="fc" id="L188">        pretty = true;</span>
       }
 
-<span class="fc" id="L172">      OpenAPI oas = ctx.read();</span>
-<span class="pc bpc" id="L173" title="1 of 2 branches missed.">      if (oas != null) {</span>
-<span class="fc bfc" id="L174" title="All 2 branches covered.">        if (!basePath.isEmpty()) {</span>
-<span class="fc" id="L175">          adjustPaths(oas);</span>
+<span class="fc" id="L191">      OpenAPI oas = ctx.read();</span>
+<span class="pc bpc" id="L192" title="1 of 2 branches missed.">      if (oas != null) {</span>
+<span class="fc bfc" id="L193" title="All 2 branches covered.">        if (!basePath.isEmpty()) {</span>
+<span class="fc" id="L194">          adjustPaths(oas);</span>
         }      
-<span class="fc bfc" id="L177" title="All 2 branches covered.">        if (config.getFilterClass() != null) {</span>
+<span class="fc bfc" id="L196" title="All 2 branches covered.">        if (config.getFilterClass() != null) {</span>
           try {
-<span class="fc" id="L179">            OpenAPISpecFilter filterImpl = (OpenAPISpecFilter) Class.forName(</span>
-<span class="fc" id="L180">                    ctx.getOpenApiConfiguration().getFilterClass()).getDeclaredConstructor().newInstance();</span>
-<span class="fc" id="L181">            SpecFilter f = new SpecFilter();</span>
-<span class="fc" id="L182">            oas = f.filter(oas,</span>
+<span class="fc" id="L198">            OpenAPISpecFilter filterImpl = (OpenAPISpecFilter) Class.forName(</span>
+<span class="fc" id="L199">                    ctx.getOpenApiConfiguration().getFilterClass()).getDeclaredConstructor().newInstance();</span>
+<span class="fc" id="L200">            SpecFilter f = new SpecFilter();</span>
+<span class="fc" id="L201">            oas = f.filter(oas,</span>
                      filterImpl,
-<span class="fc" id="L184">                     getQueryParams(event),</span>
-<span class="fc" id="L185">                     getCookies(event),</span>
-<span class="fc" id="L186">                     getHeaders(event)</span>
+<span class="fc" id="L203">                     getQueryParams(event),</span>
+<span class="fc" id="L204">                     getCookies(event),</span>
+<span class="fc" id="L205">                     getHeaders(event)</span>
             );
-<span class="nc" id="L188">          } catch (Exception e) {</span>
-<span class="nc" id="L189">            logger.error(&quot;failed to load filter&quot;, e);</span>
-<span class="fc" id="L190">          }</span>
+<span class="nc" id="L207">          } catch (Exception e) {</span>
+<span class="nc" id="L208">            logger.error(&quot;failed to load filter&quot;, e);</span>
+<span class="fc" id="L209">          }</span>
         }
       }
 
-<span class="pc bpc" id="L194" title="1 of 2 branches missed.">      if (oas == null) {</span>
-<span class="nc" id="L195">        logger.error(&quot;Failed to create OpenAPI object&quot;);</span>
-<span class="nc" id="L196">        event.fail(404);</span>
-<span class="nc" id="L197">        return ;</span>
+<span class="pc bpc" id="L213" title="1 of 2 branches missed.">      if (oas == null) {</span>
+<span class="nc" id="L214">        logger.error(&quot;Failed to create OpenAPI object&quot;);</span>
+<span class="nc" id="L215">        event.fail(404);</span>
+<span class="nc" id="L216">        return ;</span>
       }
 
-<span class="fc" id="L200">      var response = event.response();</span>
-<span class="fc" id="L201">      response.putHeader(&quot;Access-Control-Request-Method&quot;, &quot;GET&quot;);</span>
+<span class="fc" id="L219">      var response = event.response();</span>
+<span class="fc" id="L220">      response.putHeader(&quot;Access-Control-Request-Method&quot;, &quot;GET&quot;);</span>
       
-<span class="fc" id="L203">      String normalizedPath = event.normalizedPath();</span>
-<span class="fc" id="L204">      int startPos = normalizedPath.indexOf(SCHEMA_DESCRIPTION);</span>
-<span class="fc bfc" id="L205" title="All 2 branches covered.">      if (startPos &gt; 0) {</span>
-<span class="fc" id="L206">        String component = normalizedPath.substring(SCHEMA_DESCRIPTION.length() + startPos);</span>
-<span class="fc" id="L207">        logger.debug(&quot;Component: {}&quot;, component);</span>
-<span class="fc" id="L208">        Schema&lt;?&gt; schema = oas.getComponents().getSchemas().get(component);</span>
-<span class="fc bfc" id="L209" title="All 2 branches covered.">        if (schema == null) {</span>
-<span class="fc" id="L210">          logger.error(&quot;Component {} not found in schemas&quot;, component);</span>
-<span class="fc" id="L211">          event.fail(404);</span>
-<span class="fc" id="L212">          return ;</span>
+<span class="fc" id="L222">      String normalizedPath = event.normalizedPath();</span>
+<span class="fc" id="L223">      int startPos = normalizedPath.indexOf(SCHEMA_DESCRIPTION);</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">      if (startPos &gt; 0) {</span>
+<span class="fc" id="L225">        String component = normalizedPath.substring(SCHEMA_DESCRIPTION.length() + startPos);</span>
+<span class="fc" id="L226">        logger.debug(&quot;Component: {}&quot;, component);</span>
+<span class="fc" id="L227">        Schema&lt;?&gt; schema = oas.getComponents().getSchemas().get(component);</span>
+<span class="fc bfc" id="L228" title="All 2 branches covered.">        if (schema == null) {</span>
+<span class="fc" id="L229">          logger.error(&quot;Component {} not found in schemas&quot;, component);</span>
+<span class="fc" id="L230">          event.fail(404);</span>
+<span class="fc" id="L231">          return ;</span>
         }
-<span class="fc" id="L214">        String description = schema.getDescription();</span>
-<span class="pc bpc" id="L215" title="2 of 4 branches missed.">        if (description != null &amp;&amp; !description.isEmpty()) {</span>
-<span class="fc" id="L216">          response.putHeader(&quot;Content-Type&quot;, &quot;text/html&quot;);</span>
-<span class="fc" id="L217">          response.end(&quot;&lt;html&gt;&lt;body&gt;&quot; + description + &quot;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
+<span class="fc" id="L233">        String description = schema.getDescription();</span>
+<span class="pc bpc" id="L234" title="2 of 4 branches missed.">        if (description != null &amp;&amp; !description.isEmpty()) {</span>
+<span class="fc" id="L235">          response.putHeader(&quot;Content-Type&quot;, &quot;text/html&quot;);</span>
+<span class="fc" id="L236">          response.end(&quot;&lt;html&gt;&lt;body&gt;&quot; + description + &quot;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
         } else {
-<span class="nc" id="L219">          response.putHeader(&quot;Content-Type&quot;, &quot;text/html&quot;);</span>
-<span class="nc" id="L220">          response.end(&quot;&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
+<span class="nc" id="L238">          response.putHeader(&quot;Content-Type&quot;, &quot;text/html&quot;);</span>
+<span class="nc" id="L239">          response.end(&quot;&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;&quot;);</span>
         }
-<span class="fc bfc" id="L222" title="All 2 branches covered.">      } else if (normalizedPath.endsWith(&quot;.yaml&quot;)) {</span>
-<span class="fc" id="L223">        response.putHeader(&quot;Content-Type&quot;, &quot;application/yaml&quot;);</span>
-<span class="fc bfc" id="L224" title="All 2 branches covered.">        if (config.isOpenAPI31()) {</span>
-<span class="pc bpc" id="L225" title="1 of 2 branches missed.">          response.end(pretty ? Yaml31.pretty(oas) : Yaml31.mapper().writeValueAsString(oas));</span>
+<span class="fc bfc" id="L241" title="All 2 branches covered.">      } else if (normalizedPath.endsWith(&quot;.yaml&quot;)) {</span>
+<span class="fc" id="L242">        response.putHeader(&quot;Content-Type&quot;, &quot;application/yaml&quot;);</span>
+<span class="fc bfc" id="L243" title="All 2 branches covered.">        if (config.isOpenAPI31()) {</span>
+<span class="pc bpc" id="L244" title="1 of 2 branches missed.">          response.end(pretty ? Yaml31.pretty(oas) : Yaml31.mapper().writeValueAsString(oas));</span>
         } else {
-<span class="fc bfc" id="L227" title="All 2 branches covered.">          response.end(pretty ? Yaml.pretty(oas) : Yaml.mapper().writeValueAsString(oas));</span>
+<span class="fc bfc" id="L246" title="All 2 branches covered.">          response.end(pretty ? Yaml.pretty(oas) : Yaml.mapper().writeValueAsString(oas));</span>
         }
       } else {
-<span class="fc" id="L230">        response.putHeader(&quot;Content-Type&quot;, MediaType.APPLICATION_JSON);</span>
-<span class="pc bpc" id="L231" title="1 of 2 branches missed.">        if (config.isOpenAPI31()) {</span>
-<span class="nc bnc" id="L232" title="All 2 branches missed.">          response.end(pretty ? Json31.pretty(oas) : Json31.mapper().writeValueAsString(oas));</span>
+<span class="fc" id="L249">        response.putHeader(&quot;Content-Type&quot;, MediaType.APPLICATION_JSON);</span>
+<span class="pc bpc" id="L250" title="1 of 2 branches missed.">        if (config.isOpenAPI31()) {</span>
+<span class="nc bnc" id="L251" title="All 2 branches missed.">          response.end(pretty ? Json31.pretty(oas) : Json31.mapper().writeValueAsString(oas));</span>
         } else {
-<span class="fc bfc" id="L234" title="All 2 branches covered.">          response.end(pretty ? Json.pretty(oas) : Json.mapper().writeValueAsString(oas));</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">          response.end(pretty ? Json.pretty(oas) : Json.mapper().writeValueAsString(oas));</span>
         }
       }
-<span class="nc" id="L237">    } catch (Throwable ex) {</span>
-<span class="nc" id="L238">      logger.error(&quot;failed to generate {}: &quot;,</span>
-<span class="nc bnc" id="L239" title="All 2 branches missed.">               event.normalizedPath().endsWith(&quot;.yaml&quot;) ? &quot;yaml&quot; : &quot;json&quot;,</span>
+<span class="nc" id="L256">    } catch (Throwable ex) {</span>
+<span class="nc" id="L257">      logger.error(&quot;failed to generate {}: &quot;,</span>
+<span class="nc bnc" id="L258" title="All 2 branches missed.">               event.normalizedPath().endsWith(&quot;.yaml&quot;) ? &quot;yaml&quot; : &quot;json&quot;,</span>
                ex);
-<span class="nc" id="L241">      event.fail(500);</span>
-<span class="fc" id="L242">    }</span>
-<span class="fc" id="L243">  }</span>
+<span class="nc" id="L260">      event.fail(500);</span>
+<span class="fc" id="L261">    }</span>
+<span class="fc" id="L262">  }</span>
 
   private void adjustPaths(OpenAPI oas) {
-<span class="fc" id="L246">    Paths paths = oas.getPaths();    </span>
-<span class="pc bpc" id="L247" title="1 of 4 branches missed.">    if ((paths != null) &amp;&amp; !paths.isEmpty()) {</span>
-<span class="fc bfc" id="L248" title="All 2 branches covered.">      if (!paths.keySet().stream().findAny().orElse(&quot;&quot;).startsWith(basePath)) {</span>
-<span class="fc" id="L249">        Paths newPaths = new Paths();</span>
-<span class="fc" id="L250">        newPaths.setExtensions(paths.getExtensions());</span>
-<span class="fc bfc" id="L251" title="All 2 branches covered.">        for (Entry&lt;String, PathItem&gt; entry : paths.entrySet()) {</span>
-<span class="fc" id="L252">          newPaths.put(basePath + entry.getKey(), entry.getValue());</span>
-<span class="fc" id="L253">        }</span>
-<span class="fc" id="L254">        oas.setPaths(newPaths);</span>
+<span class="fc" id="L265">    Paths paths = oas.getPaths();    </span>
+<span class="pc bpc" id="L266" title="1 of 4 branches missed.">    if ((paths != null) &amp;&amp; !paths.isEmpty()) {</span>
+<span class="fc bfc" id="L267" title="All 2 branches covered.">      if (!paths.keySet().stream().findAny().orElse(&quot;&quot;).startsWith(basePath)) {</span>
+<span class="fc" id="L268">        Paths newPaths = new Paths();</span>
+<span class="fc" id="L269">        newPaths.setExtensions(paths.getExtensions());</span>
+<span class="fc bfc" id="L270" title="All 2 branches covered.">        for (Entry&lt;String, PathItem&gt; entry : paths.entrySet()) {</span>
+<span class="fc" id="L271">          newPaths.put(basePath + entry.getKey(), entry.getValue());</span>
+<span class="fc" id="L272">        }</span>
+<span class="fc" id="L273">        oas.setPaths(newPaths);</span>
       }
     }
-<span class="fc" id="L257">  }</span>
+<span class="fc" id="L276">  }</span>
   
   private Map&lt;String, List&lt;String&gt;&gt; getQueryParams(RoutingContext routingContext) {
-<span class="fc" id="L260">    return multiMapToMap(routingContext.queryParams());</span>
+<span class="fc" id="L279">    return multiMapToMap(routingContext.queryParams());</span>
   }
 
   private Map&lt;String, String&gt; getCookies(RoutingContext routingContext) {
-<span class="fc" id="L264">    Map&lt;String, String&gt; result = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L265" title="All 2 branches covered.">    for (Cookie cookie : routingContext.request().cookies()) {</span>
-<span class="fc" id="L266">      result.put(cookie.getName(), cookie.getValue());</span>
-<span class="fc" id="L267">    }</span>
-<span class="fc" id="L268">    return result;</span>
+<span class="fc" id="L283">    Map&lt;String, String&gt; result = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L284" title="All 2 branches covered.">    for (Cookie cookie : routingContext.request().cookies()) {</span>
+<span class="fc" id="L285">      result.put(cookie.getName(), cookie.getValue());</span>
+<span class="fc" id="L286">    }</span>
+<span class="fc" id="L287">    return result;</span>
   }
 
   private Map&lt;String, List&lt;String&gt;&gt; getHeaders(RoutingContext routingContext) {
-<span class="fc" id="L272">    return multiMapToMap(routingContext.request().headers());</span>
+<span class="fc" id="L291">    return multiMapToMap(routingContext.request().headers());</span>
   }
 
   static Map&lt;String, List&lt;String&gt;&gt; multiMapToMap(MultiMap items) {
-<span class="fc" id="L276">    Map&lt;String, List&lt;String&gt;&gt; result = new HashMap&lt;&gt;();</span>
-<span class="fc bfc" id="L277" title="All 2 branches covered.">    if (items != null) {</span>
-<span class="fc bfc" id="L278" title="All 2 branches covered.">      for (Entry&lt;String, String&gt; entry : items) {</span>
-<span class="fc" id="L279">        List&lt;String&gt; list = result.get(entry.getKey());</span>
-<span class="fc bfc" id="L280" title="All 2 branches covered.">        if (list == null) {</span>
-<span class="fc" id="L281">          list = new ArrayList&lt;&gt;();</span>
-<span class="fc" id="L282">          result.put(entry.getKey(), list);</span>
+<span class="fc" id="L295">    Map&lt;String, List&lt;String&gt;&gt; result = new HashMap&lt;&gt;();</span>
+<span class="fc bfc" id="L296" title="All 2 branches covered.">    if (items != null) {</span>
+<span class="fc bfc" id="L297" title="All 2 branches covered.">      for (Entry&lt;String, String&gt; entry : items) {</span>
+<span class="fc" id="L298">        List&lt;String&gt; list = result.get(entry.getKey());</span>
+<span class="fc bfc" id="L299" title="All 2 branches covered.">        if (list == null) {</span>
+<span class="fc" id="L300">          list = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L301">          result.put(entry.getKey(), list);</span>
         }
-<span class="fc" id="L284">        list.add(entry.getValue());</span>
-<span class="fc" id="L285">      }</span>
+<span class="fc" id="L303">        list.add(entry.getValue());</span>
+<span class="fc" id="L304">      }</span>
     }
-<span class="fc" id="L287">    return result;</span>
+<span class="fc" id="L306">    return result;</span>
   }
 
 }
