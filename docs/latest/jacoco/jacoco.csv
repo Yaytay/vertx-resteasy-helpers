@@ -1,9 +1,13 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest.serialisers,JsonArrayMessageBodyWriter,0,14,0,0,0,4,0,3,0,3
+Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest.serialisers,JsonObjectMessageBodyReader,0,14,0,0,0,3,0,3,0,3
+Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest.serialisers,JsonArrayMessageBodyReader,0,14,0,0,0,3,0,3,0,3
+Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest.serialisers,JsonObjectMessageBodyWriter,0,14,0,0,0,4,0,3,0,3
 Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,LoggingContainerResponseFilter,7,238,2,26,1,54,2,21,0,9
-Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,JaxRsHandler,0,73,0,2,0,18,0,3,0,2
+Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,JaxRsHandler,0,85,0,2,0,22,0,3,0,2
 Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,TimerContainerRequestFilter,5,142,4,12,2,41,4,12,0,8
 Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,OpenApiHandler.UiHandler,0,68,0,6,0,19,0,6,0,3
 Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,LoggingContainerRequestFilter,7,140,2,8,1,27,2,9,0,6
 Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,OpenApiHandler,55,412,12,52,13,98,10,33,0,11
-Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,TimerContainerResponseFilter,32,214,2,25,5,51,2,22,0,9
 Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,RoutingContextInjector,0,9,0,0,0,4,0,2,0,2
+Vertx RESTEasy Helpers,uk.co.spudspoft.vertx.rest,TimerContainerResponseFilter,32,214,2,25,5,51,2,22,0,9

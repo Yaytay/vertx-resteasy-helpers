@@ -13,6 +13,10 @@ import org.jboss.resteasy.plugins.server.vertx.VertxRequestHandler;
 import org.jboss.resteasy.plugins.server.vertx.VertxResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonArrayMessageBodyReader;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonArrayMessageBodyWriter;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonObjectMessageBodyReader;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonObjectMessageBodyWriter;
 
 /**
  * Vert.x web handler that delegates requests to RESTeasy.
@@ -35,31 +39,36 @@ public class JaxRsHandler implements Handler&lt;RoutingContext&gt; {
    * @param controllers The JAX-RS controllers to use.
    * @param providers Any additional JAX-RS providers to use.
    */
-<span class="fc" id="L38">  public JaxRsHandler(Vertx vertx, MeterRegistry meterRegistry, String basePath, List&lt;Object&gt; controllers, List&lt;Object&gt; providers) {</span>
-<span class="fc" id="L39">    this.deployment = new VertxResteasyDeployment();</span>
-<span class="fc" id="L40">    deployment.setResources(controllers);</span>
-<span class="fc" id="L41">    deployment.setProviders(providers);</span>
-<span class="fc" id="L42">    deployment.start();</span>
-<span class="fc" id="L43">    requestHandler = new VertxRequestHandler(vertx, deployment, basePath);</span>
+<span class="fc" id="L42">  public JaxRsHandler(Vertx vertx, MeterRegistry meterRegistry, String basePath, List&lt;Object&gt; controllers, List&lt;Object&gt; providers) {</span>
+<span class="fc" id="L43">    this.deployment = new VertxResteasyDeployment();</span>
+<span class="fc" id="L44">    deployment.setResources(controllers);</span>
+<span class="fc" id="L45">    deployment.setProviders(providers);</span>
+<span class="fc" id="L46">    deployment.start();</span>
+<span class="fc" id="L47">    requestHandler = new VertxRequestHandler(vertx, deployment, basePath);</span>
 
-<span class="fc" id="L45">    ResteasyProviderFactory providerFactory = ResteasyProviderFactory.getInstance();</span>
-<span class="fc bfc" id="L46" title="All 2 branches covered.">    if (meterRegistry != null) {</span>
-<span class="fc" id="L47">      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new TimerContainerRequestFilter(meterRegistry));</span>
-<span class="fc" id="L48">      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new TimerContainerResponseFilter(meterRegistry));</span>
+<span class="fc" id="L49">    ResteasyProviderFactory providerFactory = ResteasyProviderFactory.getInstance();</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">    if (meterRegistry != null) {</span>
+<span class="fc" id="L51">      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new TimerContainerRequestFilter(meterRegistry));</span>
+<span class="fc" id="L52">      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new TimerContainerResponseFilter(meterRegistry));</span>
     }
-<span class="fc" id="L50">    providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());</span>
-<span class="fc" id="L51">    providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());</span>
-<span class="fc" id="L52">  }</span>
+<span class="fc" id="L54">    providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());</span>
+<span class="fc" id="L55">    providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());</span>
+    
+<span class="fc" id="L57">    providerFactory.registerProvider(JsonArrayMessageBodyReader.class);</span>
+<span class="fc" id="L58">    providerFactory.registerProvider(JsonArrayMessageBodyWriter.class);</span>
+<span class="fc" id="L59">    providerFactory.registerProvider(JsonObjectMessageBodyReader.class);</span>
+<span class="fc" id="L60">    providerFactory.registerProvider(JsonObjectMessageBodyWriter.class);</span>
+<span class="fc" id="L61">  }</span>
 
   @Override
   public void handle(RoutingContext rc) {
     ResteasyProviderFactory
-<span class="fc" id="L57">            .getInstance()</span>
-<span class="fc" id="L58">            .getContextInjectors()</span>
-<span class="fc" id="L59">            .put(RoutingContext.class, new RoutingContextInjector(rc));</span>
+<span class="fc" id="L66">            .getInstance()</span>
+<span class="fc" id="L67">            .getContextInjectors()</span>
+<span class="fc" id="L68">            .put(RoutingContext.class, new RoutingContextInjector(rc));</span>
 
-<span class="fc" id="L61">    requestHandler.handle(rc.request());</span>
-<span class="fc" id="L62">  }</span>
+<span class="fc" id="L70">    requestHandler.handle(rc.request());</span>
+<span class="fc" id="L71">  }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

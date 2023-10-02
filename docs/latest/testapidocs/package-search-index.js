@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"uk.co.spudspoft.vertx.rest"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"uk.co.spudspoft.vertx.rest"},{"l":"uk.co.spudspoft.vertx.rest.serialisers"}];updateSearchResults();
