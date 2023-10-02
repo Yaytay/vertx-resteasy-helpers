@@ -22,6 +22,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
 
@@ -30,6 +32,14 @@ import org.junit.jupiter.api.Test;
  * @author njt
  */
 public class JsonArrayMessageBodyReaderTest {
+  
+  @Test
+  public void testIsisReadableFrom() {
+    
+    JsonArrayMessageBodyReader writer = new JsonArrayMessageBodyReader();
+    assertTrue(writer.isReadable(JsonArray.class, null, null, MediaType.APPLICATION_JSON_TYPE));
+    assertFalse(writer.isReadable(String.class, null, null, MediaType.APPLICATION_JSON_TYPE));
+  }
   
   @Test
   public void testReadFrom() throws Exception {

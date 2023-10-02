@@ -16,43 +16,40 @@
  */
 package uk.co.spudspoft.vertx.rest.serialisers;
 
-import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import jakarta.ws.rs.core.MediaType;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.nio.charset.StandardCharsets;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-
 /**
  *
  * @author njt
  */
-public class JsonObjectMessageBodyReaderTest {
+public class JsonObjectMessageBodyWriterTest {
   
   @Test
-  public void testIsisReadableFrom() {
+  public void testIsWritableFrom() {
     
-    JsonObjectMessageBodyReader writer = new JsonObjectMessageBodyReader();
-    assertTrue(writer.isReadable(JsonObject.class, null, null, MediaType.APPLICATION_JSON_TYPE));
-    assertFalse(writer.isReadable(String.class, null, null, MediaType.APPLICATION_JSON_TYPE));
+    JsonObjectMessageBodyWriter writer = new JsonObjectMessageBodyWriter();
+    assertTrue(writer.isWriteable(JsonObject.class, null, null, MediaType.APPLICATION_JSON_TYPE));
+    assertFalse(writer.isWriteable(String.class, null, null, MediaType.APPLICATION_JSON_TYPE));
   }
   
   @Test
-  public void testReadFrom() throws Exception {
+  public void testWriteTo() throws Exception {
     
-    JsonObjectMessageBodyReader reader = new JsonObjectMessageBodyReader();
-    String input = "{\"first\":1,\"second\":2}";
-    try (InputStream entityStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8))) {
-      JsonObject jo = reader.readFrom(JsonObject.class, null, null, MediaType.APPLICATION_JSON_TYPE, null, entityStream);
-      assertEquals(2, jo.size());
-      assertEquals(2, jo.getInteger("second"));
+    JsonObjectMessageBodyWriter writer = new JsonObjectMessageBodyWriter();
+    JsonObject ja = new JsonObject("{\"first\":1,\"second\":2}");
+    String json;
+    try (ByteArrayOutputStream entityStream = new ByteArrayOutputStream()) {
+      writer.writeTo(ja, JsonObject.class, null, null, MediaType.APPLICATION_JSON_TYPE, null, entityStream);
+      json = entityStream.toString(StandardCharsets.UTF_8);
     }
-    
+    assertEquals("{\"first\":1,\"second\":2}", json);
   }
   
 }
