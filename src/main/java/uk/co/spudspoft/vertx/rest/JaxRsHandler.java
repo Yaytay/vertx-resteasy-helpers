@@ -13,6 +13,10 @@ import org.jboss.resteasy.plugins.server.vertx.VertxRequestHandler;
 import org.jboss.resteasy.plugins.server.vertx.VertxResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonArrayMessageBodyReader;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonArrayMessageBodyWriter;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonObjectMessageBodyReader;
+import uk.co.spudspoft.vertx.rest.serialisers.JsonObjectMessageBodyWriter;
 
 /**
  * Vert.x web handler that delegates requests to RESTeasy.
@@ -49,6 +53,11 @@ public class JaxRsHandler implements Handler<RoutingContext> {
     }
     providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());
     providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());
+    
+    providerFactory.registerProvider(JsonArrayMessageBodyReader.class);
+    providerFactory.registerProvider(JsonArrayMessageBodyWriter.class);
+    providerFactory.registerProvider(JsonObjectMessageBodyReader.class);
+    providerFactory.registerProvider(JsonObjectMessageBodyWriter.class);
   }
 
   @Override
