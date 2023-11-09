@@ -31,6 +31,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,14 +61,28 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    * @param app The Jax-RS application, typically the Main class.
    * @param openApiConfiguration The Open API configuration, may be null.
    * @param basePath Base path to be prepended to any paths.
+   * 
    */
   public OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath) {
-    if (openApiConfiguration == null) {
-      throw new NullPointerException("openApiConfiguration may not be null");
-    }
-    if (basePath == null) {
-      throw new NullPointerException("basePath may not be null");
-    }
+    this(app
+            , Objects.requireNonNull(openApiConfiguration, "openApiConfiguration may not be null")
+            , Objects.requireNonNull(basePath, "basePath may not be null")
+            , true
+    );
+  }  
+  
+  /**
+   * Private constructor to avoid CT_CONSTRUCTOR_THROW.
+   * 
+   * To avoid CT_CONSTRUCTOR_THROW the public constructor must consist purely of a call to this constructor and
+   * must perform all validation that may throw an exception.
+   *
+   * @param app The Jax-RS application, typically the Main class.
+   * @param openApiConfiguration The Open API configuration, may be null.
+   * @param basePath Base path to be prepended to any paths.
+   * @param checked Unused argument that serves purely to distinguish from the public constructor.
+   */
+  private OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath, boolean checked) {
     this.app = app;
     this.openApiConfiguration = openApiConfiguration;
     
