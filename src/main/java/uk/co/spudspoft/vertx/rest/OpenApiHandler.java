@@ -76,6 +76,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    * 
    * To avoid CT_CONSTRUCTOR_THROW the public constructor must consist purely of a call to this constructor and
    * must perform all validation that may throw an exception.
+   * A factory method could equally be used, as long as the actual constructor does not throw any exceptions.
    *
    * @param app The Jax-RS application, typically the Main class.
    * @param openApiConfiguration The Open API configuration, may be null.
