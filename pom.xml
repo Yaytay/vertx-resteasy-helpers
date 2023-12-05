@@ -206,7 +206,7 @@
     <dependency>
       <groupId>com.github.spotbugs</groupId>
       <artifactId>spotbugs-annotations</artifactId>
-      <version>4.8.1</version>
+      <version>4.8.2</version>
     </dependency>
     
     <!-- Testing -->
@@ -251,13 +251,13 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>5.7.0</version>
+      <version>5.8.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-junit-jupiter</artifactId>
-      <version>5.7.0</version>
+      <version>5.8.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -343,7 +343,7 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>build-helper-maven-plugin</artifactId>
-        <version>3.4.0</version>
+        <version>3.5.0</version>
         <executions>
           <execution>
             <phase>initialize</phase>
@@ -584,6 +584,7 @@
           <suppressionFiles>
             dependency-check-supressions.xml
           </suppressionFiles>
+          <nvdApiKey>${NVD_API_KEY}</nvdApiKey>
         </configuration>
         <executions>
           <execution>
@@ -695,6 +696,7 @@
           <suppressionFiles>
             dependency-check-supressions.xml
           </suppressionFiles>
+          <nvdApiKey>${NVD_API_KEY}</nvdApiKey>
         </configuration>
       </plugin>
       
