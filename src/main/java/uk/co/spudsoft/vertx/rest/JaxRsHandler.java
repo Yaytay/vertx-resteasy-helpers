@@ -13,6 +13,8 @@ import org.jboss.resteasy.plugins.server.vertx.VertxRequestHandler;
 import org.jboss.resteasy.plugins.server.vertx.VertxResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyDeployment;
 import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.spudsoft.vertx.rest.serialisers.JsonArrayMessageBodyReader;
 import uk.co.spudsoft.vertx.rest.serialisers.JsonArrayMessageBodyWriter;
 import uk.co.spudsoft.vertx.rest.serialisers.JsonObjectMessageBodyReader;
@@ -26,6 +28,8 @@ import uk.co.spudsoft.vertx.rest.serialisers.JsonObjectMessageBodyWriter;
  * @author jtalbut
  */
 public class JaxRsHandler implements Handler<RoutingContext> {
+  
+  private static final Logger logger = LoggerFactory.getLogger(JaxRsHandler.class);
 
   private final ResteasyDeployment deployment;
   private final VertxRequestHandler requestHandler;
@@ -67,7 +71,12 @@ public class JaxRsHandler implements Handler<RoutingContext> {
             .getContextInjectors()
             .put(RoutingContext.class, new RoutingContextInjector(rc));
 
-    requestHandler.handle(rc.request());
+    try {
+      requestHandler.handle(rc.request());
+    } catch (Throwable ex) {
+      logger.warn("Failed to handle request to {}: ", rc.request().absoluteURI(), ex);
+      throw ex;
+    }
   }
 
 }

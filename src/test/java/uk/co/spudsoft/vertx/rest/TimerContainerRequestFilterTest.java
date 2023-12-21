@@ -155,9 +155,9 @@ public class TimerContainerRequestFilterTest {
                   logger.debug("Metrics: {}", body);
                   assertThat(body, startsWith("# HELP"));                  
                   assertThat(body, containsString("resource1_get_seconds_count"));
-                  assertThat(body, containsString("public_void_uk_co_spudspoft_vertx_rest_TimerContainerRequestFilterTest_Resource2_get_jakarta_ws_rs_container_AsyncResponse_seconds"));
+                  assertThat(body, containsString("public_void_uk_co_spudsoft_vertx_rest_TimerContainerRequestFilterTest_Resource2_get_jakarta_ws_rs_container_AsyncResponse_seconds"));
                   assertThat(body, containsString("resource3_seconds_count"));                  
-                  assertThat(body, containsString("public_void_uk_co_spudspoft_vertx_rest_TimerContainerRequestFilterTest_Resource4_get_jakarta_ws_rs_container_AsyncResponse_seconds_max"));
+                  assertThat(body, containsString("public_void_uk_co_spudsoft_vertx_rest_TimerContainerRequestFilterTest_Resource4_get_jakarta_ws_rs_container_AsyncResponse_seconds_max"));
                   assertThat(body, not(containsString("esource5")));
                   assertThat(body, containsString("host=\"localhost:" + hs.actualPort() + "\",method=\"GET\",path_part=\"\",query=\"\",response_code=\"200\""));
                 });
