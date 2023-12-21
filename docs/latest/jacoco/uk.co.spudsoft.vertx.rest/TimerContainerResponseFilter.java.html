@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TimerContainerResponseFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Vertx RESTEasy Helpers</a> &gt; <a href="index.source.html" class="el_package">uk.co.spudsoft.vertx.rest</a> &gt; <span class="el_source">TimerContainerResponseFilter.java</span></div><h1>TimerContainerResponseFilter.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package uk.co.spudsoft.vertx.rest;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tag;
+import io.micrometer.core.instrument.Timer;
+import io.micrometer.core.instrument.Timer.Sample;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerResponseContext;
+import jakarta.ws.rs.container.ContainerResponseFilter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * JAX-RS filter to complete metrics on the request context.
+ * The companion TimerContainerRequestFilter is required to set up the metrics.
+ *
+ * @author njt
+ */
+public class TimerContainerResponseFilter implements ContainerResponseFilter {
+
+  @SuppressWarnings(&quot;constantname&quot;)
+<span class="fc" id="L32">  private static final Logger logger = LoggerFactory.getLogger(TimerContainerResponseFilter.class);</span>
+  
+  private final MeterRegistry meterRegistry;
+
+  /**
+   * Constructor.
+   * @param meterRegistry The MeterRegistry to use for recording timings.
+   */
+  @SuppressFBWarnings(value = &quot;EI_EXPOSE_REP2&quot;, justification = &quot;MeterRegistry may be changed in handlers&quot;)
+<span class="fc" id="L41">  public TimerContainerResponseFilter(MeterRegistry meterRegistry) {</span>
+<span class="fc" id="L42">    this.meterRegistry = meterRegistry;</span>
+<span class="fc" id="L43">  }</span>
+
+  @Override
+  public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
+    try {
+<span class="fc" id="L48">      Sample sample = TimerContainerRequestFilter.getSample(requestContext);</span>
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">      if (sample != null) {</span>
+        
+<span class="fc" id="L51">        Timed timed = TimerContainerRequestFilter.getAnnotation(requestContext);</span>
+        
+<span class="fc" id="L53">        String name = getMeterName(requestContext, timed);</span>
+
+<span class="fc" id="L55">        Timer.Builder timerBuilder = Timer.builder(name)</span>
+<span class="fc" id="L56">                  .tags(buildTags(requestContext, responseContext, timed.extraTags()))</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">                  .description(timed.description().isEmpty() ? null : timed.description())</span>
+<span class="fc" id="L58">                  .publishPercentileHistogram(timed.histogram())</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">                  .publishPercentiles(timed.percentiles().length &gt; 0 ? timed.percentiles() : null)</span>
+                ;
+<span class="fc" id="L61">        sample.stop(timerBuilder.register(meterRegistry));</span>
+      }
+<span class="nc" id="L63">    } catch (Throwable ex) {</span>
+<span class="nc" id="L64">      logger.error(&quot;Failed to record timer: &quot;, ex);</span>
+<span class="fc" id="L65">    }</span>
+<span class="fc" id="L66">  }</span>
+  
+  private List&lt;Tag&gt; buildTags(ContainerRequestContext requestContext, ContainerResponseContext responseContext, String[] extraTags) {
+<span class="fc" id="L69">    List&lt;Tag&gt; tags = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L70">    tags.add(Tag.of(&quot;response-code&quot;, Integer.toString(responseContext.getStatus())));</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">    for (int i = 0; i &lt; extraTags.length; i += 2) {</span>
+      try {
+<span class="fc" id="L73">        String value = getTagValue(requestContext, extraTags[i + 1]);</span>
+<span class="fc" id="L74">        tags.add(Tag.of(extraTags[i], value));</span>
+<span class="nc" id="L75">      } catch (Throwable ex) {</span>
+<span class="nc" id="L76">        logger.error(&quot;Failed to get tag value {}={}: &quot;, extraTags[i], extraTags[i + 1], ex);</span>
+<span class="fc" id="L77">      }</span>
+    }
+<span class="fc" id="L79">    return tags;</span>
+  }
+
+  private String getTagValue(ContainerRequestContext requestContext, String spec) {
+<span class="fc bfc" id="L83" title="All 2 branches covered.">    if (spec.startsWith(&quot;$&quot;)) {</span>
+<span class="fc" id="L84">      int dotIndex = spec.indexOf(&quot;.&quot;);</span>
+
+<span class="fc" id="L86">      String fieldType = spec;</span>
+<span class="fc" id="L87">      String fieldArg = &quot;&quot;;</span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">      if (dotIndex &gt; 0) {</span>
+<span class="fc" id="L89">        fieldType = spec.substring(0, dotIndex);</span>
+<span class="fc" id="L90">        fieldArg = spec.substring(dotIndex + 1);</span>
+      }
+<span class="fc bfc" id="L92" title="All 5 branches covered.">      switch (fieldType) {</span>
+        case &quot;$query&quot;:
+<span class="fc" id="L94">          return getQueryArg(requestContext, fieldArg);</span>
+        case &quot;$method&quot;:
+<span class="fc" id="L96">          return requestContext.getMethod();</span>
+        case &quot;$header&quot;:
+<span class="fc" id="L98">          return requestContext.getHeaderString(fieldArg);</span>
+        case &quot;$path&quot;:
+<span class="fc" id="L100">          return getPathArg(requestContext, fieldArg);</span>
+        default:
+<span class="fc" id="L102">          return getQueryArg(requestContext, spec.substring(1));</span>
+      }
+    } else {
+<span class="fc" id="L105">      return spec;</span>
+    }
+  }
+  
+  private String getQueryArg(ContainerRequestContext requestContext, String arg) {
+<span class="fc" id="L110">    List&lt;String&gt; values = requestContext.getUriInfo().getQueryParameters().get(arg);</span>
+<span class="fc" id="L111">    return valuesListToTag(values);</span>
+  }
+  
+  private String getPathArg(ContainerRequestContext requestContext, String arg) {
+<span class="fc" id="L115">    List&lt;String&gt; values = requestContext.getUriInfo().getPathParameters().get(arg);</span>
+<span class="fc" id="L116">    return valuesListToTag(values);</span>
+  }
+
+  static String valuesListToTag(List&lt;String&gt; values) {
+<span class="fc bfc" id="L120" title="All 4 branches covered.">    if (values == null || values.isEmpty()) {</span>
+<span class="fc" id="L121">      return &quot;&quot;;</span>
+<span class="fc bfc" id="L122" title="All 2 branches covered.">    } else if (values.size() == 1) {</span>
+<span class="fc" id="L123">      return values.get(0);</span>
+    } else {
+<span class="fc" id="L125">      return values.toString();</span>
+    }
+  }
+  
+  private String getMeterName(ContainerRequestContext crc, Timed timed) {
+<span class="fc" id="L130">    String name = TimerContainerRequestFilter.getName(crc);</span>
+<span class="fc bfc" id="L131" title="All 2 branches covered.">    if (name == null) {</span>
+<span class="fc" id="L132">      name = timed.value();</span>
+    }
+<span class="pc bpc" id="L134" title="1 of 2 branches missed.">    if (name == null) {</span>
+<span class="nc" id="L135">      name = crc.getMethod();</span>
+    }
+<span class="fc" id="L137">    return name;</span>
+  }
+  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

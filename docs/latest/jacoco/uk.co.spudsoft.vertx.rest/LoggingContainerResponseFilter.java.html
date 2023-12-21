@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoggingContainerResponseFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Vertx RESTEasy Helpers</a> &gt; <a href="index.source.html" class="el_package">uk.co.spudsoft.vertx.rest</a> &gt; <span class="el_source">LoggingContainerResponseFilter.java</span></div><h1>LoggingContainerResponseFilter.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package uk.co.spudsoft.vertx.rest;
+
+import io.vertx.ext.web.RoutingContext;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerResponseContext;
+import jakarta.ws.rs.container.ContainerResponseFilter;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.SecurityContext;
+import java.io.IOException;
+import java.security.Principal;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import static uk.co.spudsoft.vertx.rest.LoggingContainerRequestFilter.TIMESTAMP_NAME;
+
+/**
+ * JAX-RS filter to log responses.
+ * 
+ * If the logger is set to trace level all headers will be logged as a single multi-line log entry
+ * , otherwise if the logger is set to info level one log line will be output (in an approximation of the Apache http log format).
+ * 
+ * @author njt
+ */
+<span class="fc" id="L28">public class LoggingContainerResponseFilter implements ContainerResponseFilter {</span>
+
+  @SuppressWarnings(&quot;constantname&quot;)
+<span class="fc" id="L31">  private static final Logger logger = LoggerFactory.getLogger(LoggingContainerResponseFilter.class);</span>
+  
+  @Context
+  private RoutingContext routingContext;
+
+  @Override
+  public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) throws IOException {
+
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">    if (logger.isTraceEnabled()) {</span>
+<span class="nc" id="L40">      logger.trace(buildTrace(routingContext, responseContext));</span>
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">    } else if (logger.isInfoEnabled()) {</span>
+<span class="fc" id="L42">      StringBuilder builder = new StringBuilder();</span>
+<span class="fc" id="L43">      appendClientIp(builder, routingContext, requestContext);</span>
+<span class="fc" id="L44">      builder.append(getUser(requestContext)).append(&quot; &quot;);</span>
+<span class="fc" id="L45">      builder.append(getDuration(requestContext, System.currentTimeMillis())).append(&quot; &quot;);</span>
+<span class="fc" id="L46">      builder.append(responseContext.getStatus()).append(&quot; &quot;);</span>
+<span class="fc" id="L47">      builder.append(responseContext.getLength()).append(&quot; &quot;);</span>
+<span class="fc" id="L48">      builder.append(requestContext.getMethod()).append(&quot; &quot;).append(requestContext.getUriInfo().getRequestUri().toString()).append(' ');</span>
+<span class="fc" id="L49">      builder.append(requestContext.getHeaderString(&quot;Host&quot;)).append(&quot; &quot;);</span>
+<span class="fc" id="L50">      builder.append(requestContext.getHeaderString(&quot;Referer&quot;)).append(&quot; &quot;);</span>
+<span class="fc" id="L51">      builder.append(requestContext.getHeaderString(&quot;User-Agent&quot;)).append(&quot; &quot;);</span>
+
+<span class="fc" id="L53">      logger.info(builder.toString());</span>
+    }
+<span class="fc" id="L55">  }</span>
+
+  static String buildTrace(RoutingContext routingContext, ContainerResponseContext responseContext) {
+<span class="fc" id="L58">    StringBuilder builder = new StringBuilder();</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">    if (routingContext != null) {</span>
+<span class="fc" id="L60">      builder.append(routingContext.request().remoteAddress()).append(&quot;:\n&quot;);</span>
+    }
+<span class="fc" id="L62">    builder.append(responseContext.getStatusInfo().getStatusCode()).append(&quot; &quot;).append(responseContext.getStatusInfo().getReasonPhrase()).append('\n');</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">    if (responseContext.getHeaders() != null) {</span>
+<span class="fc" id="L64">      responseContext.getHeaders().forEach((k, v) -&gt; {</span>
+<span class="fc" id="L65">        v.forEach(v2 -&gt; {</span>
+<span class="fc" id="L66">          builder.append(k).append(&quot;: &quot;).append(v2).append('\n');</span>
+<span class="fc" id="L67">        });</span>
+<span class="fc" id="L68">      });</span>
+    }
+<span class="fc" id="L70">    return builder.toString();</span>
+  }
+
+  static String getUser(ContainerRequestContext requestContext) {
+<span class="fc" id="L74">    SecurityContext securityContext = requestContext.getSecurityContext();</span>
+<span class="fc bfc" id="L75" title="All 2 branches covered.">    if (securityContext != null) {</span>
+<span class="fc" id="L76">      Principal principal = securityContext.getUserPrincipal();</span>
+<span class="fc bfc" id="L77" title="All 2 branches covered.">      if (principal != null) {</span>
+<span class="fc" id="L78">        String name = principal.getName();</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">        if (name != null) {</span>
+<span class="fc" id="L80">          return name;</span>
+        }
+      }
+    }
+<span class="fc" id="L84">    return &quot;-&quot;;</span>
+  }
+
+  static String getDuration(ContainerRequestContext requestContext, long now) {
+<span class="fc" id="L88">    Object timestampObject = requestContext.getProperty(TIMESTAMP_NAME);</span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">    if (timestampObject instanceof Long timestamp) {</span>
+<span class="fc" id="L90">      return Long.toString(now - timestamp);</span>
+    }
+<span class="fc" id="L92">    return &quot;-&quot;;</span>
+  }
+
+  static void appendClientIp(StringBuilder builder, RoutingContext routingContext, ContainerRequestContext requestContext) {
+<span class="fc bfc" id="L96" title="All 2 branches covered.">    if (routingContext != null) {</span>
+<span class="fc" id="L97">      builder.append(routingContext.request().remoteAddress());</span>
+    }
+<span class="fc" id="L99">    String clusterClientIp = requestContext.getHeaderString(&quot;X-Cluster-Client-IP&quot;);</span>
+<span class="fc" id="L100">    String forwardedFor = requestContext.getHeaderString(&quot;X-Forwarded-For&quot;);</span>
+<span class="fc bfc" id="L101" title="All 4 branches covered.">    if (clusterClientIp != null || forwardedFor != null) {</span>
+<span class="fc" id="L102">      builder.append('(');</span>
+<span class="fc bfc" id="L103" title="All 2 branches covered.">      if (clusterClientIp != null) {</span>
+<span class="fc" id="L104">        builder.append(clusterClientIp);</span>
+      }
+<span class="fc bfc" id="L106" title="All 2 branches covered.">      if (forwardedFor != null) {</span>
+<span class="fc bfc" id="L107" title="All 2 branches covered.">        if (clusterClientIp != null) {</span>
+<span class="fc" id="L108">          builder.append('|');</span>
+        }
+<span class="fc" id="L110">        builder.append(forwardedFor);</span>
+      }
+<span class="fc" id="L112">      builder.append(')');</span>
+    }
+<span class="fc" id="L114">    builder.append(' ');</span>
+
+<span class="fc" id="L116">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
