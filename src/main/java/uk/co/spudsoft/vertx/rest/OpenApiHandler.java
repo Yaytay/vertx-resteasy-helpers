@@ -112,7 +112,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
   }
   
   /**
-   * The Vertx handler for converting a request into an HTML page the uses 
+   * The Vertx handler for converting a request into an HTML page that uses 
    * <a href="https://github.com/Rhosys/openapi-explorer">OpenAPI-Explorer</a> to reference /openapi.yaml.
    * 
    * The HTML page uses <a href="https://www.unpkg.com/">unpkg</a> to reference 
@@ -194,7 +194,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
       }
       OpenApiContext ctx = oacb.buildContext(true);
       
-      OpenAPIConfiguration config = ctx.getOpenApiConfiguration();
+      OpenAPIConfiguration config = ctx.getOpenApiConfiguration();      
       if (config == null) {
         config = openApiConfiguration;
       }
