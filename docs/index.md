@@ -1,4 +1,4 @@
-## Streaming XLSX Writer Releases
+## Vertx RESTEasy Helpers Releases
 
 | Release | Site Root | JavaDocs |
 | latest | [latest/project-info.html](https://Yaytay.github.io/vertx-resteasy-helpers/latest/project-info.html) | [latest/apidocs/index.html](https://Yaytay.github.io/vertx-resteasy-helpers/latest/apidocs/index.html) | 

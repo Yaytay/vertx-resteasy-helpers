@@ -112,7 +112,7 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
   }
   
   /**
-   * The Vertx handler for converting a request into an HTML page the uses 
+   * The Vertx handler for converting a request into an HTML page that uses 
    * &lt;a href=&quot;https://github.com/Rhosys/openapi-explorer&quot;&gt;OpenAPI-Explorer&lt;/a&gt; to reference /openapi.yaml.
    * 
    * The HTML page uses &lt;a href=&quot;https://www.unpkg.com/&quot;&gt;unpkg&lt;/a&gt; to reference 
@@ -194,7 +194,7 @@ public class OpenApiHandler implements Handler&lt;RoutingContext&gt; {
       }
 <span class="fc" id="L195">      OpenApiContext ctx = oacb.buildContext(true);</span>
       
-<span class="fc" id="L197">      OpenAPIConfiguration config = ctx.getOpenApiConfiguration();</span>
+<span class="fc" id="L197">      OpenAPIConfiguration config = ctx.getOpenApiConfiguration();      </span>
 <span class="pc bpc" id="L198" title="1 of 2 branches missed.">      if (config == null) {</span>
 <span class="nc" id="L199">        config = openApiConfiguration;</span>
       }
