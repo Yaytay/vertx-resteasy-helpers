@@ -4,8 +4,6 @@
  */
 package uk.co.spudsoft.vertx.rest;
 
-import uk.co.spudsoft.vertx.rest.JaxRsHandler;
-import uk.co.spudsoft.vertx.rest.TimerContainerResponseFilter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 import io.micrometer.core.annotation.Timed;
