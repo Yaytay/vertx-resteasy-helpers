@@ -68,6 +68,7 @@ jobs:
         GITHUB_ACTOR: ${{ github.actor }} # GITHUB_TOKEN is the default env for the password 
         GITHUB_TOKEN: ${{ github.token }} # GITHUB_TOKEN is the default env for the password 
       run: |
+        git status
         mvn -B \
           -P ci-cd \
           --batch-mode \
