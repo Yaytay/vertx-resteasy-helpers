@@ -9,6 +9,10 @@
     <Method name="getReadStream" params="" />
   </Match>
   <Match>
+    <Bug pattern="EI_EXPOSE_REP"/>
+    <Field name="context" />
+  </Match>  
+  <Match>
     <Bug pattern="EI_EXPOSE_REP2"/>
     <Field name="context" />
   </Match>  
