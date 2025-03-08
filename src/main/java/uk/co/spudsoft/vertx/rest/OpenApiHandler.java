@@ -104,7 +104,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
   
   private static String hapToHost(HostAndPort hap, boolean isSsl) {
     int nativePort = isSsl ? 443 : 80;
-    if (hap.port() == nativePort) {
+    if (hap.port() == nativePort || hap.port() < 0) {
       return hap.host();
     } else {
       return hap.host() + ":" + hap.port();
