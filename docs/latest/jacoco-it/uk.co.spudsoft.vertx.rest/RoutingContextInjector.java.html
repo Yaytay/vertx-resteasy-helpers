@@ -4,7 +4,6 @@
  */
 package uk.co.spudsoft.vertx.rest;
 
-import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import io.vertx.ext.web.RoutingContext;
 import org.jboss.resteasy.spi.ContextInjector;
 
@@ -15,21 +14,19 @@ import org.jboss.resteasy.spi.ContextInjector;
  */
 public class RoutingContextInjector implements ContextInjector&lt;RoutingContext, RoutingContext&gt; {
 
-  private final RoutingContext routingContext;
+  private final RoutingContext context;
 
   /**
    * Constructor.
    * @param routingContext The routing context that is to be injected into the Jax-RS context.
    */
-  @SuppressFBWarnings(value = &quot;EI_EXPOSE_REP2&quot;, justification = &quot;RoutingContext may be changed in handlers&quot;)
-<span class="fc" id="L25">  public RoutingContextInjector(RoutingContext routingContext) {</span>
-<span class="fc" id="L26">    this.routingContext = routingContext;</span>
-<span class="fc" id="L27">  }</span>
+<span class="fc" id="L23">  public RoutingContextInjector(RoutingContext routingContext) {</span>
+<span class="fc" id="L24">    this.context = routingContext;</span>
+<span class="fc" id="L25">  }</span>
 
   @Override
-  @SuppressFBWarnings(value = &quot;EI_EXPOSE_REP&quot;, justification = &quot;RoutingContext may be changed in handlers&quot;)
   public RoutingContext resolve(Class&lt;? extends RoutingContext&gt; type, java.lang.reflect.Type type1, java.lang.annotation.Annotation[] antns) {
-<span class="fc" id="L32">    return routingContext;</span>
+<span class="fc" id="L29">    return context;</span>
   }
   
 }
