@@ -5,6 +5,7 @@
  */
 package uk.co.spudsoft.vertx.rest;
 
+import edu.umd.cs.findbugs.annotations.Nullable;
 import io.swagger.v3.core.filter.OpenAPISpecFilter;
 import io.swagger.v3.core.filter.SpecFilter;
 import io.swagger.v3.core.util.Json;
@@ -50,10 +51,13 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    */
   public static final String SCHEMA_DESCRIPTION = "/schema/description/";
   
+  private static final String DEFAULT_OPENAPI_EXPLORER_URL = "https://unpkg.com/openapi-explorer@2.2.733/dist/browser/openapi-explorer.min.js";
+  
   private final Application app;
   private final OpenAPIConfiguration openApiConfiguration;
   private String openApiContextId;
   private final String basePath;
+  private final String openApiExplorerUrl;
 
   /**
    * Constructor.
@@ -61,12 +65,14 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    * @param app The Jax-RS application, typically the Main class.
    * @param openApiConfiguration The Open API configuration, may be null.
    * @param basePath Base path to be prepended to any paths.
+   * @param openApiExplorerUrl The URL to use to access Open API Explorer, to override the default value from DEFAULT_OPENAPI_EXPLORER_URL.
    * 
    */
-  public OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath) {
+  public OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath, @Nullable String openApiExplorerUrl) {
     this(app
             , Objects.requireNonNull(openApiConfiguration, "openApiConfiguration may not be null")
             , Objects.requireNonNull(basePath, "basePath may not be null")
+            , openApiExplorerUrl
             , true
     );
   }  
@@ -81,9 +87,10 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    * @param app The Jax-RS application, typically the Main class.
    * @param openApiConfiguration The Open API configuration, may be null.
    * @param basePath Base path to be prepended to any paths.
+   * @param openApiExplorerUrl The URL to use to access Open API Explorer, to override the default value from DEFAULT_OPENAPI_EXPLORER_URL.
    * @param checked Unused argument that serves purely to distinguish from the public constructor.
    */
-  private OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath, boolean checked) {
+  private OpenApiHandler(Application app, OpenAPIConfiguration openApiConfiguration, String basePath, @Nullable String openApiExplorerUrl, boolean checked) {
     this.app = app;
     this.openApiConfiguration = openApiConfiguration;
     
@@ -92,6 +99,11 @@ public class OpenApiHandler implements Handler<RoutingContext> {
     }
     
     this.basePath = basePath;
+    
+    if (openApiExplorerUrl == null) {
+      openApiExplorerUrl = DEFAULT_OPENAPI_EXPLORER_URL;
+    }
+    this.openApiExplorerUrl = openApiExplorerUrl;
   }
   
   /**
@@ -99,7 +111,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    * @return a new UiHandler object.
    */
   public UiHandler getUiHandler() {
-    return new UiHandler();
+    return new UiHandler(openApiExplorerUrl);
   }
   
   private static String hapToHost(HostAndPort hap, boolean isSsl) {
@@ -120,7 +132,13 @@ public class OpenApiHandler implements Handler<RoutingContext> {
    * 
    */
   public static class UiHandler implements Handler<RoutingContext> {
+    
+    private final String openApiExplorerUrl;
 
+    public UiHandler(String openApiExplorerUrl) {
+      this.openApiExplorerUrl = openApiExplorerUrl;
+    }
+    
     static String buildPath(RoutingContext event) {
       HttpServerRequest request = event.request();      
       MultiMap headers = request.headers();
@@ -155,14 +173,15 @@ public class OpenApiHandler implements Handler<RoutingContext> {
                 <!doctype html>
                 <html>
                   <head>
-                    <script type="module" src="https://unpkg.com/openapi-explorer@0/dist/browser/openapi-explorer.min.js"></script>
+                    <script type="module" src="EXPLORER_URL"></script>
                   </head>
                   <body>
                     <openapi-explorer spec-url="PATH"> </openapi-explorer>
                   </body>
                 </html>
                 """
-              .replaceAll("PATH", path);      
+              .replaceAll("EXPLORER_URL", openApiExplorerUrl)
+              .replaceAll("PATH", path);
       
       event.response().setStatusCode(200).end(html);
     }
