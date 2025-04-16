@@ -40,8 +40,8 @@
     <slf4j.version>[1.7,)</slf4j.version>
     <logback.version>[1.2,)</logback.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit-jupiter.version>5.12.0</junit-jupiter.version>
-    <junit-platform.version>1.12.0</junit-platform.version>
+    <junit-jupiter.version>5.12.2</junit-jupiter.version>
+    <junit-platform.version>1.12.2s</junit-platform.version>
     <resteasy-version>6.2.12.Final</resteasy-version>
     <fork.count>4</fork.count>
     <argLine></argLine>
@@ -51,7 +51,7 @@
     <dependency>
       <groupId>io.swagger.core.v3</groupId>
       <artifactId>swagger-jaxrs2-jakarta</artifactId>
-      <version>2.2.29</version>
+      <version>2.2.27</version>
       <exclusions>
         <exclusion>
           <groupId>org.slf4j</groupId>
@@ -66,7 +66,7 @@
     <dependency>
       <groupId>io.swagger.core.v3</groupId>
       <artifactId>swagger-annotations-jakarta</artifactId>
-      <version>2.2.30</version>
+      <version>2.2.27</version>
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
@@ -624,6 +624,9 @@
             <goals>
               <goal>download-licenses</goal>
             </goals>
+            <configuration>
+              <licensesOutputDirectory>${user.home}/.m2/licenses</licensesOutputDirectory>
+            </configuration>
           </execution>
         </executions>
       </plugin>
