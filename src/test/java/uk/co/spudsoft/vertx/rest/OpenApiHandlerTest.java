@@ -72,7 +72,7 @@ public class OpenApiHandlerTest extends Application {
     assertEquals("{\"field1\":\"field1\",\"field2\":\"field2\"}", test);
     
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, false);
-    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/");
+    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testHandler");
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
@@ -122,7 +122,7 @@ public class OpenApiHandlerTest extends Application {
     List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, true);
-    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/");
+    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testHandlerWith310");
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
@@ -177,7 +177,7 @@ public class OpenApiHandlerTest extends Application {
     List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers, false);
-    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/");
+    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testNotPrettyYaml");
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
@@ -220,7 +220,7 @@ public class OpenApiHandlerTest extends Application {
     List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers, false);
-    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "");
+    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "", null);
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
@@ -262,7 +262,7 @@ public class OpenApiHandlerTest extends Application {
     List<Object> providers = Arrays.asList(new JacksonJsonProvider(DatabindCodec.mapper(), JacksonJsonProvider.BASIC_ANNOTATIONS));
 
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, false);
-    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api");
+    OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testNoResources");
     
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
@@ -292,9 +292,9 @@ public class OpenApiHandlerTest extends Application {
   @Test
   public void testHandlerWithoutConfig() throws Exception {
 
-    assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, null, "/api/"));
+    assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, null, "/api/", null));
     
-    assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList(), false), null));
+    assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList(), false), null, null));
     
   }
   
