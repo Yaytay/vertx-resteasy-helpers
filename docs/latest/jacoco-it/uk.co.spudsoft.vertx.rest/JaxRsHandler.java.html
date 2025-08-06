@@ -8,6 +8,8 @@ import io.micrometer.core.instrument.MeterRegistry;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.ext.web.RoutingContext;
+
+import java.util.ArrayList;
 import java.util.List;
 import org.jboss.resteasy.plugins.server.vertx.VertxRequestHandler;
 import org.jboss.resteasy.plugins.server.vertx.VertxResteasyDeployment;
@@ -22,62 +24,71 @@ import uk.co.spudsoft.vertx.rest.serialisers.JsonObjectMessageBodyWriter;
 
 /**
  * Vert.x web handler that delegates requests to RESTeasy.
- * 
+ *
  *  The Vert.x RoutingContext will be available in the @Context of the RESTeasy handlers and helpers are added for metrics and logging.
- * 
+ *
  * @author jtalbut
  */
 public class JaxRsHandler implements Handler&lt;RoutingContext&gt; {
-  
-<span class="fc" id="L32">  private static final Logger logger = LoggerFactory.getLogger(JaxRsHandler.class);</span>
+
+<span class="fc" id="L34">  private static final Logger logger = LoggerFactory.getLogger(JaxRsHandler.class);</span>
 
   private final ResteasyDeployment deployment;
   private final VertxRequestHandler requestHandler;
 
   /**
    * Constructor.
-   * 
+   *
    * @param vertx The Vert.x instance.
    * @param meterRegistry Micrometer meter registry used by the TimeContainer*Filters, if null the timer filters will not be used.
    * @param basePath The base path in the vertx handler context at which to insert the RESTeasy handler.
    * @param controllers The JAX-RS controllers to use.
    * @param providers Any additional JAX-RS providers to use.
    */
-<span class="fc" id="L46">  public JaxRsHandler(Vertx vertx, MeterRegistry meterRegistry, String basePath, List&lt;Object&gt; controllers, List&lt;Object&gt; providers) {</span>
-<span class="fc" id="L47">    this.deployment = new VertxResteasyDeployment();</span>
-<span class="fc" id="L48">    deployment.setResources(controllers);</span>
-<span class="fc" id="L49">    deployment.setProviders(providers);</span>
-<span class="fc" id="L50">    deployment.start();</span>
-<span class="fc" id="L51">    requestHandler = new VertxRequestHandler(vertx, deployment, basePath);</span>
+<span class="fc" id="L48">  public JaxRsHandler(Vertx vertx, MeterRegistry meterRegistry, String basePath, List&lt;Object&gt; controllers, List&lt;Object&gt; providers) {</span>
+<span class="fc" id="L49">    this.deployment = new VertxResteasyDeployment();</span>
+<span class="fc" id="L50">    deployment.setResources(controllers);</span>
 
-<span class="fc" id="L53">    ResteasyProviderFactory providerFactory = ResteasyProviderFactory.getInstance();</span>
-<span class="fc bfc" id="L54" title="All 2 branches covered.">    if (meterRegistry != null) {</span>
-<span class="fc" id="L55">      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new TimerContainerRequestFilter(meterRegistry));</span>
-<span class="fc" id="L56">      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new TimerContainerResponseFilter(meterRegistry));</span>
+    // Add the RoutingContextProvider to the providers list
+<span class="fc" id="L53">    List&lt;Object&gt; allProviders = new ArrayList&lt;&gt;(providers);</span>
+<span class="fc" id="L54">    allProviders.add(new RoutingContextInjector());</span>
+<span class="fc" id="L55">    deployment.setProviders(allProviders);</span>
+
+<span class="fc" id="L57">    deployment.start();</span>
+<span class="fc" id="L58">    requestHandler = new VertxRequestHandler(vertx, deployment, basePath);</span>
+
+    // Register our custom context injector BEFORE starting deployment
+<span class="fc" id="L61">    ResteasyProviderFactory providerFactory = ResteasyProviderFactory.getInstance();</span>
+   
+<span class="fc bfc" id="L63" title="All 2 branches covered.">    if (meterRegistry != null) {</span>
+<span class="fc" id="L64">      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new TimerContainerRequestFilter(meterRegistry));</span>
+<span class="fc" id="L65">      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new TimerContainerResponseFilter(meterRegistry));</span>
     }
-<span class="fc" id="L58">    providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());</span>
-<span class="fc" id="L59">    providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());</span>
-    
-<span class="fc" id="L61">    providerFactory.registerProvider(JsonArrayMessageBodyReader.class);</span>
-<span class="fc" id="L62">    providerFactory.registerProvider(JsonArrayMessageBodyWriter.class);</span>
-<span class="fc" id="L63">    providerFactory.registerProvider(JsonObjectMessageBodyReader.class);</span>
-<span class="fc" id="L64">    providerFactory.registerProvider(JsonObjectMessageBodyWriter.class);</span>
-<span class="fc" id="L65">  }</span>
+<span class="fc" id="L67">    providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());</span>
+<span class="fc" id="L68">    providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());</span>
+
+<span class="fc" id="L70">    providerFactory.registerProvider(JsonArrayMessageBodyReader.class);</span>
+<span class="fc" id="L71">    providerFactory.registerProvider(JsonArrayMessageBodyWriter.class);</span>
+<span class="fc" id="L72">    providerFactory.registerProvider(JsonObjectMessageBodyReader.class);</span>
+<span class="fc" id="L73">    providerFactory.registerProvider(JsonObjectMessageBodyWriter.class);</span>
+<span class="fc" id="L74">  }</span>
 
   @Override
-  public void handle(RoutingContext rc) {
-    ResteasyProviderFactory
-<span class="fc" id="L70">            .getInstance()</span>
-<span class="fc" id="L71">            .getContextInjectors()</span>
-<span class="fc" id="L72">            .put(RoutingContext.class, new RoutingContextInjector(rc));</span>
+  public void handle(RoutingContext routingContext) {
+    // Store in ResteasyContext data map
+<span class="fc" id="L79">    RoutingContextInjector.addContext(routingContext.request(), routingContext);</span>
 
+<span class="fc" id="L81">    routingContext.addEndHandler(ar -&gt; {</span>
+<span class="fc" id="L82">      RoutingContextInjector.removeContext(routingContext.request());</span>
+<span class="fc" id="L83">    });</span>
+    
     try {
-<span class="fc" id="L75">      requestHandler.handle(rc.request());</span>
-<span class="nc" id="L76">    } catch (Throwable ex) {</span>
-<span class="nc" id="L77">      logger.warn(&quot;Failed to handle request to {}: &quot;, rc.request().absoluteURI(), ex);</span>
-<span class="nc" id="L78">      throw ex;</span>
-<span class="fc" id="L79">    }</span>
-<span class="fc" id="L80">  }</span>
+<span class="fc" id="L86">      requestHandler.handle(routingContext.request());</span>
+<span class="nc" id="L87">    } catch (Throwable ex) {</span>
+<span class="nc" id="L88">      logger.warn(&quot;Failed to handle request to {}: &quot;, routingContext.request().absoluteURI(), ex);</span>
+<span class="nc" id="L89">      throw ex;</span>
+<span class="fc" id="L90">    }</span>
+<span class="fc" id="L91">  }</span>
 
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.13.202504020838</span></div></body></html>
