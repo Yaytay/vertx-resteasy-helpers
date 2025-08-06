@@ -304,7 +304,7 @@ public class OpenApiHandlerTest extends Application {
     HttpServerRequest request = mock(HttpServerRequest.class);
     Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 80));
     Mockito.when(event.request()).thenReturn(request);
-    MultiMap headers = new HeadersMultiMap();
+    MultiMap headers = HeadersMultiMap.headers();
     headers.set("x-forwarded-proto", "https");
     Mockito.when(request.headers()).thenReturn(headers);
     
@@ -331,7 +331,7 @@ public class OpenApiHandlerTest extends Application {
   public void testMultiMapToMap() {
     assertNotNull(OpenApiHandler.multiMapToMap(null));
     assertEquals(0, OpenApiHandler.multiMapToMap(null).size());
-    assertEquals("carol", OpenApiHandler.multiMapToMap(new HeadersMultiMap().add("bob", "fred").add("bob", "carol")).get("bob").get(1));
+    assertEquals("carol", OpenApiHandler.multiMapToMap(HeadersMultiMap.headers().add("bob", "fred").add("bob", "carol")).get("bob").get(1));
   }
 
   private OpenAPIConfiguration createOpenapiConfiguration(boolean pretty, boolean filter, List<Object> resources, boolean openAPI31) {
