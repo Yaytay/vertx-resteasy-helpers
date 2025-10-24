@@ -7,7 +7,7 @@ package uk.co.spudsoft.vertx.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jakarta.rs.json.JacksonJsonProvider;
 import io.micrometer.core.annotation.Timed;
-import io.micrometer.prometheus.PrometheusMeterRegistry;
+import io.micrometer.prometheusmetrics.PrometheusMeterRegistry;
 import io.restassured.RestAssured;
 import static io.restassured.RestAssured.when;
 import io.vertx.core.Vertx;
