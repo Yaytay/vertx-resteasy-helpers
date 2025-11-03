@@ -40,9 +40,8 @@
     <slf4j.version>[1.7,)</slf4j.version>
     <logback.version>[1.2,)</logback.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit-jupiter.version>6.0.0</junit-jupiter.version>
-    <junit-platform.version>6.0.0 </junit-platform.version>
-    <resteasy-version>6.2.12.Final</resteasy-version>
+    <junit-jupiter.version>6.0.1</junit-jupiter.version>
+    <junit-platform.version>6.0.1 </junit-platform.version>
     <fork.count>4</fork.count>
     <argLine></argLine>
   </properties>
@@ -418,7 +417,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>12.1.0</version>
+            <version>12.1.1</version>
           </dependency>
         </dependencies>
       </plugin>

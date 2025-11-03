@@ -28,10 +28,17 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
 
 /**
- *
- * @author njt
+ * Jakarta JAX-RS MessageBodyReader for Vert.x JsonObject.
+ * 
+ * @author jim.talbut
  */
 public class JsonObjectMessageBodyReader implements MessageBodyReader<JsonObject> {
+
+  /**
+   * Default constructor.
+   */
+  public JsonObjectMessageBodyReader() {
+  }
 
   @Override
   public boolean isReadable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {

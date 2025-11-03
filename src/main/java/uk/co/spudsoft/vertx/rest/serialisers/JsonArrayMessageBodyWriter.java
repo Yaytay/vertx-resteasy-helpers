@@ -28,10 +28,17 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 
 /**
- *
- * @author njt
+ * Jakarta JAX-RS MessageBodyWriter for Vert.x JsonArray.
+ * 
+ * @author jim.talbut
  */
 public class JsonArrayMessageBodyWriter implements MessageBodyWriter<JsonArray> {
+
+  /**
+   * Default constructor.
+   */
+  public JsonArrayMessageBodyWriter() {
+  }
 
   @Override
   public boolean isWriteable(Class<?> type, Type genericType, Annotation[] annotations, MediaType mediaType) {
