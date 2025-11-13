@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TimerContainerRequestFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Vertx RESTEasy Helpers</a> &gt; <a href="index.source.html" class="el_package">uk.co.spudsoft.vertx.rest</a> &gt; <span class="el_source">TimerContainerRequestFilter.java</span></div><h1>TimerContainerRequestFilter.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package uk.co.spudsoft.vertx.rest;
+
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Timer;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerRequestFilter;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import org.jboss.resteasy.core.interception.jaxrs.PostMatchContainerRequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+/**
+ * JAX-RS filter to set up metrics on the request context.
+ * The companion TimerContainerResponseFilter is required to complete the metrics.
+ * 
+ * @author njt
+ */
+public class TimerContainerRequestFilter implements ContainerRequestFilter {
+
+  @SuppressWarnings(&quot;constantname&quot;)
+<span class="fc" id="L30">  private static final Logger logger = LoggerFactory.getLogger(TimerContainerRequestFilter.class);</span>
+
+  /**
+   * The key within the ContainerRequestContext for the Micrometer Sample.
+   */
+<span class="fc" id="L35">  public static final String TIMER_KEY = TimerContainerRequestFilter.class.getName() + &quot;.Sample&quot;;</span>
+  /**
+   * The key within the ContainerRequestContext for the annotation on the request method.
+   */
+<span class="fc" id="L39">  public static final String TIMER_ANNOTATION = TimerContainerRequestFilter.class.getName() + &quot;.Annotation&quot;;</span>
+  /**
+   * The key within the ContainerRequestContext for the generated name of the timer.
+   */
+<span class="fc" id="L43">  public static final String TIMER_NAME = TimerContainerRequestFilter.class.getName() + &quot;.Name&quot;;</span>
+
+  private final MeterRegistry meterRegistry;
+
+  /**
+   * Constructor.
+   * @param meterRegistry The MeterRegistry to use for recording timings.
+   */
+  @SuppressFBWarnings(value = &quot;EI_EXPOSE_REP2&quot;, justification = &quot;MeterRegistry may be changed in handlers&quot;)
+<span class="fc" id="L52">  public TimerContainerRequestFilter(MeterRegistry meterRegistry) {</span>
+<span class="fc" id="L53">    this.meterRegistry = meterRegistry;</span>
+<span class="fc" id="L54">  }</span>
+  
+  private static boolean isNullOrEmpty(String value) {
+<span class="pc bpc" id="L57" title="1 of 4 branches missed.">    if ((value == null) || value.isEmpty()) {</span>
+<span class="fc" id="L58">      return true;</span>
+    }
+<span class="fc" id="L60">    return false;</span>
+  }
+
+  @Override
+  public void filter(ContainerRequestContext crc) throws IOException {
+<span class="pc bpc" id="L65" title="1 of 2 branches missed.">    if (crc instanceof PostMatchContainerRequestContext matchedContext) {</span>
+      try {
+<span class="fc" id="L67">        Method requestMethod = matchedContext.getResourceMethod().getMethod();</span>
+<span class="fc" id="L68">        Timed timed = requestMethod.getAnnotation(Timed.class);</span>
+<span class="fc bfc" id="L69" title="All 2 branches covered.">        if (timed != null) {</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">          if (isNullOrEmpty(timed.value())) {</span>
+<span class="fc" id="L71">            requestMethodToMeterName(requestMethod, crc);</span>
+          }
+        } else {
+<span class="fc" id="L74">          timed = requestMethod.getDeclaringClass().getAnnotation(Timed.class);</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">          if (timed != null) {</span>
+<span class="fc bfc" id="L76" title="All 2 branches covered.">            if (isNullOrEmpty(timed.value())) {</span>
+<span class="fc" id="L77">              requestMethodToMeterName(requestMethod, crc);</span>
+            } else {
+<span class="fc" id="L79">              String name = timed.value() + &quot;_&quot; + requestMethod.getName();</span>
+<span class="fc" id="L80">              crc.setProperty(TIMER_NAME, name);</span>
+            }
+          }
+        }        
+        
+<span class="pc bpc" id="L85" title="1 of 2 branches missed.">        if (timed != null) {          </span>
+<span class="fc" id="L86">          Timer.Sample sample = Timer.start(meterRegistry);</span>
+<span class="fc" id="L87">          crc.setProperty(TIMER_KEY, sample);</span>
+<span class="fc" id="L88">          crc.setProperty(TIMER_ANNOTATION, timed);</span>
+        }
+<span class="nc" id="L90">      } catch (Throwable ex) {</span>
+<span class="nc" id="L91">        logger.error(&quot;Failed to initialise timer for request: &quot;, ex);</span>
+<span class="fc" id="L92">      }</span>
+    }
+<span class="fc" id="L94">  }</span>
+
+  private void requestMethodToMeterName(Method requestMethod, ContainerRequestContext crc) {
+<span class="fc" id="L97">    String name = requestMethod.toString()</span>
+<span class="fc" id="L98">            .trim()</span>
+<span class="fc" id="L99">            .replaceAll(&quot;\\.&quot;, &quot;_&quot;)</span>
+<span class="fc" id="L100">            .replaceAll(&quot; &quot;, &quot;_&quot;)</span>
+<span class="fc" id="L101">            .replaceAll(&quot;\\(&quot;, &quot;_&quot;)</span>
+<span class="fc" id="L102">            .replaceAll(&quot;\\)&quot;, &quot;&quot;)</span>
+<span class="fc" id="L103">            .replaceAll(&quot;,&quot;, &quot;_&quot;)</span>
+<span class="fc" id="L104">            .replaceAll(&quot;__&quot;, &quot;_&quot;)</span>
+            ;
+<span class="fc" id="L106">    crc.setProperty(TIMER_NAME, name);</span>
+<span class="fc" id="L107">  }</span>
+
+  /**
+   * Get the current micrometer sample.
+   * Designed for use within the request method - will only return a valid name after the filter has been called.
+   * @param crc the request context.
+   * @return the current micrometer sample.
+   */
+  public static Timer.Sample getSample(ContainerRequestContext crc) {
+<span class="fc" id="L116">    return (Timer.Sample) crc.getProperty(TIMER_KEY);</span>
+  }
+
+  /**
+   * Get the annotation from the request method.
+   * Designed for use within the request method - will only return a valid name after the filter has been called.
+   * @param crc the request context.
+   * @return the annotation from the request method.
+   */
+  public static Timed getAnnotation(ContainerRequestContext crc) {
+<span class="fc" id="L126">    return (Timed) crc.getProperty(TIMER_ANNOTATION);</span>
+  }
+
+  /**
+   * Get the name of the timer, extracted from the request context and constructed from the method name.
+   * Designed for use within the request method - will only return a valid name after the filter has been called.
+   * @param crc the request context.
+   * @return the name of the timer.
+   */
+  public static String getName(ContainerRequestContext crc) {
+<span class="fc" id="L136">    return (String) crc.getProperty(TIMER_NAME);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

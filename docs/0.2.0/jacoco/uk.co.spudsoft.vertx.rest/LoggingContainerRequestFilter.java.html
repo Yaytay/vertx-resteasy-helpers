@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>LoggingContainerRequestFilter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Vertx RESTEasy Helpers</a> &gt; <a href="index.source.html" class="el_package">uk.co.spudsoft.vertx.rest</a> &gt; <span class="el_source">LoggingContainerRequestFilter.java</span></div><h1>LoggingContainerRequestFilter.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package uk.co.spudsoft.vertx.rest;
+
+import io.vertx.ext.web.RoutingContext;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerRequestFilter;
+import jakarta.ws.rs.core.Context;
+import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import static uk.co.spudsoft.vertx.rest.LoggingContainerResponseFilter.*;
+
+/**
+ * JAX-RS filter to log requests.
+ * 
+ * If the logger is set to trace level all headers will be logged as a single multi-line log entry
+ * , otherwise if the logger is set to debug level one log line will be output.
+ * 
+ * @author njt
+ */
+<span class="fc" id="L26">public class LoggingContainerRequestFilter implements ContainerRequestFilter {</span>
+
+  @SuppressWarnings(&quot;constantname&quot;)
+<span class="fc" id="L29">  private static final Logger logger = LoggerFactory.getLogger(LoggingContainerRequestFilter.class);</span>
+
+  @Context
+  private RoutingContext routingContext;
+  
+  /**
+   * The key within the ContainerRequestContext for the generated name of the timer.
+   */
+<span class="fc" id="L37">  public static final String TIMESTAMP_NAME = LoggingContainerRequestFilter.class.getName() + &quot;.Timestamp&quot;;</span>
+  
+  @Override
+  public void filter(ContainerRequestContext requestContext) throws IOException {
+    
+<span class="fc" id="L42">    requestContext.setProperty(TIMESTAMP_NAME, System.currentTimeMillis());</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">    if (logger.isTraceEnabled()) {</span>
+<span class="nc" id="L44">      logger.trace(buildTrace(routingContext, requestContext));</span>
+<span class="pc bpc" id="L45" title="1 of 2 branches missed.">    } else if (logger.isDebugEnabled()) {</span>
+<span class="fc" id="L46">      StringBuilder builder = new StringBuilder();</span>
+<span class="fc" id="L47">      appendClientIp(builder, routingContext, requestContext);</span>
+<span class="fc" id="L48">      builder.append(getUser(requestContext)).append(&quot; &quot;);</span>
+      
+<span class="fc" id="L50">      builder.append(requestContext.getMethod()).append(&quot; &quot;).append(requestContext.getUriInfo().getRequestUri().toString()).append(' ');</span>
+<span class="fc" id="L51">      builder.append(requestContext.getHeaderString(&quot;Host&quot;)).append(&quot; &quot;);</span>
+<span class="fc" id="L52">      builder.append(requestContext.getHeaderString(&quot;Referer&quot;)).append(&quot; &quot;);</span>
+<span class="fc" id="L53">      builder.append('&quot;').append(requestContext.getHeaderString(&quot;User-Agent&quot;)).append(&quot;\&quot; &quot;);</span>
+      
+<span class="fc" id="L55">      logger.debug(builder.toString());</span>
+    }    
+<span class="fc" id="L57">  }</span>
+
+  static String buildTrace(RoutingContext routingContext, ContainerRequestContext requestContext) {
+<span class="fc" id="L60">    StringBuilder builder = new StringBuilder();</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if (routingContext != null) {</span>
+<span class="fc" id="L62">      builder.append(routingContext.request().remoteAddress()).append(&quot;:\n&quot;);</span>
+    }
+<span class="fc bfc" id="L64" title="All 2 branches covered.">    if (requestContext != null) {</span>
+<span class="fc" id="L65">      builder.append(requestContext.getMethod()).append(&quot; &quot;).append(requestContext.getUriInfo().getRequestUri()).append('\n');</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">      if (requestContext.getHeaders() != null) {</span>
+<span class="fc" id="L67">        requestContext.getHeaders().forEach((k, v) -&gt; {</span>
+<span class="fc" id="L68">          v.forEach(v2 -&gt; {</span>
+<span class="fc" id="L69">            builder.append(k).append(&quot;: &quot;).append(v2).append('\n');</span>
+<span class="fc" id="L70">          });</span>
+<span class="fc" id="L71">        });</span>
+      }
+    }
+<span class="fc" id="L74">    return builder.toString();</span>
+  }
+  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

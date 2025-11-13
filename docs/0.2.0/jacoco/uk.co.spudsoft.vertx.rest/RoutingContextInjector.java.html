@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RoutingContextInjector.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Vertx RESTEasy Helpers</a> &gt; <a href="index.source.html" class="el_package">uk.co.spudsoft.vertx.rest</a> &gt; <span class="el_source">RoutingContextInjector.java</span></div><h1>RoutingContextInjector.java</h1><pre class="source lang-java linenums">/*
+ * Copyright (C) 2025 jtalbut
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+ */
+package uk.co.spudsoft.vertx.rest;
+
+import io.vertx.core.http.HttpServerRequest;
+import io.vertx.ext.web.RoutingContext;
+import jakarta.ws.rs.ext.Provider;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.jboss.resteasy.core.ResteasyContext;
+import org.jboss.resteasy.spi.ContextInjector;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+/**
+ * ContextProvider to inject the Vert.x web routing context into JAX-RS resources.
+ * 
+ * This provider retrieves the RoutingContext that was previously stored in the 
+ * ResteasyContext's context data map by the JaxRsHandler.
+ * 
+ * @author jtalbut
+ */
+@Provider
+<span class="fc" id="L40">public class RoutingContextInjector implements ContextInjector&lt;RoutingContext, RoutingContext&gt; {</span>
+
+<span class="fc" id="L42">  private static final Logger logger = LoggerFactory.getLogger(RoutingContextInjector.class);</span>
+<span class="fc" id="L43">  private static final Map&lt;HttpServerRequest, RoutingContext&gt; KNOWN_CONTEXTS = new ConcurrentHashMap&lt;&gt;();</span>
+  
+  public static void addContext(HttpServerRequest request, RoutingContext context) {
+<span class="fc" id="L46">    KNOWN_CONTEXTS.put(request, context);</span>
+<span class="fc" id="L47">  }</span>
+  
+  public static RoutingContext getContext(HttpServerRequest request) {
+<span class="fc" id="L50">    return KNOWN_CONTEXTS.get(request);</span>
+  }
+  
+  public static void removeContext(HttpServerRequest request) {
+<span class="fc" id="L54">    KNOWN_CONTEXTS.remove(request);</span>
+<span class="fc" id="L55">    logger.debug(&quot;There are {} entries in the known contexts map&quot;, KNOWN_CONTEXTS.size());</span>
+<span class="fc" id="L56">  }</span>
+  
+  @Override
+  public RoutingContext resolve(Class&lt;? extends RoutingContext&gt; rawType, Type genericType, Annotation[] annotations) {
+<span class="fc" id="L60">    HttpServerRequest request = ResteasyContext.getContextData(HttpServerRequest.class);</span>
+<span class="fc bfc" id="L61" title="All 2 branches covered.">    if (request == null) {</span>
+<span class="fc" id="L62">      return null;</span>
+    }
+<span class="fc" id="L64">    return KNOWN_CONTEXTS.get(request);</span>
+  }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -3,7 +3,7 @@ Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,TimerContainerRequestFilter,5,1
 Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,OpenApiHandler.UiHandler,0,75,0,6,0,22,0,6,0,3
 Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,OpenApiHandler,55,424,14,50,13,101,12,32,0,12
 Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,RoutingContextInjector,0,46,0,2,0,13,0,7,0,6
-Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,JaxRsHandler,10,105,0,2,3,27,0,5,0,4
+Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,JaxRsHandler,10,119,1,5,3,30,1,7,0,5
 Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,TimerContainerResponseFilter,32,214,2,25,5,51,2,22,0,9
 Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,LoggingContainerRequestFilter,7,140,2,8,1,27,2,9,0,6
 Vertx RESTEasy Helpers,uk.co.spudsoft.vertx.rest,LoggingContainerResponseFilter,7,238,2,26,1,54,2,21,0,9
