@@ -45,7 +45,34 @@ public class JaxRsHandler implements Handler<RoutingContext> {
    * @param controllers The JAX-RS controllers to use.
    * @param providers Any additional JAX-RS providers to use.
    */
-  public JaxRsHandler(Vertx vertx, MeterRegistry meterRegistry, String basePath, List<Object> controllers, List<Object> providers) {
+  public JaxRsHandler(Vertx vertx
+          , MeterRegistry meterRegistry
+          , String basePath
+          , List<Object> controllers
+          , List<Object> providers
+  ) {
+    this(vertx, meterRegistry, basePath, controllers, providers, true, true);
+  }
+  
+  /**
+   * Constructor.
+   *
+   * @param vertx The Vert.x instance.
+   * @param meterRegistry Micrometer meter registry used by the TimeContainer*Filters, if null the timer filters will not be used.
+   * @param basePath The base path in the vertx handler context at which to insert the RESTeasy handler.
+   * @param controllers The JAX-RS controllers to use.
+   * @param providers Any additional JAX-RS providers to use.
+   * @param enableTiming Install a timing request and response filter ({@link TimerContainerRequestFilter}).
+   * @param enableLogging Install a logging request and response filter ({@link LoggingContainerRequestFilter}).
+   */
+  public JaxRsHandler(Vertx vertx
+          , MeterRegistry meterRegistry
+          , String basePath
+          , List<Object> controllers
+          , List<Object> providers
+          , boolean enableTiming
+          , boolean enableLogging
+  ) {
     this.deployment = new VertxResteasyDeployment();
     deployment.setResources(controllers);
 
@@ -60,12 +87,14 @@ public class JaxRsHandler implements Handler<RoutingContext> {
     // Register our custom context injector BEFORE starting deployment
     ResteasyProviderFactory providerFactory = ResteasyProviderFactory.getInstance();
    
-    if (meterRegistry != null) {
+    if (meterRegistry != null && enableTiming) {
       providerFactory.getContainerRequestFilterRegistry().registerSingleton(new TimerContainerRequestFilter(meterRegistry));
       providerFactory.getContainerResponseFilterRegistry().registerSingleton(new TimerContainerResponseFilter(meterRegistry));
     }
-    providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());
-    providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());
+    if (enableLogging) {
+      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());
+      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());
+    }
 
     providerFactory.registerProvider(JsonArrayMessageBodyReader.class);
     providerFactory.registerProvider(JsonArrayMessageBodyWriter.class);
