@@ -24,4 +24,16 @@ public class JaxRsHandlerTest {
     JaxRsHandler handler = new JaxRsHandler(vertx, null, "/api/*", Arrays.asList(), Arrays.asList());
   }
   
+  @Test
+  public void testHandleWithoutTiming(Vertx vertx) {
+    // Just to validate that it's OK to use without a MeterRegistry
+    JaxRsHandler handler = new JaxRsHandler(vertx, null, "/api/*", Arrays.asList(), Arrays.asList(), false, true);
+  }
+  
+  @Test
+  public void testHandleWithoutLogging(Vertx vertx) {
+    // Just to validate that it's OK to use without a MeterRegistry
+    JaxRsHandler handler = new JaxRsHandler(vertx, null, "/api/*", Arrays.asList(), Arrays.asList(), true, false);
+  }
+  
 }
