@@ -264,6 +264,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
 
       var response = event.response();
       response.putHeader("Access-Control-Request-Method", "GET");
+      response.putHeader(X_FRAME_OPTIONS, "SAMEORIGIN");
       
       String normalizedPath = event.normalizedPath();
       int startPos = normalizedPath.indexOf(SCHEMA_DESCRIPTION);
