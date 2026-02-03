@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang=""><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JaxRsHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Vertx RESTEasy Helpers</a> &gt; <a href="index.source.html" class="el_package">uk.co.spudsoft.vertx.rest</a> &gt; <span class="el_source">JaxRsHandler.java</span></div><h1>JaxRsHandler.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package uk.co.spudsoft.vertx.rest;
+
+import io.micrometer.core.instrument.MeterRegistry;
+import io.vertx.core.Handler;
+import io.vertx.core.Vertx;
+import io.vertx.ext.web.RoutingContext;
+
+import java.util.ArrayList;
+import java.util.List;
+import org.jboss.resteasy.plugins.server.vertx.VertxRequestHandler;
+import org.jboss.resteasy.plugins.server.vertx.VertxResteasyDeployment;
+import org.jboss.resteasy.spi.ResteasyDeployment;
+import org.jboss.resteasy.spi.ResteasyProviderFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.co.spudsoft.vertx.rest.serialisers.JsonArrayMessageBodyReader;
+import uk.co.spudsoft.vertx.rest.serialisers.JsonArrayMessageBodyWriter;
+import uk.co.spudsoft.vertx.rest.serialisers.JsonObjectMessageBodyReader;
+import uk.co.spudsoft.vertx.rest.serialisers.JsonObjectMessageBodyWriter;
+
+/**
+ * Vert.x web handler that delegates requests to RESTeasy.
+ *
+ *  The Vert.x RoutingContext will be available in the @Context of the RESTeasy handlers and helpers are added for metrics and logging.
+ *
+ * @author jtalbut
+ */
+public class JaxRsHandler implements Handler&lt;RoutingContext&gt; {
+
+<span class="fc" id="L34">  private static final Logger logger = LoggerFactory.getLogger(JaxRsHandler.class);</span>
+
+  private final ResteasyDeployment deployment;
+  private final VertxRequestHandler requestHandler;
+
+  /**
+   * Constructor.
+   *
+   * @param vertx The Vert.x instance.
+   * @param meterRegistry Micrometer meter registry used by the TimeContainer*Filters, if null the timer filters will not be used.
+   * @param basePath The base path in the vertx handler context at which to insert the RESTeasy handler.
+   * @param controllers The JAX-RS controllers to use.
+   * @param providers Any additional JAX-RS providers to use.
+   */
+  public JaxRsHandler(Vertx vertx
+          , MeterRegistry meterRegistry
+          , String basePath
+          , List&lt;Object&gt; controllers
+          , List&lt;Object&gt; providers
+  ) {
+<span class="fc" id="L54">    this(vertx, meterRegistry, basePath, controllers, providers, true, true);</span>
+<span class="fc" id="L55">  }</span>
+  
+  /**
+   * Constructor.
+   *
+   * @param vertx The Vert.x instance.
+   * @param meterRegistry Micrometer meter registry used by the TimeContainer*Filters, if null the timer filters will not be used.
+   * @param basePath The base path in the vertx handler context at which to insert the RESTeasy handler.
+   * @param controllers The JAX-RS controllers to use.
+   * @param providers Any additional JAX-RS providers to use.
+   * @param enableTiming Install a timing request and response filter ({@link TimerContainerRequestFilter}).
+   * @param enableLogging Install a logging request and response filter ({@link LoggingContainerRequestFilter}).
+   */
+  public JaxRsHandler(Vertx vertx
+          , MeterRegistry meterRegistry
+          , String basePath
+          , List&lt;Object&gt; controllers
+          , List&lt;Object&gt; providers
+          , boolean enableTiming
+          , boolean enableLogging
+<span class="fc" id="L75">  ) {</span>
+<span class="fc" id="L76">    this.deployment = new VertxResteasyDeployment();</span>
+<span class="fc" id="L77">    deployment.setResources(controllers);</span>
+
+    // Add the RoutingContextProvider to the providers list
+<span class="fc" id="L80">    List&lt;Object&gt; allProviders = new ArrayList&lt;&gt;(providers);</span>
+<span class="fc" id="L81">    allProviders.add(new RoutingContextInjector());</span>
+<span class="fc" id="L82">    deployment.setProviders(allProviders);</span>
+
+<span class="fc" id="L84">    deployment.start();</span>
+<span class="fc" id="L85">    requestHandler = new VertxRequestHandler(vertx, deployment, basePath);</span>
+
+    // Register our custom context injector BEFORE starting deployment
+<span class="fc" id="L88">    ResteasyProviderFactory providerFactory = ResteasyProviderFactory.getInstance();</span>
+   
+<span class="pc bpc" id="L90" title="1 of 4 branches missed.">    if (meterRegistry != null &amp;&amp; enableTiming) {</span>
+<span class="fc" id="L91">      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new TimerContainerRequestFilter(meterRegistry));</span>
+<span class="fc" id="L92">      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new TimerContainerResponseFilter(meterRegistry));</span>
+    }
+<span class="fc bfc" id="L94" title="All 2 branches covered.">    if (enableLogging) {</span>
+<span class="fc" id="L95">      providerFactory.getContainerRequestFilterRegistry().registerSingleton(new LoggingContainerRequestFilter());</span>
+<span class="fc" id="L96">      providerFactory.getContainerResponseFilterRegistry().registerSingleton(new LoggingContainerResponseFilter());</span>
+    }
+
+<span class="fc" id="L99">    providerFactory.registerProvider(JsonArrayMessageBodyReader.class);</span>
+<span class="fc" id="L100">    providerFactory.registerProvider(JsonArrayMessageBodyWriter.class);</span>
+<span class="fc" id="L101">    providerFactory.registerProvider(JsonObjectMessageBodyReader.class);</span>
+<span class="fc" id="L102">    providerFactory.registerProvider(JsonObjectMessageBodyWriter.class);</span>
+<span class="fc" id="L103">  }</span>
+
+  @Override
+  public void handle(RoutingContext routingContext) {
+    // Store in ResteasyContext data map
+<span class="fc" id="L108">    RoutingContextInjector.addContext(routingContext.request(), routingContext);</span>
+
+<span class="fc" id="L110">    routingContext.addEndHandler(ar -&gt; {</span>
+<span class="fc" id="L111">      RoutingContextInjector.removeContext(routingContext.request());</span>
+<span class="fc" id="L112">    });</span>
+    
+    try {
+<span class="fc" id="L115">      requestHandler.handle(routingContext.request());</span>
+<span class="nc" id="L116">    } catch (Throwable ex) {</span>
+<span class="nc" id="L117">      logger.warn(&quot;Failed to handle request to {}: &quot;, routingContext.request().absoluteURI(), ex);</span>
+<span class="nc" id="L118">      throw ex;</span>
+<span class="fc" id="L119">    }</span>
+<span class="fc" id="L120">  }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
