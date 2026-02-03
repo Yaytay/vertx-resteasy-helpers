@@ -6,6 +6,7 @@
 package uk.co.spudsoft.vertx.rest;
 
 import edu.umd.cs.findbugs.annotations.Nullable;
+import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_SECURITY_POLICY;
 import static io.netty.handler.codec.http.HttpHeaderNames.X_FRAME_OPTIONS;
 import io.swagger.v3.core.filter.OpenAPISpecFilter;
 import io.swagger.v3.core.filter.SpecFilter;
@@ -265,6 +266,7 @@ public class OpenApiHandler implements Handler<RoutingContext> {
       var response = event.response();
       response.putHeader("Access-Control-Request-Method", "GET");
       response.putHeader(X_FRAME_OPTIONS, "SAMEORIGIN");
+      response.putHeader(CONTENT_SECURITY_POLICY, "default-src 'self'; img-src 'self'; style-src 'self' 'unsafe-hashes' 'unsafe-inline'; connect-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'unsafe-eval'; manifest-src 'self'");
       
       String normalizedPath = event.normalizedPath();
       int startPos = normalizedPath.indexOf(SCHEMA_DESCRIPTION);
