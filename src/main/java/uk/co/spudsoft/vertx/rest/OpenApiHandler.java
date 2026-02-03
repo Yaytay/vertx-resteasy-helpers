@@ -6,6 +6,7 @@
 package uk.co.spudsoft.vertx.rest;
 
 import edu.umd.cs.findbugs.annotations.Nullable;
+import static io.netty.handler.codec.http.HttpHeaderNames.X_FRAME_OPTIONS;
 import io.swagger.v3.core.filter.OpenAPISpecFilter;
 import io.swagger.v3.core.filter.SpecFilter;
 import io.swagger.v3.core.util.Json;
@@ -21,12 +22,15 @@ import io.swagger.v3.oas.models.Paths;
 import io.swagger.v3.oas.models.media.Schema;
 import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
+import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.Cookie;
+import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpServerRequest;
 import io.vertx.core.net.HostAndPort;
 import io.vertx.ext.web.RoutingContext;
 import jakarta.ws.rs.core.Application;
 import jakarta.ws.rs.core.MediaType;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -183,7 +187,14 @@ public class OpenApiHandler implements Handler<RoutingContext> {
               .replaceAll("EXPLORER_URL", openApiExplorerUrl)
               .replaceAll("PATH", path);
       
-      event.response().setStatusCode(200).end(html);
+      event.response().headers()
+              .add(HttpHeaders.CONTENT_TYPE, "text/html; charset=utf-8")
+              .add(X_FRAME_OPTIONS, "SAMEORIGIN")
+              ;
+              
+      event.response()
+              .setStatusCode(200)
+              .end(Buffer.buffer(html.getBytes(StandardCharsets.UTF_8)));
     }
     
   }

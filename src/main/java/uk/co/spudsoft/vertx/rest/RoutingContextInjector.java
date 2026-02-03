@@ -52,7 +52,7 @@ public class RoutingContextInjector implements ContextInjector<RoutingContext, R
   
   public static void removeContext(HttpServerRequest request) {
     KNOWN_CONTEXTS.remove(request);
-    logger.debug("There are {} entries in the known contexts map", KNOWN_CONTEXTS.size());
+    logger.trace("There are {} entries in the known contexts map", KNOWN_CONTEXTS.size());
   }
   
   @Override
