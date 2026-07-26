@@ -40,8 +40,8 @@
     <slf4j.version>[1.7,)</slf4j.version>
     <logback.version>[1.2,)</logback.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit-jupiter.version>6.1.0</junit-jupiter.version>
-    <junit-platform.version>6.0.2</junit-platform.version>
+    <junit-jupiter.version>6.1.2</junit-jupiter.version>
+    <junit-platform.version>6.1.2</junit-platform.version>
     <fork.count>4</fork.count>
     <argLine></argLine>
   </properties>
@@ -67,7 +67,7 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.21.3</version>
+      <version>2.22.1</version>
     </dependency>
     <dependency>
       <groupId>io.swagger.core.v3</groupId>
@@ -122,7 +122,7 @@
         </exclusion>
       </exclusions>
     </dependency>
-    
+
     <dependency>
       <groupId>dev.resteasy.vertx</groupId>
       <artifactId>resteasy-vertx-client</artifactId>
@@ -207,12 +207,12 @@
           <artifactId>netty-codec-http</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>    
+    </dependency>
 
     <dependency>
       <groupId>io.micrometer</groupId>
       <artifactId>micrometer-registry-prometheus</artifactId>
-      <version>1.16.5</version>
+      <version>1.17.0</version>
     </dependency>
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -274,7 +274,7 @@
     <dependency>
       <groupId>com.github.spotbugs</groupId>
       <artifactId>spotbugs-annotations</artifactId>
-      <version>4.9.8</version>
+      <version>4.10.3</version>
     </dependency>
 
     <!-- Testing -->
@@ -287,7 +287,7 @@
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
-      <version>6.0.0</version>
+      <version>6.0.1</version>
       <exclusions>
         <exclusion>
           <groupId>commons-logging</groupId>
@@ -386,7 +386,7 @@
                 </ignoreVersion>
               </ruleSet>
             </configuration>
-          </execution>      
+          </execution>
           <execution>
             <id>display-dependency-updates</id>
             <phase>validate</phase>
@@ -401,8 +401,8 @@
                 </ignoreVersion>
               </ruleSet>
             </configuration>
-          </execution>      
-        </executions>      
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
@@ -447,7 +447,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>3.5.1</version>
         <executions>
           <execution>
             <id>maven-jar-plugin-test-jar</id>
@@ -473,7 +473,7 @@
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
-        <version>4.9.8.3</version>
+        <version>4.10.3.0</version>
         <configuration>
           <fork>true</fork>
           <effort>Max</effort>
@@ -521,7 +521,7 @@
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
-            <version>13.4.2</version>
+            <version>13.8.0</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -529,7 +529,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.5.5</version>
+        <version>3.5.6</version>
         <configuration>
           <forkCount>${fork.count}</forkCount>
           <reuseForks>true</reuseForks>
@@ -547,7 +547,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>3.5.5</version>
+        <version>3.5.6</version>
         <executions>
           <execution>
             <goals>
@@ -579,7 +579,7 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.14</version>
+        <version>0.8.15</version>
         <executions>
           <execution>
             <id>jacoco-initialize</id>
@@ -673,7 +673,7 @@
           <suppressionFiles>
             dependency-check-supressions.xml
           </suppressionFiles>
-          <nvdApiKey>${NVD_API_KEY}</nvdApiKey>
+          <nvdDatafeedUrl>https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-{0}.json.gz</nvdDatafeedUrl>
         </configuration>
         <executions>
           <execution>
@@ -687,7 +687,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.10.0</version>
+        <version>3.11.0</version>
         <executions>
           <execution>
             <id>copy-dependencies</id>
@@ -863,7 +863,7 @@
           <plugin>
             <groupId>org.sonatype.central</groupId>
             <artifactId>central-publishing-maven-plugin</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
             <extensions>true</extensions>
             <configuration>
               <publishingServerId>central</publishingServerId>
@@ -874,5 +874,5 @@
       </build>
     </profile>
   </profiles>
-      
+
 </project>

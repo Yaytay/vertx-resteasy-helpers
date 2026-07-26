@@ -17,7 +17,6 @@ import io.vertx.core.Vertx;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.core.http.HttpServerRequest;
-import io.vertx.core.http.impl.headers.HeadersMultiMap;
 import io.vertx.core.json.jackson.DatabindCodec;
 import io.vertx.core.net.impl.HostAndPortImpl;
 import io.vertx.ext.web.Router;
@@ -53,9 +52,9 @@ import uk.co.spudsoft.vertx.rest.OpenApiHandler.UiHandler;
  */
 @ExtendWith(VertxExtension.class)
 public class OpenApiHandlerTest extends Application {
-  
+
   private static final Logger logger = LoggerFactory.getLogger(OpenApiHandlerTest.class);
-  
+
   @Test
   public void testHandler(Vertx vertx, VertxTestContext testContext) throws Exception {
 
@@ -68,11 +67,11 @@ public class OpenApiHandlerTest extends Application {
 
     String test = DatabindCodec.mapper().writeValueAsString(new ResponseType("field1", "field2"));
     assertEquals("{\"field1\":\"field1\",\"field2\":\"field2\"}", test);
-    
+
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testHandler");
-    
+
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
     router.get("/openapi").handler(openApiHandler.getUiHandler());
@@ -83,7 +82,7 @@ public class OpenApiHandlerTest extends Application {
             .onFailure(as -> testContext.failNow(as))
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
-              
+
               vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
@@ -100,7 +99,7 @@ public class OpenApiHandlerTest extends Application {
 
                   body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API UI: {}", body);
-                  
+
                 });
                 testContext.completeNow();
                 return null;
@@ -108,7 +107,7 @@ public class OpenApiHandlerTest extends Application {
             });
 
   }
-  
+
   @Test
   public void testHandlerWith310(Vertx vertx, VertxTestContext testContext) throws Exception {
 
@@ -122,7 +121,7 @@ public class OpenApiHandlerTest extends Application {
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, true);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testHandlerWith310");
-    
+
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
     router.getWithRegex("/openapi/schema/description/.*").handler(openApiHandler);
@@ -134,7 +133,7 @@ public class OpenApiHandlerTest extends Application {
             .onFailure(as -> testContext.failNow(as))
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
-              
+
               vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
@@ -151,19 +150,19 @@ public class OpenApiHandlerTest extends Application {
 
                   given().get("/openapi/schema/description/Condition").then().log().all().statusCode(404).body(equalTo("Not Found"));
                   given().get("/openapi/schema/description/ResponseType").then().log().all().statusCode(200).body(equalTo("<html><body>This is the response type.\n</body></html>"));
-                  
+
                   body = given().get("/openapi").then().log().all().statusCode(200).extract().body().asString();
                   logger.debug("Open API UI: {}", body);
-                  
+
                 });
                 testContext.completeNow();
                 return null;
               });
             });
-    
+
 
   }
-  
+
   @Test
   public void testNotPrettyYaml(Vertx vertx, VertxTestContext testContext) throws Exception {
 
@@ -177,7 +176,7 @@ public class OpenApiHandlerTest extends Application {
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api/", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testNotPrettyYaml");
-    
+
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
 
@@ -187,7 +186,7 @@ public class OpenApiHandlerTest extends Application {
             .onFailure(as -> testContext.failNow(as))
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
-              
+
               vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
@@ -203,10 +202,10 @@ public class OpenApiHandlerTest extends Application {
                 return null;
               });
             });
-    
+
 
   }
-  
+
   @Test
   public void testDefaultContextId(Vertx vertx, VertxTestContext testContext) throws Exception {
 
@@ -219,7 +218,7 @@ public class OpenApiHandlerTest extends Application {
 
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(false, false, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "", null);
-    
+
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
 
@@ -229,7 +228,7 @@ public class OpenApiHandlerTest extends Application {
             .onFailure(as -> testContext.failNow(as))
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
-              
+
               vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
@@ -245,10 +244,10 @@ public class OpenApiHandlerTest extends Application {
                 return null;
               });
             });
-    
+
 
   }
-  
+
   @Test
   public void testNoResources(Vertx vertx, VertxTestContext testContext) throws Exception {
 
@@ -262,7 +261,7 @@ public class OpenApiHandlerTest extends Application {
     OpenAPIConfiguration openApiConfig = createOpenapiConfiguration(true, true, controllers, false);
     OpenApiHandler openApiHandler = new OpenApiHandler(this, openApiConfig, "/api", null);
     openApiHandler.setOpenContextId("OpenApiHandlerTest.testNoResources");
-    
+
     router.route("/api/*").handler(new JaxRsHandler(vertx, null, "/api", controllers, providers));
     router.getWithRegex("/openapi\\..*").handler(openApiHandler);
 
@@ -272,7 +271,7 @@ public class OpenApiHandlerTest extends Application {
             .onFailure(as -> testContext.failNow(as))
             .onSuccess(hs -> {
               RestAssured.port = hs.actualPort();
-              
+
               vertx.executeBlocking(() -> {
                 testContext.verify(() -> {
 
@@ -283,7 +282,7 @@ public class OpenApiHandlerTest extends Application {
                 return null;
               });
             });
-    
+
 
   }
 
@@ -291,45 +290,45 @@ public class OpenApiHandlerTest extends Application {
   public void testHandlerWithoutConfig() throws Exception {
 
     assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, null, "/api/", null));
-    
+
     assertThrows(NullPointerException.class, () -> new OpenApiHandler(this, createOpenapiConfiguration(true, true, Collections.emptyList(), false), null, null));
-    
+
   }
-  
+
   @Test
-  public void testUiPath() throws Exception {    
+  public void testUiPath() throws Exception {
     RoutingContext event = mock(RoutingContext.class);
     HttpServerRequest request = mock(HttpServerRequest.class);
     Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 80));
     Mockito.when(event.request()).thenReturn(request);
-    MultiMap headers = HeadersMultiMap.httpHeaders();
+    MultiMap headers = MultiMap.caseInsensitiveMultiMap();
     headers.set("x-forwarded-proto", "https");
     Mockito.when(request.headers()).thenReturn(headers);
-    
-    assertEquals("https://bob/openapi.yaml", UiHandler.buildPath(event));    
-    
+
+    assertEquals("https://bob/openapi.yaml", UiHandler.buildPath(event));
+
     event = mock(RoutingContext.class);
     request = mock(HttpServerRequest.class);
     Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 1234));
     Mockito.when(event.request()).thenReturn(request);
     Mockito.when(request.isSSL()).thenReturn(false);
-    
-    assertEquals("http://bob:1234/openapi.yaml", UiHandler.buildPath(event));    
-    
+
+    assertEquals("http://bob:1234/openapi.yaml", UiHandler.buildPath(event));
+
     event = mock(RoutingContext.class);
     request = mock(HttpServerRequest.class);
     Mockito.when(request.authority()).thenReturn(new HostAndPortImpl("bob", 443));
     Mockito.when(event.request()).thenReturn(request);
     Mockito.when(request.isSSL()).thenReturn(true);
-    
+
     assertEquals("https://bob/openapi.yaml", UiHandler.buildPath(event));
   }
-  
+
   @Test
   public void testMultiMapToMap() {
     assertNotNull(OpenApiHandler.multiMapToMap(null));
     assertEquals(0, OpenApiHandler.multiMapToMap(null).size());
-    assertEquals("carol", OpenApiHandler.multiMapToMap(HeadersMultiMap.httpHeaders().add("bob", "fred").add("bob", "carol")).get("bob").get(1));
+    assertEquals("carol", OpenApiHandler.multiMapToMap(MultiMap.caseInsensitiveMultiMap().add("bob", "fred").add("bob", "carol")).get("bob").get(1));
   }
 
   private OpenAPIConfiguration createOpenapiConfiguration(boolean pretty, boolean filter, List<Object> resources, boolean openAPI31) {
@@ -348,5 +347,5 @@ public class OpenApiHandlerTest extends Application {
                             )
             );
   }
-  
+
 }
