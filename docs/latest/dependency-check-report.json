@@ -5,19 +5,19 @@
         "dataSource": [
 {
                 "name": "NVD API Last Checked",
-                "timestamp": "2026-10-03T07:00:58Z"
+                "timestamp": "2026-11-18T15:59:55Z"
             }
 ,{
                 "name": "NVD API Last Modified",
-                "timestamp": "2026-10-03T01:00:07-04"
+                "timestamp": "2026-11-18T10:00:13-05"
             }
 ,{
                 "name": "NVD Cache Last Checked",
-                "timestamp": "2026-10-03T07:00:58Z"
+                "timestamp": "2026-11-18T15:59:55Z"
             }
 ,{
                 "name": "NVD Cache Last Modified",
-                "timestamp": "2026-10-03T01:00:07-04"
+                "timestamp": "2026-11-18T10:00:13-05"
             }
         ]
 
@@ -25,7 +25,7 @@
     },
     "projectInfo": {
         "name": "Vertx RESTEasy Helpers",
-"groupID":"uk.co.spudsoft","artifactID":"vertx-resteasy-helpers","version":"0.2.5",        "reportDate": "2026-10-03T07:02:22.881570910Z",
+"groupID":"uk.co.spudsoft","artifactID":"vertx-resteasy-helpers","version":"0.2.6",        "reportDate": "2026-11-18T16:01:26.447778738Z",
         "credits": {
             "NVD": "This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov",
             "CISA": "This report may contain data retrieved from the CISA Known Exploited Vulnerability Catalog: https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
@@ -45,7 +45,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-micrometer-metrics@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-micrometer-metrics@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -1870,15 +1870,15 @@
             ]
         },{
             "isVirtual": false,
-            "fileName": "commons-lang3-3.19.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/org\/apache\/commons\/commons-lang3\/3.19.0\/commons-lang3-3.19.0.jar"
-,"md5": "2ac2db154e365d55d167ec1215125a3a",
-            "sha1": "d6524b169a6574cd253760c472d419b47bfd37e6",
-            "sha256": "32733ab4bc90b45b63eb72677d886961003fd4ed113e07b1028f9877cb2ac735","description": "\n  Apache Commons Lang, a package of Java utility classes for the\n  classes that are in java.lang's hierarchy, or are considered to be so\n  standard as to justify existence in java.lang.\n\n  The code is tested using the latest revision of the JDK for supported\n  LTS releases: 8, 11, 17 and 21 currently.\n  See https:\/\/github.com\/apache\/commons-lang\/blob\/master\/.github\/workflows\/maven.yml\n  \n  Please ensure your build environment is up-to-date and kindly report any build issues.\n  ","license": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "commons-lang3-3.21.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/org\/apache\/commons\/commons-lang3\/3.21.0\/commons-lang3-3.21.0.jar"
+,"md5": "74a94a62f74cf1566767a085b3b9c758",
+            "sha1": "7bad013a5acee0a078d75fc352a906baa57acb74",
+            "sha256": "a2af247ec4db6eb8947e18e23e0433e4871a7c5d0a40e1f92e46ede54ae1defe","description": "\n  Apache Commons Lang is a package of Java utility classes for the Java lang packages,\n  classes that could be considered standard to justify their existence in java.lang.\n\n  The code is tested using the latest revision of the JDK for supported LTS releases: 8, 11, 17, 21, and 25.\n  See https:\/\/github.com\/apache\/commons-lang\/blob\/master\/.github\/workflows\/maven.yml\n\n  Please ensure your build environment is up-to-date and kindly report any build issues.\n\n  Starting with Commons Lang 3.9, we target Java 8 and use those features.\n\n  For advice on upgrading from 2.x to 3.x, see https:\/\/commons.apache.org\/lang\/article3_0.html\n  ","license": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.rest-assured\/rest-assured@6.0.1" }
+                { "reference":"pkg:maven\/io.rest-assured\/rest-assured@6.3.0" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -1888,6 +1888,13 @@
                             "source": "file",
                             "name": "name",
                             "value": "commons-lang3"
+                        }
+,{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "jar",
+                            "name": "package name",
+                            "value": "9"
                         }
 ,{
                             "type": "vendor",
@@ -1922,7 +1929,7 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "build-jdk-spec",
-                            "value": "17"
+                            "value": "25"
                         }
 ,{
                             "type": "vendor",
@@ -2386,6 +2393,13 @@
                             "confidence": "HIGHEST",
                             "source": "jar",
                             "name": "package name",
+                            "value": "9"
+                    }
+,{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "jar",
+                            "name": "package name",
                             "value": "apache"
                     }
 ,{
@@ -2414,7 +2428,7 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "build-jdk-spec",
-                            "value": "17"
+                            "value": "25"
                     }
 ,{
                             "type": "product",
@@ -2871,58 +2885,58 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "3.19.0"
+                        "value": "3.21.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "3.19.0"
+                        "value": "3.21.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "3.19.0"
+                        "value": "3.21.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "LOW",
                         "source": "pom",
                         "name": "parent-version",
-                        "value": "3.19.0"
+                        "value": "3.21.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "3.19.0"
+                        "value": "3.21.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/org.apache.commons\/commons-lang3@3.19.0"
+                        "id": "pkg:maven\/org.apache.commons\/commons-lang3@3.21.0"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:apache:commons_lang:3.19.0:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aapache%3Acommons_lang%3A3.19.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:apache:commons_lang:3.21.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aapache%3Acommons_lang%3A3.21.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "httpclient-4.5.13.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/org\/apache\/httpcomponents\/httpclient\/4.5.13\/httpclient-4.5.13.jar"
-,"md5": "40d6b9075fbd28fa10292a45a0db9457",
-            "sha1": "e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada",
-            "sha256": "6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743","description": "\n   Apache HttpComponents Client\n  "            ,"projectReferences": [
+            "fileName": "httpclient-4.5.14.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/org\/apache\/httpcomponents\/httpclient\/4.5.14\/httpclient-4.5.14.jar"
+,"md5": "2cb357c4b763f47e58af6cad47df6ba3",
+            "sha1": "1194890e6f56ec29177673f2f12d0b8e627dec98",
+            "sha256": "c8bc7e1c51a6d4ce72f40d2ebbabf1c4b68bfe76e732104b04381b493478e9d6","description": "\n   Apache HttpComponents Client\n  "            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.rest-assured\/rest-assured@6.0.1" }
+                { "reference":"pkg:maven\/io.rest-assured\/rest-assured@6.3.0" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -2966,7 +2980,7 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "implementation-url",
-                            "value": "http:\/\/hc.apache.org\/httpcomponents-client"
+                            "value": "http:\/\/hc.apache.org\/httpcomponents-client-ga"
                         }
 ,{
                             "type": "vendor",
@@ -3029,7 +3043,7 @@
                             "confidence": "HIGHEST",
                             "source": "pom",
                             "name": "url",
-                            "value": "http:\/\/hc.apache.org\/httpcomponents-client"
+                            "value": "http:\/\/hc.apache.org\/httpcomponents-client-ga"
                         }
                 ],
                 "productEvidence": [
@@ -3087,7 +3101,7 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "implementation-url",
-                            "value": "http:\/\/hc.apache.org\/httpcomponents-client"
+                            "value": "http:\/\/hc.apache.org\/httpcomponents-client-ga"
                     }
 ,{
                             "type": "product",
@@ -3129,7 +3143,7 @@
                             "confidence": "MEDIUM",
                             "source": "pom",
                             "name": "url",
-                            "value": "http:\/\/hc.apache.org\/httpcomponents-client"
+                            "value": "http:\/\/hc.apache.org\/httpcomponents-client-ga"
                     }
                 ],
                 "versionEvidence": [
@@ -3138,44 +3152,44 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "4.5.13"
+                        "value": "4.5.14"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "4.5.13"
+                        "value": "4.5.14"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "4.5.13"
+                        "value": "4.5.14"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/org.apache.httpcomponents\/httpclient@4.5.13"
+                        "id": "pkg:maven\/org.apache.httpcomponents\/httpclient@4.5.14"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:apache:httpclient:4.5.13:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpclient%3A4.5.13%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:apache:httpclient:4.5.14:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpclient%3A4.5.14%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "httpcore-4.4.13.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/org\/apache\/httpcomponents\/httpcore\/4.4.13\/httpcore-4.4.13.jar"
-,"md5": "e07a248f61c52776a2366c075dcd4963",
-            "sha1": "853b96d3afbb7bf8cc303fe27ee96836a10c1834",
-            "sha256": "e06e89d40943245fcfa39ec537cdbfce3762aecde8f9c597780d2b00c2b43424","description": "\n   Apache HttpComponents Core (blocking I\/O)\n  "            ,"projectReferences": [
+            "fileName": "httpcore-4.4.16.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/org\/apache\/httpcomponents\/httpcore\/4.4.16\/httpcore-4.4.16.jar"
+,"md5": "28d2cd9bf8789fd2ec774fb88436ebd1",
+            "sha1": "51cf043c87253c9f58b539c9f7e44c8894223850",
+            "sha256": "6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f","description": "\n   Apache HttpComponents Core (blocking I\/O)\n  "            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.rest-assured\/rest-assured@6.0.1" }
+                { "reference":"pkg:maven\/io.rest-assured\/rest-assured@6.3.0" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -3205,7 +3219,7 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "implementation-build",
-                            "value": "${scmBranch}@r${buildNumber}; 2020-01-09 12:56:55+0000"
+                            "value": "${scmBranch}@r${buildNumber}; 2022-11-26 09:44:32+0000"
                         }
 ,{
                             "type": "vendor",
@@ -3319,7 +3333,7 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "implementation-build",
-                            "value": "${scmBranch}@r${buildNumber}; 2020-01-09 12:56:55+0000"
+                            "value": "${scmBranch}@r${buildNumber}; 2022-11-26 09:44:32+0000"
                     }
 ,{
                             "type": "product",
@@ -3391,44 +3405,44 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "4.4.13"
+                        "value": "4.4.16"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "4.4.13"
+                        "value": "4.4.16"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "4.4.13"
+                        "value": "4.4.16"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/org.apache.httpcomponents\/httpcore@4.4.13"
+                        "id": "pkg:maven\/org.apache.httpcomponents\/httpcore@4.4.16"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:apache:httpcomponents_core:4.4.13:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpcomponents_core%3A4.4.13%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:apache:httpcomponents_core:4.4.16:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpcomponents_core%3A4.4.16%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-annotations-2.22.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/core\/jackson-annotations\/2.22\/jackson-annotations-2.22.jar"
-,"md5": "04c11c456fd1e21b9a21c25c665109cc",
-            "sha1": "15c67f9498d6934cff9510fc70c5a12e52290457",
-            "sha256": "21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0","description": "Core annotations used for value types, used by Jackson data binding package.\n  ","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-annotations-2.23.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/core\/jackson-annotations\/2.23\/jackson-annotations-2.23.jar"
+,"md5": "78850750b7547966b8257217f9bd163d",
+            "sha1": "cce49304a57c900364a727847c98993ca332b7d5",
+            "sha256": "e5b60c3088e0887b290ff9226394354589a1dad583743944b7f5538661056b4c","description": "Core annotations used for value types, used by Jackson data binding package.\n  ","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/com.fasterxml.jackson.core\/jackson-databind@2.22.3" }
+                { "reference":"pkg:maven\/com.fasterxml.jackson.core\/jackson-databind@2.23.0" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -3672,47 +3686,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22"
+                        "value": "2.23"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22"
+                        "value": "2.23"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22"
+                        "value": "2.23"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.core\/jackson-annotations@2.22"
+                        "id": "pkg:maven\/com.fasterxml.jackson.core\/jackson-annotations@2.23"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-core:2.22:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.22%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-core:2.23:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.23%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
 ,                {
-                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.22:*:*:*:*:*:*:*"
+                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.23:*:*:*:*:*:*:*"
 ,"confidence": "LOW"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-core-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/core\/jackson-core\/2.22.3\/jackson-core-2.22.3.jar"
-,"md5": "75691eef4483b7eb0e1c43e08dcb6573",
-            "sha1": "8695aab38355c65b60e242ec62edf13c52916d88",
-            "sha256": "8a501126a385b25841915d839508f8a66e2a0dbc8a6709d055ef3b3e852b094c","description": "Core Jackson processing abstractions (aka Streaming API), implementation for JSON","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-core-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/core\/jackson-core\/2.23.0\/jackson-core-2.23.0.jar"
+,"md5": "ac1ed6dcfa08b8e12969badbba07132f",
+            "sha1": "a9094d2712ae45481ea9152160a4fbdfdea20659",
+            "sha256": "449798beb4c4ec26de9cc25b39ca2198036883fb905ca968cbef7136d19a25d9","description": "Core Jackson processing abstractions (aka Streaming API), implementation for JSON","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -4026,54 +4040,54 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.core\/jackson-core@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.core\/jackson-core@2.23.0"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-core:2.22.3:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-core:2.23.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
 ,                {
-                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.22.3:*:*:*:*:*:*:*"
+                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.23.0:*:*:*:*:*:*:*"
 ,"confidence": "LOW"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-core-3.1.6.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/tools\/jackson\/core\/jackson-core\/3.1.6\/jackson-core-3.1.6.jar"
-,"md5": "7c1586307c87a909a0a549f6ed6b7f30",
-            "sha1": "6c6b0ebc04da57cf7b115dfc46807111bfd6c134",
-            "sha256": "d4938937b819b48f273a25929dc4fbc72ac03b0753c9c6398f54c3905caf7d0e","description": "Core Jackson processing abstractions (aka Streaming API), implementation for JSON","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-core-3.1.8.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/tools\/jackson\/core\/jackson-core\/3.1.8\/jackson-core-3.1.8.jar"
+,"md5": "0c43ee016d67976b7a77dd27d6967975",
+            "sha1": "7d15ed4f722805d4d1413b9537b2f86ab76178a9",
+            "sha256": "762caa009970e8c35527fcc2cfbde50afed0d6a195ee4a7fac22d80fea72c471","description": "Core Jackson processing abstractions (aka Streaming API), implementation for JSON","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -4408,51 +4422,51 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/tools.jackson.core\/jackson-core@3.1.6"
+                        "id": "pkg:maven\/tools.jackson.core\/jackson-core@3.1.8"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-core:3.1.6:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.6%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-core:3.1.8:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.8%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-databind-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/core\/jackson-databind\/2.22.3\/jackson-databind-2.22.3.jar"
-,"md5": "e1fbe6bbbb606fad49068fd2670a5208",
-            "sha1": "d0d4b2cdb0a1440ac02178fc2ff01dfb05cd06a8",
-            "sha256": "556db5439e206114346043f68d200497dc96a0bca62a360a81784092ebd0e0a9","description": "General data-binding functionality for Jackson: works on core streaming API","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-databind-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/core\/jackson-databind\/2.23.0\/jackson-databind-2.23.0.jar"
+,"md5": "23bcc15788a045368dfa1b68230313d0",
+            "sha1": "01f6b378f93126e1212a9344717740e4fd21b28f",
+            "sha256": "abd1edd2736c764da03fe6cb7a9de70d48dd0a198aed131604c564bff62f9cc1","description": "General data-binding functionality for Jackson: works on core streaming API","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -4724,57 +4738,57 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.core\/jackson-databind@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.core\/jackson-databind@2.23.0"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-core:2.22.3:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-core:2.23.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
 ,                {
-                    "id": "cpe:2.3:a:fasterxml:jackson-databind:2.22.3:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-databind:2.23.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
 ,                {
-                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.22.3:*:*:*:*:*:*:*"
+                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.23.0:*:*:*:*:*:*:*"
 ,"confidence": "LOW"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-databind-3.1.6.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/tools\/jackson\/core\/jackson-databind\/3.1.6\/jackson-databind-3.1.6.jar"
-,"md5": "dd69652b321988436085d6765c197ef5",
-            "sha1": "0ffe06306171218710bd2b4b1aafb4e0ada77eea",
-            "sha256": "f0ff64eaa9f1c4bca9d720cd70c542297b0b19fc8ad08531bc55e36c8eab8e4b","description": "General data-binding functionality for Jackson: works on core streaming API","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-databind-3.1.8.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/tools\/jackson\/core\/jackson-databind\/3.1.8\/jackson-databind-3.1.8.jar"
+,"md5": "c1e2755c6781add356ab2098aff81d7d",
+            "sha1": "57f38eece00f227b26916130502ec4082c1b87a5",
+            "sha256": "2e7583c96f3eaf11591a727c75278b25a0f1227d29a7c5e8306f252f441bfb58","description": "General data-binding functionality for Jackson: works on core streaming API","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -5018,54 +5032,54 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "3.1.6"
+                        "value": "3.1.8"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/tools.jackson.core\/jackson-databind@3.1.6"
+                        "id": "pkg:maven\/tools.jackson.core\/jackson-databind@3.1.8"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-core:3.1.6:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.6%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-core:3.1.8:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.8%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
 ,                {
-                    "id": "cpe:2.3:a:fasterxml:jackson-databind:3.1.6:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A3.1.6%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-databind:3.1.8:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A3.1.8%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-dataformat-yaml-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/dataformat\/jackson-dataformat-yaml\/2.22.3\/jackson-dataformat-yaml-2.22.3.jar"
-,"md5": "ba1c8448785cea71b8cc68275d0e542b",
-            "sha1": "520097fe76cde11c7448c622e8cb6e07714c8c7c",
-            "sha256": "2bcbc3b9abaefbeba11409b9e30ec35ed7071a61a47c8c2a9c688e40e45b90f9","description": "Support for reading and writing YAML-encoded data via Jackson abstractions.\n  ","license": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-dataformat-yaml-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/dataformat\/jackson-dataformat-yaml\/2.23.0\/jackson-dataformat-yaml-2.23.0.jar"
+,"md5": "d56b979aee765ad78f3a4a31d9a20591",
+            "sha1": "1763696914143f1baf11c283f3f89e850883cb54",
+            "sha256": "971bce7e65b63c7f78965c29aa35370143f01e21a420d02bb3cde32069360689","description": "Support for reading and writing YAML-encoded data via Jackson abstractions.\n  ","license": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -5323,51 +5337,51 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.dataformat\/jackson-dataformat-yaml@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.dataformat\/jackson-dataformat-yaml@2.23.0"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-dataformat-xml:2.22.3:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-dataformat-xml%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:fasterxml:jackson-dataformat-xml:2.23.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-dataformat-xml%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-datatype-jsr310-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/datatype\/jackson-datatype-jsr310\/2.22.3\/jackson-datatype-jsr310-2.22.3.jar"
-,"md5": "1f14fa9b9779d0545287bba2bfb927df",
-            "sha1": "8d54f48cfe4865bdfa245b8a90fb15b56c8a4a3c",
-            "sha256": "ec7052ee48c9d873bb8148338a643f02cf89c01d035dd219411473030d6d2b22","description": "Add-on module to support JSR-310 (Java 8 Date & Time API) data types.","license": "http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-datatype-jsr310-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/datatype\/jackson-datatype-jsr310\/2.23.0\/jackson-datatype-jsr310-2.23.0.jar"
+,"md5": "b62ba38693a0a11dc89a467bff26a821",
+            "sha1": "f133f886c8b0794496ef666f3f505d0b77c9c1e0",
+            "sha256": "f348f4de49644afa0ccbff6b018709a5f0f1468c76852e4217051890a0b8528c","description": "Add-on module to support JSR-310 (Java 8 Date & Time API) data types.","license": "http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -5667,51 +5681,51 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.datatype\/jackson-datatype-jsr310@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.datatype\/jackson-datatype-jsr310@2.23.0"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.22.3:*:*:*:*:*:*:*"
+                    "id": "cpe:2.3:a:fasterxml:jackson-modules-java8:2.23.0:*:*:*:*:*:*:*"
 ,"confidence": "LOW"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-jakarta-rs-base-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/jakarta\/rs\/jackson-jakarta-rs-base\/2.22.3\/jackson-jakarta-rs-base-2.22.3.jar"
-,"md5": "e132693d221adda4b879f5a8dd7debb2",
-            "sha1": "84332c2f21e47534a0ef74a74023a44207ea4211",
-            "sha256": "d1bbe9ca3637b62950d17cfe3c69c5f6c10825b4d3ce6cfec82cf90bca4b934b","description": "Pile of code that is shared by all Jackson-based Jakarta-RS\nproviders.\n  ","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-jakarta-rs-base-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/jakarta\/rs\/jackson-jakarta-rs-base\/2.23.0\/jackson-jakarta-rs-base-2.23.0.jar"
+,"md5": "facd6ba964ee385baa611b8bb0eac99c",
+            "sha1": "311ba66b903bdc22d098dddae5a9282ddf00a7da",
+            "sha256": "f830f6128260c0b2cb9c7713f12c25231d04457aad0a185f499677d629e002d2","description": "Pile of code that is shared by all Jackson-based Jakarta-RS\nproviders.\n  ","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-json-provider@2.22.3" }
+                { "reference":"pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-json-provider@2.23.0" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -5955,47 +5969,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-base@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-base@2.23.0"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-jakarta-rs-json-provider-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/jakarta\/rs\/jackson-jakarta-rs-json-provider\/2.22.3\/jackson-jakarta-rs-json-provider-2.22.3.jar"
-,"md5": "032270e95b744c0207c87760b23ee164",
-            "sha1": "5198a2370b42d8a4380dacb33416024ad355bedc",
-            "sha256": "1538611c44c4abc067b41dfb8bb48908edb84905ccf406cf6c12d1868c33c47e","description": "Functionality to handle JSON input\/output for Jakarta-RS implementations\n(like Jersey and RESTeasy) using standard Jackson data binding.\n  ","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-jakarta-rs-json-provider-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/jakarta\/rs\/jackson-jakarta-rs-json-provider\/2.23.0\/jackson-jakarta-rs-json-provider-2.23.0.jar"
+,"md5": "0ca63fd87b50e57794c66da2d84cf0b9",
+            "sha1": "d5f9933858d9ab66e65db235f5707a00b2792049",
+            "sha256": "8ec4838aafce88aea853fbcf9f64ad255ab8ef9ebe2aec50a0ec92d9e091115d","description": "Functionality to handle JSON input\/output for Jakarta-RS implementations\n(like Jersey and RESTeasy) using standard Jackson data binding.\n  ","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -6239,47 +6253,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-json-provider@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-json-provider@2.23.0"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "jackson-module-jakarta-xmlbind-annotations-2.22.3.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/module\/jackson-module-jakarta-xmlbind-annotations\/2.22.3\/jackson-module-jakarta-xmlbind-annotations-2.22.3.jar"
-,"md5": "6c200c8acecd147379acf993d5a8e3cb",
-            "sha1": "c5858c73043ca2924f79bf23cefb092e415a5c2c",
-            "sha256": "ce2bbc8d3f27e9321a80e30231288aa0c340c100c45eb413efffbab7b98f3c1e","description": "Support for using Jakarta XML Bind (aka JAXB 3.0) annotations as an alternative\n  to \"native\" Jackson annotations, for configuring data-binding.\n","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "jackson-module-jakarta-xmlbind-annotations-2.23.0.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/fasterxml\/jackson\/module\/jackson-module-jakarta-xmlbind-annotations\/2.23.0\/jackson-module-jakarta-xmlbind-annotations-2.23.0.jar"
+,"md5": "f13205f65c9d36f8c9013cf621262fbe",
+            "sha1": "7bd94071caef062146eee9f54c9aa385c3aa295f",
+            "sha256": "d44943e1d2b2399e362fa6ace4c263ef959b6d8bd91a871da9e860cf85fa1504","description": "Support for using Jakarta XML Bind (aka JAXB 3.0) annotations as an alternative\n  to \"native\" Jackson annotations, for configuring data-binding.\n","license": "The Apache Software License, Version 2.0: https:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-json-provider@2.22.3" }
+                { "reference":"pkg:maven\/com.fasterxml.jackson.jakarta.rs\/jackson-jakarta-rs-json-provider@2.23.0" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -6537,34 +6551,34 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.22.3"
+                        "value": "2.23.0"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.fasterxml.jackson.module\/jackson-module-jakarta-xmlbind-annotations@2.22.3"
+                        "id": "pkg:maven\/com.fasterxml.jackson.module\/jackson-module-jakarta-xmlbind-annotations@2.23.0"
 ,"confidence": "HIGH"                    }
             ]
         },{
@@ -7236,7 +7250,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -9325,7 +9339,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -9662,7 +9676,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/com.github.spotbugs\/spotbugs-annotations@4.10.4" }
+                { "reference":"pkg:maven\/com.github.spotbugs\/spotbugs-annotations@4.10.5" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -9798,15 +9812,15 @@
             ]
         },{
             "isVirtual": false,
-            "fileName": "micrometer-commons-1.17.1.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-commons\/1.17.1\/micrometer-commons-1.17.1.jar"
-,"md5": "aa9291ad211473834d3d48453ae05ea1",
-            "sha1": "b1c3fdea68c5a81495cf1c16cf2905c5ad9f30d2",
-            "sha256": "f2cee6ef046e72eec8128474c7f58c6217173b45ae373c30de0289f2a56ab0fd","description": "Module containing common code","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "micrometer-commons-1.17.2.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-commons\/1.17.2\/micrometer-commons-1.17.2.jar"
+,"md5": "755b78d949ed4fbb396494d14658a7b9",
+            "sha1": "713614728673cc0f57a88ac0a3c7ab7ff5a60824",
+            "sha256": "af8c85e879025ce30c381e6810e14c4f52b4150894e36c815860d14763271348","description": "Module containing common code","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -9849,71 +9863,8 @@
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:39"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:39.516694470Z"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                         }
 ,{
                             "type": "vendor",
@@ -9927,14 +9878,14 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                         }
 ,{
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                         }
 ,{
                             "type": "vendor",
@@ -9942,13 +9893,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                         }
 ,{
                             "type": "vendor",
@@ -10032,7 +9976,7 @@
                             "confidence": "HIGHEST",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                         }
                 ],
                 "productEvidence": [
@@ -10075,71 +10019,8 @@
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:39"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:39.516694470Z"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                     }
 ,{
                             "type": "product",
@@ -10160,21 +10041,21 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                     }
 ,{
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                     }
 ,{
                             "type": "product",
                             "confidence": "HIGH",
                             "source": "Manifest",
                             "name": "Implementation-Title",
-                            "value": "io.micrometer#micrometer-commons;1.17.1"
+                            "value": "io.micrometer#micrometer-commons;1.17.2"
                     }
 ,{
                             "type": "product",
@@ -10182,13 +10063,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                     }
 ,{
                             "type": "product",
@@ -10265,7 +10139,7 @@
                             "confidence": "HIGH",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                     }
                 ],
                 "versionEvidence": [
@@ -10274,47 +10148,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.micrometer\/micrometer-commons@1.17.1"
+                        "id": "pkg:maven\/io.micrometer\/micrometer-commons@1.17.2"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "micrometer-core-1.17.1.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-core\/1.17.1\/micrometer-core-1.17.1.jar"
-,"md5": "512fe405dfbe1caa8e8870af3fc0d8a3",
-            "sha1": "2a9a38d3d0859022fdf2a93743c0d5fe44796a39",
-            "sha256": "9ca47dfa831409b40253c8dc98c17b9d3e050ebbde4d1543c5521dca2b95ad56","description": "Core module of Micrometer containing instrumentation API and implementation","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "micrometer-core-1.17.2.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-core\/1.17.2\/micrometer-core-1.17.2.jar"
+,"md5": "7ac535cc2a2a99905dcd10d791977d00",
+            "sha1": "6fdf2e82cae6c7a302abcf68aef82da98b4fd008",
+            "sha256": "e28ddecbd27477cc7020defd1c2061a3d8b6b2e543d90856186711fe7f346532","description": "Core module of Micrometer containing instrumentation API and implementation","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -10357,71 +10231,8 @@
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:39"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:39.580113236Z"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                         }
 ,{
                             "type": "vendor",
@@ -10435,14 +10246,14 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                         }
 ,{
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                         }
 ,{
                             "type": "vendor",
@@ -10450,13 +10261,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                         }
 ,{
                             "type": "vendor",
@@ -10540,7 +10344,7 @@
                             "confidence": "HIGHEST",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                         }
                 ],
                 "productEvidence": [
@@ -10583,71 +10387,8 @@
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:39"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:39.580113236Z"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                     }
 ,{
                             "type": "product",
@@ -10668,21 +10409,21 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                     }
 ,{
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                     }
 ,{
                             "type": "product",
                             "confidence": "HIGH",
                             "source": "Manifest",
                             "name": "Implementation-Title",
-                            "value": "io.micrometer#micrometer-core;1.17.1"
+                            "value": "io.micrometer#micrometer-core;1.17.2"
                     }
 ,{
                             "type": "product",
@@ -10690,13 +10431,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                     }
 ,{
                             "type": "product",
@@ -10773,7 +10507,7 @@
                             "confidence": "HIGH",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                     }
                 ],
                 "versionEvidence": [
@@ -10782,47 +10516,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.micrometer\/micrometer-core@1.17.1"
+                        "id": "pkg:maven\/io.micrometer\/micrometer-core@1.17.2"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "micrometer-observation-1.17.1.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-observation\/1.17.1\/micrometer-observation-1.17.1.jar"
-,"md5": "f63baf5840fb4446b9313a3bd8773da1",
-            "sha1": "24c0b05bc06a9ab6f4e09a48949b6eccc179ca15",
-            "sha256": "eb34f0cd84a879393ae5c21160fc06385ccdc74f36a4d1e31b199f59acfdaf71","description": "Module containing Observation related code","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "micrometer-observation-1.17.2.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-observation\/1.17.2\/micrometer-observation-1.17.2.jar"
+,"md5": "3ab8f7e74224319d4c01ef87bab8a0db",
+            "sha1": "b069be62d5d1a0f2f61fa8de6dede8f8f0ffc49a",
+            "sha256": "d3ff53cfa0532dc1af0de349073f9aeb985e01f4b88c1d904350178805859695","description": "Module containing Observation related code","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -10865,71 +10599,8 @@
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:39"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:39.958346319Z"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                         }
 ,{
                             "type": "vendor",
@@ -10943,14 +10614,14 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                         }
 ,{
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                         }
 ,{
                             "type": "vendor",
@@ -10958,13 +10629,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                         }
 ,{
                             "type": "vendor",
@@ -11048,7 +10712,7 @@
                             "confidence": "HIGHEST",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                         }
                 ],
                 "productEvidence": [
@@ -11091,71 +10755,8 @@
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:39"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:39.958346319Z"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                     }
 ,{
                             "type": "product",
@@ -11176,21 +10777,21 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                     }
 ,{
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                     }
 ,{
                             "type": "product",
                             "confidence": "HIGH",
                             "source": "Manifest",
                             "name": "Implementation-Title",
-                            "value": "io.micrometer#micrometer-observation;1.17.1"
+                            "value": "io.micrometer#micrometer-observation;1.17.2"
                     }
 ,{
                             "type": "product",
@@ -11198,13 +10799,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                     }
 ,{
                             "type": "product",
@@ -11281,7 +10875,7 @@
                             "confidence": "HIGH",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                     }
                 ],
                 "versionEvidence": [
@@ -11290,47 +10884,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.micrometer\/micrometer-observation@1.17.1"
+                        "id": "pkg:maven\/io.micrometer\/micrometer-observation@1.17.2"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "micrometer-registry-prometheus-1.17.1.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-registry-prometheus\/1.17.1\/micrometer-registry-prometheus-1.17.1.jar"
-,"md5": "2d25d73f9a8755694cbf01323649870e",
-            "sha1": "fa0a245ad6fee4763264dc76d2b3e0166a5f5e47",
-            "sha256": "ac24d43f123e103828a23a86f092a8709d87d309ad3212e798305654e951a8ce","description": "MeterRegistry implementation for Prometheus using io.prometheus:prometheus-metrics-core. If you have compatibility issues with this module, you can go back to io.micrometer:micrometer-registry-prometheus-simpleclient that uses io.prometheus:simpleclient_common.","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "micrometer-registry-prometheus-1.17.2.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/micrometer\/micrometer-registry-prometheus\/1.17.2\/micrometer-registry-prometheus-1.17.2.jar"
+,"md5": "e516c5bbba6850ff9d59411186bad00a",
+            "sha1": "30bd3e81ebc93d8a5d63e45b966b9bfe3e8604fc",
+            "sha256": "407d7da0bf04caaabc53203344835b8d0587f6c3c10b4358a7689bb0e584427b","description": "MeterRegistry implementation for Prometheus using io.prometheus:prometheus-metrics-core. If you have compatibility issues with this module, you can go back to io.micrometer:micrometer-registry-prometheus-simpleclient that uses io.prometheus:simpleclient_common.","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -11366,71 +10960,8 @@
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:40"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:40.737685126Z"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                         }
 ,{
                             "type": "vendor",
@@ -11444,14 +10975,14 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                         }
 ,{
                             "type": "vendor",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                         }
 ,{
                             "type": "vendor",
@@ -11459,13 +10990,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                        }
-,{
-                            "type": "vendor",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                         }
 ,{
                             "type": "vendor",
@@ -11549,7 +11073,7 @@
                             "confidence": "HIGHEST",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                         }
                 ],
                 "productEvidence": [
@@ -11585,71 +11109,8 @@
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
-                            "name": "branch",
-                            "value": "release\/1.17.1"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date",
-                            "value": "2026-08-17_07:25:40"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-date-utc",
-                            "value": "2026-08-17T07:25:40.737685126Z"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-host",
-                            "value": "https:\/\/github.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-job",
-                            "value": "build-release"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-number",
-                            "value": "50"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-timezone",
-                            "value": "Etc\/UTC"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "build-url",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial\/actions\/runs\/32005692132"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-os",
-                            "value": "Linux"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "built-status",
-                            "value": "integration"
+                            "name": "build-jdk-spec",
+                            "value": "25"
                     }
 ,{
                             "type": "product",
@@ -11670,21 +11131,21 @@
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "change",
-                            "value": "f1b1924"
+                            "value": "b52db89"
                     }
 ,{
                             "type": "product",
                             "confidence": "LOW",
                             "source": "Manifest",
                             "name": "full-change",
-                            "value": "f1b1924bc8821adbc841df69eb433c933e17e1a5"
+                            "value": "b52db89c3569a3649df0f1d86ca825d6e03c073b"
                     }
 ,{
                             "type": "product",
                             "confidence": "HIGH",
                             "source": "Manifest",
                             "name": "Implementation-Title",
-                            "value": "io.micrometer#micrometer-registry-prometheus;1.17.1"
+                            "value": "io.micrometer#micrometer-registry-prometheus;1.17.2"
                     }
 ,{
                             "type": "product",
@@ -11692,13 +11153,6 @@
                             "source": "Manifest",
                             "name": "module-email",
                             "value": "tludwig@vmware.com,jivanov@vmware.com"
-                    }
-,{
-                            "type": "product",
-                            "confidence": "LOW",
-                            "source": "Manifest",
-                            "name": "module-origin",
-                            "value": "https:\/\/github.com\/micrometer-metrics\/micrometer-commercial.git"
                     }
 ,{
                             "type": "product",
@@ -11775,7 +11229,7 @@
                             "confidence": "HIGH",
                             "source": "pom",
                             "name": "url",
-                            "value": "micrometer-metrics\/micrometer-commercial"
+                            "value": "micrometer-metrics\/micrometer"
                     }
                 ],
                 "versionEvidence": [
@@ -11784,40 +11238,40 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "1.17.1"
+                        "value": "1.17.2"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1"
+                        "id": "pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "netty-common-4.2.18.Final.jar (shaded: org.jctools:jctools-core-jdk11:4.0.7)",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-common\/4.2.18.Final\/netty-common-4.2.18.Final.jar\/META-INF\/maven\/org.jctools\/jctools-core-jdk11\/pom.xml"
+            "fileName": "netty-common-4.2.20.Final.jar (shaded: org.jctools:jctools-core-jdk11:4.0.7)",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-common\/4.2.20.Final\/netty-common-4.2.20.Final.jar\/META-INF\/maven\/org.jctools\/jctools-core-jdk11\/pom.xml"
 ,"md5": "ba1cbe90e8746a1d75c74505e58d98ca",
             "sha1": "ee1d8b096773616ad160c1f3d021a830b9c0d3da",
             "sha256": "e32377eaa76f88c9271025fa5d4442bc1963e1de5f4055c5819c8cc73eda1936","description": "Java Concurrency Tools Core Library","license": "Apache License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
@@ -11901,8 +11355,8 @@
             ]
         },{
             "isVirtual": false,
-            "fileName": "netty-common-4.2.18.Final.jar (shaded: org.jctools:jctools-core:4.0.7)",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-common\/4.2.18.Final\/netty-common-4.2.18.Final.jar\/META-INF\/maven\/org.jctools\/jctools-core\/pom.xml"
+            "fileName": "netty-common-4.2.20.Final.jar (shaded: org.jctools:jctools-core:4.0.7)",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-common\/4.2.20.Final\/netty-common-4.2.20.Final.jar\/META-INF\/maven\/org.jctools\/jctools-core\/pom.xml"
 ,"md5": "47e1366562570dfcc088cab9bee0b9c7",
             "sha1": "4306deb28041ba8817a0c58e63e117a5eb3129bd",
             "sha256": "aed8e685ad1b1115fd687395d53afee8a1f1c4aaf79af8b03470cd71099814b1","description": "Java Concurrency Tools Core Library","license": "Apache License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
@@ -11986,15 +11440,15 @@
             ]
         },{
             "isVirtual": false,
-            "fileName": "netty-tcnative-classes-2.0.84.Final.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-tcnative-classes\/2.0.84.Final\/netty-tcnative-classes-2.0.84.Final.jar"
-,"md5": "6779bba2d822f4bd89bd461f9bb1cf80",
-            "sha1": "30d95c719f174c33e5146f923cda62d7bdb65650",
-            "sha256": "7a4437abf98b0cec053af4443fe321177d2cfccfec7bcad4e7d8b75571bbec4d","description": "\n    A Mavenized fork of Tomcat Native which incorporates various patches. This artifact is dynamically linked\n    to OpenSSL and Apache APR.\n  ","license": "http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
+            "fileName": "netty-tcnative-classes-2.0.85.Final.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-tcnative-classes\/2.0.85.Final\/netty-tcnative-classes-2.0.85.Final.jar"
+,"md5": "de94aa0fe56c794b67f10a786aa7929f",
+            "sha1": "08019d502460ace96b2734854964860718e92016",
+            "sha256": "3c1bcba8d80d7002277effe67509979b3a7bd22341bab276b946837f0b76f831","description": "\n    A Mavenized fork of Tomcat Native which incorporates various patches. This artifact is dynamically linked\n    to OpenSSL and Apache APR.\n  ","license": "http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -12238,234 +11692,234 @@
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "2.0.84.Final"
+                        "value": "2.0.85.Final"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "2.0.84.Final"
+                        "value": "2.0.85.Final"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "2.0.84.Final"
+                        "value": "2.0.85.Final"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.netty\/netty-tcnative-classes@2.0.84.Final"
+                        "id": "pkg:maven\/io.netty\/netty-tcnative-classes@2.0.85.Final"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "netty-transport-4.2.18.Final.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-transport\/4.2.18.Final\/netty-transport-4.2.18.Final.jar"
-,"md5": "0281402fa35ef33f339f5e5db0a66d55",
-            "sha1": "14ad66183e0456621161e60b41ca2abdcf9bd15c",
-            "sha256": "eac4f12068db4489e60c6520fad663e5d872f0436a7c641aa9e08db649947863","description": "Netty is an asynchronous event-driven network application framework for    rapid development of maintainable high performance protocol servers and    clients.","license": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0"            ,"projectReferences": [
+            "fileName": "netty-transport-4.2.20.Final.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-transport\/4.2.20.Final\/netty-transport-4.2.20.Final.jar"
+,"md5": "41d2d3b6633fa7972eceb501555516e9",
+            "sha1": "f4e01e4208b3799ef7f83c826c15fb9b3648c589",
+            "sha256": "ff4f1f8158c714c1b485ef10cf2456fbd3c1b2930256b70287aeb7dc3ad94783","description": "Netty is an asynchronous event-driven network application framework for    rapid development of maintainable high performance protocol servers and    clients.","license": "https:\/\/www.apache.org\/licenses\/LICENSE-2.0"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"relatedDependencies": [
   {
                     "isVirtual": false,
-                    "fileName": "netty-buffer-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-buffer\/4.2.18.Final\/netty-buffer-4.2.18.Final.jar"
-,"sha256": "fdf236d2b76aa9710684401fdad7dff9dec56e43da5d39172c9a55ba5f14b360",
-                    "sha1": "62e970871a61c58ff7164e076bb8032a1ea444af",
-                    "md5": "34385ae3157b9f9c8d73383aad53e871",
+                    "fileName": "netty-buffer-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-buffer\/4.2.20.Final\/netty-buffer-4.2.20.Final.jar"
+,"sha256": "794136fc6be78e44a286c2b1420a182e135c6d06eb8c397030c1551ee50acccd",
+                    "sha1": "12d223b605fe08ec593750fd25115297c4f3418a",
+                    "md5": "7d5166b4d39c7024ab47d7781971fa94",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-buffer@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-buffer@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-base-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-base\/4.2.18.Final\/netty-codec-base-4.2.18.Final.jar"
-,"sha256": "7e4612bead7ba88ac6f7908fa722f90ad6835ea96505c9e40b2f93686c1f61f3",
-                    "sha1": "058739f9f05f1806e1117401e1982b04d7a02f3b",
-                    "md5": "1877d0d0e3a42b091d6fde46c8bd6a54",
+                    "fileName": "netty-codec-base-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-base\/4.2.20.Final\/netty-codec-base-4.2.20.Final.jar"
+,"sha256": "5a66da26b86d7eecedd9e0d8fe0e22ef1733bbf873e476cb9b860afbed22210c",
+                    "sha1": "2a1724e0645dc4a99e7d9dfc989d596b93d2492b",
+                    "md5": "8c3246480f05810f2751303708f9ec3c",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-base@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-base@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-classes-quic-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-classes-quic\/4.2.18.Final\/netty-codec-classes-quic-4.2.18.Final.jar"
-,"sha256": "d1c4c4327fde2bf6ec773b070344907a7a4844f1843528ae917905e2c3547478",
-                    "sha1": "cc350fcbcd92876d5de11d54e68f63f0ebb6e10b",
-                    "md5": "8bdbbd36ed1ebb7da9cf5f441ebf7db9",
+                    "fileName": "netty-codec-classes-quic-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-classes-quic\/4.2.20.Final\/netty-codec-classes-quic-4.2.20.Final.jar"
+,"sha256": "eb558b7906be9f37cfff0ef71acb0865aa3b7cf2e52ba0a646e6e79d487d1711",
+                    "sha1": "a9b3eb06737a2f7a1f0ea931c3f358cd7000bfc3",
+                    "md5": "4f71a902c7c792e0825205868258ba5b",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-classes-quic@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-classes-quic@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-compression-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-compression\/4.2.18.Final\/netty-codec-compression-4.2.18.Final.jar"
-,"sha256": "9d8a4b9a6a2a166ec5a4bbe51a78b4f6a726457c51d81495743c7e7ccb9f4765",
-                    "sha1": "f6f9e4372da33ca4f96b7af528ec8c26932f9fde",
-                    "md5": "44dd5f7d6e4c00871c0c329cf441cfb3",
+                    "fileName": "netty-codec-compression-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-compression\/4.2.20.Final\/netty-codec-compression-4.2.20.Final.jar"
+,"sha256": "7ebae4ac80c01e2d279d0e50d377bcdaf0cf8f2f65797e0578afc810a66ab57d",
+                    "sha1": "921bf1c5e238dbfd54d19d344a3ef253080d2a66",
+                    "md5": "dc072e459669ca89cc64b4de9be2d503",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-compression@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-compression@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-dns-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-dns\/4.2.18.Final\/netty-codec-dns-4.2.18.Final.jar"
-,"sha256": "6f4b6da1483a82a637804740c2fb61385c9337a5e7ae5e357720cc03ba60b728",
-                    "sha1": "b89710bfb47ad07d5fd936829aba9a06fcfbcd0a",
-                    "md5": "82bbdd94118354399b9b5f04cea0cd30",
+                    "fileName": "netty-codec-dns-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-dns\/4.2.20.Final\/netty-codec-dns-4.2.20.Final.jar"
+,"sha256": "8296127e74eb871eea6e17520ad5d12aec37700252a61165057b28df6e5f9499",
+                    "sha1": "e1c7d0cad4edbb2edbe2533731552cac002e4e17",
+                    "md5": "1490bd70ec5c00ec9c190d27b3b41a3f",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-dns@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-dns@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-http-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-http\/4.2.18.Final\/netty-codec-http-4.2.18.Final.jar"
-,"sha256": "2d50765eb58591ce35146c54ca032a257808d2165d8985a8522c70ea1470e8d7",
-                    "sha1": "25d8eed33ee14c6691250df4115604cf6a41340a",
-                    "md5": "28f394665ff94da8415c501340f57535",
+                    "fileName": "netty-codec-http-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-http\/4.2.20.Final\/netty-codec-http-4.2.20.Final.jar"
+,"sha256": "d08b0d473c48c61ebb2bc4d145111fa1777832aee4d2be1024891e904e36eaf5",
+                    "sha1": "2d7b07f88c991d0bd30755afe367fe1bd8610b7d",
+                    "md5": "6fc905438d58b5b431deb10736a513f1",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-http@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-http@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-http2-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-http2\/4.2.18.Final\/netty-codec-http2-4.2.18.Final.jar"
-,"sha256": "a45a2b06c377b9c87c21ae2b37f04c8d808192590a73d977e7a60fd59921f283",
-                    "sha1": "a0f08f3697a570cb1eae4abfd6637f6facb2fe57",
-                    "md5": "a9ea2ce366e5200bdd8adcee82b8e663",
+                    "fileName": "netty-codec-http2-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-http2\/4.2.20.Final\/netty-codec-http2-4.2.20.Final.jar"
+,"sha256": "168790c8d10d2e7cc53fa08906162e3d6c23b4528e7d062eea328d4a281484c6",
+                    "sha1": "1f4843426ecea666d875d64f37af8456566d2d9a",
+                    "md5": "65e84c26a8e2fa6d94762f45b9c30737",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-http2@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-http2@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-http3-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-http3\/4.2.18.Final\/netty-codec-http3-4.2.18.Final.jar"
-,"sha256": "cc1652ece111e35a7677c8260499cc6709950061998f9d1a36496b352f456273",
-                    "sha1": "2776049d9acabac6a2da9346c5ffb9ac1436fc29",
-                    "md5": "ad79db1986be55731ed4883f0b46113d",
+                    "fileName": "netty-codec-http3-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-http3\/4.2.20.Final\/netty-codec-http3-4.2.20.Final.jar"
+,"sha256": "9d3698b9787ddb46226c3e3e4d1d51415503b18eb3be9da19b4918b4cb6e63bf",
+                    "sha1": "55c951c513e725d0e8906dce474001230fe3d49f",
+                    "md5": "8d8f4e7d4a2887ee906bcae1dfe2e2ab",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-http3@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-http3@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-codec-socks-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-socks\/4.2.18.Final\/netty-codec-socks-4.2.18.Final.jar"
-,"sha256": "25dea7bc1ad990ab8959065f0690b63574d8db4f51033cd98458fc84c59367f3",
-                    "sha1": "4a3bf2cc5051c3c35076d0dd8528ebcce440258e",
-                    "md5": "6d88960ef3fb5c7f673a3f738f093e9b",
+                    "fileName": "netty-codec-socks-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-codec-socks\/4.2.20.Final\/netty-codec-socks-4.2.20.Final.jar"
+,"sha256": "8510f0ceee40a4254760b2927431e2403a6588c4068022e2440356acfc5e24c1",
+                    "sha1": "02f06f8e7b4ce860de4114f73f23422118d985f3",
+                    "md5": "909d628c813a300c568c2f7e6a368389",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-codec-socks@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-codec-socks@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-common-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-common\/4.2.18.Final\/netty-common-4.2.18.Final.jar"
-,"sha256": "5d97cae5669685872339698efe13f74fe3cdb2dccdb36963b2352bd95acf7070",
-                    "sha1": "aa06ef3310c8ad1e506ec14ab3794f9e26438121",
-                    "md5": "d9a640f410fd5db89ae10992860c499a",
+                    "fileName": "netty-common-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-common\/4.2.20.Final\/netty-common-4.2.20.Final.jar"
+,"sha256": "5807fef7eb619bc0a5d1c0e6c83199ea9bca8503203a3eb73cfdccec2d215743",
+                    "sha1": "e87b2bbdc7b7ebcb59ab5c29576e40a423e0661b",
+                    "md5": "4a7d0c2209de7343131912a1031e5f84",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-common@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-common@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-handler-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-handler\/4.2.18.Final\/netty-handler-4.2.18.Final.jar"
-,"sha256": "6d5a08d9dd6d7d0211202e22dbb1629b23a62550335c7e80892da1d4cb115540",
-                    "sha1": "b946698c37ab69603a4f0df8180f9594d89cf4b7",
-                    "md5": "e44f75ee547b2b97d13fd5651d05ba19",
+                    "fileName": "netty-handler-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-handler\/4.2.20.Final\/netty-handler-4.2.20.Final.jar"
+,"sha256": "211dbbba074298046b37f841ad9ca89ed91968f6b9e97400c99ab4e6177b1f96",
+                    "sha1": "937cf68d314ea0edbf077643a3db42988e872f87",
+                    "md5": "8f911e550da0f2a9d8576ed2b98e9a9d",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-handler@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-handler@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-handler-proxy-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-handler-proxy\/4.2.18.Final\/netty-handler-proxy-4.2.18.Final.jar"
-,"sha256": "d7786de71c0d405b80b4262e0c585618e6f20e7fd3188cb4f599ffc4029ee9ea",
-                    "sha1": "56176147f9e2d8186a277695a49cff2dab70d747",
-                    "md5": "47dcfd1ad78ef02513d3aec464663860",
+                    "fileName": "netty-handler-proxy-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-handler-proxy\/4.2.20.Final\/netty-handler-proxy-4.2.20.Final.jar"
+,"sha256": "9fd508051bb39829117e4dbfa2d0b485aafb88d2d627ae6ec1fed5a3faa3842a",
+                    "sha1": "2c661a4b757d2961986451ebec88badc2d226c8a",
+                    "md5": "20b440304056b098abe9df2942bef148",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-handler-proxy@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-handler-proxy@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-resolver-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-resolver\/4.2.18.Final\/netty-resolver-4.2.18.Final.jar"
-,"sha256": "68373ec544cf769ba17bf2ef455166d98f2c260dff536edf35ef57067a9c155f",
-                    "sha1": "9d21e01c476a1f92b9dc07d968d2a02810b2fba1",
-                    "md5": "cc5b70a75432db82fe251489cb0626f2",
+                    "fileName": "netty-resolver-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-resolver\/4.2.20.Final\/netty-resolver-4.2.20.Final.jar"
+,"sha256": "cb7a6027e4f366fb28dcea7e1f7088ca16bd23c2cc38e8ddfdac77a77bd144dc",
+                    "sha1": "c4305893023f9705eb85db85be3c65149666c004",
+                    "md5": "bd4474897d966c719a8f9b199a758ec2",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-resolver@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-resolver@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-resolver-dns-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-resolver-dns\/4.2.18.Final\/netty-resolver-dns-4.2.18.Final.jar"
-,"sha256": "7dd3ec96bef04abc91a0f461f8acc19ebc0738c257ea653aea9dd0ad67b3b1ce",
-                    "sha1": "139f12718e993ebb19f64ef5eb95167f69dc97bf",
-                    "md5": "d81ff340684dc5a9dca2a20b850fae20",
+                    "fileName": "netty-resolver-dns-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-resolver-dns\/4.2.20.Final\/netty-resolver-dns-4.2.20.Final.jar"
+,"sha256": "9a1dc5abc7f146bf0ff0938dceb384f7c972dc052cd9cd2f367cb30a0718fa71",
+                    "sha1": "a0982f800ba0e3692f0ebc06caaa261b211c5fb7",
+                    "md5": "3c6896acfb041dea01b8598f43623b06",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-resolver-dns@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-resolver-dns@4.2.20.Final"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "netty-transport-native-unix-common-4.2.18.Final.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-transport-native-unix-common\/4.2.18.Final\/netty-transport-native-unix-common-4.2.18.Final.jar"
-,"sha256": "cada7023d09136af128511ca94421d69dc84d0f1f64c9e1f127a1271bb62932a",
-                    "sha1": "b9dbd51d2802e447630ef2b8bba56bb5aaad1f82",
-                    "md5": "00baea2ea6f0e3392a033171ff1be3d9",
+                    "fileName": "netty-transport-native-unix-common-4.2.20.Final.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/netty\/netty-transport-native-unix-common\/4.2.20.Final\/netty-transport-native-unix-common-4.2.20.Final.jar"
+,"sha256": "6f600d5cbd3ce39e50680de66b00d7e6a9652dac7d08a5b022101d717cb7fb52",
+                    "sha1": "34e59d72bab77ba8fc1ff899a267d52ccb4e3312",
+                    "md5": "f4889b008a291741a32141bbb03e2457",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.18.Final"
+                                "id": "pkg:maven/io.netty/netty-transport-native-unix-common@4.2.20.Final"
                             }
                     ]
                 }
@@ -12705,32 +12159,32 @@
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "4.2.18.Final"
+                        "value": "4.2.20.Final"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "4.2.18.Final"
+                        "value": "4.2.20.Final"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "4.2.18.Final"
+                        "value": "4.2.20.Final"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.netty\/netty-transport@4.2.18.Final"
+                        "id": "pkg:maven\/io.netty\/netty-transport@4.2.20.Final"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:netty:netty:4.2.18:*:*:*:*:*:*:*"
-,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Anetty%3Anetty%3A4.2.18%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:netty:netty:4.2.20:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Anetty%3Anetty%3A4.2.20%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
@@ -12742,7 +12196,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -12970,7 +12424,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -13198,7 +12652,7 @@
                 "Vertx RESTEasy Helpers:runtime"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -13426,7 +12880,7 @@
                 "Vertx RESTEasy Helpers:runtime"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -13640,7 +13094,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -13868,7 +13322,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.1" }
+                { "reference":"pkg:maven\/io.micrometer\/micrometer-registry-prometheus@1.17.2" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -15208,7 +14662,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -15408,7 +14862,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -15608,7 +15062,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -15822,7 +15276,7 @@
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -16137,15 +15591,15 @@
             ]
         },{
             "isVirtual": false,
-            "fileName": "spotbugs-annotations-4.10.4.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/com\/github\/spotbugs\/spotbugs-annotations\/4.10.4\/spotbugs-annotations-4.10.4.jar"
-,"md5": "472925cb4e5451c8f7a1aeeefe286622",
-            "sha1": "7eb4c58212378becfb6ea6d236ec24a2352a316e",
-            "sha256": "28fa4befaddce5d7b79b07c68e7c12fa27c5d9282c4229528717971606661ea3","description": "Annotations the SpotBugs tool supports","license": "GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1: https:\/\/www.gnu.org\/licenses\/old-licenses\/lgpl-2.1.en.html"            ,"projectReferences": [
+            "fileName": "spotbugs-annotations-4.10.5.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/com\/github\/spotbugs\/spotbugs-annotations\/4.10.5\/spotbugs-annotations-4.10.5.jar"
+,"md5": "1252eef45ba52209b89fe0203bf9a633",
+            "sha1": "5cf6042318b3d7c43fa159dd86796fc8cc31bb3c",
+            "sha256": "2f28af17ad61a7daad0f3df070198c4a5807d3ffd98a5408f670cd19fc2dce84","description": "Annotations the SpotBugs tool supports","license": "GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1: https:\/\/www.gnu.org\/licenses\/old-licenses\/lgpl-2.1.en.html"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -16508,27 +15962,27 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "4.10.4"
+                        "value": "4.10.5"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Bundle-Version",
-                        "value": "4.10.4"
+                        "value": "4.10.5"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "4.10.4"
+                        "value": "4.10.5"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/com.github.spotbugs\/spotbugs-annotations@4.10.4"
+                        "id": "pkg:maven\/com.github.spotbugs\/spotbugs-annotations@4.10.5"
 ,"confidence": "HIGH"                    }
             ]
         },{
@@ -16882,15 +16336,15 @@
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-auth-common-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-auth-common\/5.2.0\/vertx-auth-common-5.2.0.jar"
-,"md5": "678ffde78887146849f2ba1b85411940",
-            "sha1": "8163b6c35d803c14cd33448a6cb925b7426f71d4",
-            "sha256": "b033ff64f5c361c8972bb9d1a229f44708807ba5bc36aedde298e26b3158b596"            ,"projectReferences": [
+            "fileName": "vertx-auth-common-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-auth-common\/5.2.3\/vertx-auth-common-5.2.3.jar"
+,"md5": "2576fb7b7571078752f4830e1acc74fe",
+            "sha1": "5a225407254ab13e3242109dc28be197a646d2ce",
+            "sha256": "2a938038d4893f27d6d5485df7f407ba03c07fbc0f5e5b61e41b62a1172268a1"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -17078,47 +16532,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-auth-common@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-auth-common@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-codegen-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen\/5.2.0\/vertx-codegen-5.2.0.jar"
-,"md5": "923d4955aff9df4ea390f0053f99ff45",
-            "sha1": "9bedc3ac70a383f6682a0ef0e266a7787d6d31a0",
-            "sha256": "68474abf715514a80a2b914bf2d39dc22346618b6c79a061db2c1d449b27091c"            ,"projectReferences": [
+            "fileName": "vertx-codegen-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen\/5.2.3\/vertx-codegen-5.2.3.jar"
+,"md5": "4b51185c8065f3dc99583a596ce6cfd2",
+            "sha1": "af3fd4fc0951834f5453980e0af7d48c9f9a8e1d",
+            "sha256": "ac7a05570751265bf7a3953c16917671107bb7de1f119bb1bbbb4e91558081c4"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -17306,47 +16760,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-codegen@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-codegen@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-codegen-api-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen-api\/5.2.0\/vertx-codegen-api-5.2.0.jar"
-,"md5": "15ef4e1587f6b3b58cb574c3ef5b7e84",
-            "sha1": "bc8cb6ffa1c4deee111214969571269b5e96d7ae",
-            "sha256": "4b30be71ca7e847a01d01a5e30f34ab710f0dd9a5ed641ee14fdd66f2efcad19"            ,"projectReferences": [
+            "fileName": "vertx-codegen-api-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen-api\/5.2.3\/vertx-codegen-api-5.2.3.jar"
+,"md5": "ada9c6b59407695eb082f67e30e19e45",
+            "sha1": "4e043c678fb3647a4d46a3329f9a890541006ede",
+            "sha256": "07d07c13af8163563e870defd202e6eb681200ef62757404f62d644761ebbbee"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-codegen@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-codegen@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -17534,47 +16988,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-codegen-api@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-codegen-api@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-codegen-json-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen-json\/5.2.0\/vertx-codegen-json-5.2.0.jar"
-,"md5": "4b9f4cfbf38fa85266bcbb616bea650a",
-            "sha1": "f6b43b97799b49806fe1b01def3c0ca85b1e3a53",
-            "sha256": "d453a8717a4f851293e097c46a6f333ee0a0c72fade4ee7a4fdac62a27a598a6"            ,"projectReferences": [
+            "fileName": "vertx-codegen-json-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen-json\/5.2.3\/vertx-codegen-json-5.2.3.jar"
+,"md5": "813fdc1f1734c91d9322462175a32c77",
+            "sha1": "4058ab2bad6816a854e07902378c6d4a02d18426",
+            "sha256": "03bf7029ba09dc445d5d39b69f4dada3aa30287737fd9f5abdeaed03a58d55fc"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-codegen@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-codegen@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -17776,47 +17230,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-codegen-json@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-codegen-json@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-codegen-processor-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen-processor\/5.2.0\/vertx-codegen-processor-5.2.0.jar"
-,"md5": "2ab462c1cd879376e753ddbc87a421d4",
-            "sha1": "e232fcc2af83e2f3b3b8e93703e19a7a3046157f",
-            "sha256": "3158adbc13cde27de9e6dbd0b0107bb42fcd6ae91ce133654ba96ea3afc5ae4b"            ,"projectReferences": [
+            "fileName": "vertx-codegen-processor-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-codegen-processor\/5.2.3\/vertx-codegen-processor-5.2.3.jar"
+,"md5": "ca85d551c9aee02db0d220e3abf0f1d9",
+            "sha1": "468f7469ea199754414fe16df419725c7b8cdf33",
+            "sha256": "816ab37a58def5cd73b72319dc7cb36f37cb66543e1bae3a0d9928366cfd6f34"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-codegen@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-codegen@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -18018,98 +17472,98 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-codegen-processor@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-codegen-processor@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-core-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-core\/5.2.0\/vertx-core-5.2.0.jar"
-,"md5": "a6c3497d329b6c433c94f9981838f267",
-            "sha1": "da57447fd65163f9bbc3414a2f571d563a3c121a",
-            "sha256": "827e14d27a1a21a624b125651a59c5243b079514fbc387559fe0f3c5c3812299"            ,"projectReferences": [
+            "fileName": "vertx-core-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-core\/5.2.3\/vertx-core-5.2.3.jar"
+,"md5": "526e2ce3aeedd856931de1546711cee4",
+            "sha1": "91d29e416c3be791a3fdca5ace2fa9ba935ccddc",
+            "sha256": "08039d0e9c197fa3c1bfce3f86be7824602a2e1c22d0f482d2ac63de1a3c59f6"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"relatedDependencies": [
   {
                     "isVirtual": false,
-                    "fileName": "vertx-bridge-common-5.2.0.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-bridge-common\/5.2.0\/vertx-bridge-common-5.2.0.jar"
-,"sha256": "1ac6afabdc055ce10f537723509cc9e282d4a80b40d439ebefa6549845c44e14",
-                    "sha1": "3529b4be475fffebc1af4d8a81befdfb3402de61",
-                    "md5": "c1fefe69ef8b9f3aac2d2a1eb04597d6",
+                    "fileName": "vertx-bridge-common-5.2.3.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-bridge-common\/5.2.3\/vertx-bridge-common-5.2.3.jar"
+,"sha256": "eb419813e2944f19aff35d22ef019911d6710ca3d9df18738fa75d4295f27f61",
+                    "sha1": "dd82fc9cbc18966f414e73437b8b30d2d5823b6d",
+                    "md5": "adcb21abca497d649940711c31d7638b",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.vertx/vertx-bridge-common@5.2.0"
+                                "id": "pkg:maven/io.vertx/vertx-bridge-common@5.2.3"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "vertx-core-logging-5.2.0.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-core-logging\/5.2.0\/vertx-core-logging-5.2.0.jar"
-,"sha256": "db3dff150e53b0960f41b9d009d466a4a0eda047eeaa7337ec4922007f18c45b",
-                    "sha1": "bf64c54160edce659a4f5876e6119cddf75f4237",
-                    "md5": "2d01b76f45cc979358bca00c418799c6",
+                    "fileName": "vertx-core-logging-5.2.3.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-core-logging\/5.2.3\/vertx-core-logging-5.2.3.jar"
+,"sha256": "6e9a97fcebf674770f65051a1fe681863c54a86da48d3ca9722b5773eba345af",
+                    "sha1": "b4328dbffcc5ce4611e178ea3faed40f04db0104",
+                    "md5": "696ba435860e9c9f2f9c4b4920645852",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.vertx/vertx-core-logging@5.2.0"
+                                "id": "pkg:maven/io.vertx/vertx-core-logging@5.2.3"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "vertx-eventbus-bridge-common-5.2.0.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-eventbus-bridge-common\/5.2.0\/vertx-eventbus-bridge-common-5.2.0.jar"
-,"sha256": "6cd14ba90c7d64030f6d8a344f180d9d0dd1f5cad40b8be7b4c08525074d15de",
-                    "sha1": "1021d7d4d3aef03fe367d4a9dd90204d00da2816",
-                    "md5": "3cd1b01473e87008bcb82ae7e0537b34",
+                    "fileName": "vertx-eventbus-bridge-common-5.2.3.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-eventbus-bridge-common\/5.2.3\/vertx-eventbus-bridge-common-5.2.3.jar"
+,"sha256": "9ba99a984f2b83465cfd9eab28abda7c6389dd01bea22066123d1b6dbe8eab8f",
+                    "sha1": "53da9210332190645fa734da85945cb7b46bde07",
+                    "md5": "17f513c670c6d1c3d63e3da1fdf1913f",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.vertx/vertx-eventbus-bridge-common@5.2.0"
+                                "id": "pkg:maven/io.vertx/vertx-eventbus-bridge-common@5.2.3"
                             }
                     ]
                 }
  , {
                     "isVirtual": false,
-                    "fileName": "vertx-micrometer-metrics-5.2.0.jar",
-                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-micrometer-metrics\/5.2.0\/vertx-micrometer-metrics-5.2.0.jar"
-,"sha256": "2fb026c1edd012587c8f8971ae0fb199be03ed816cfaeb74e227ac218ea8e15d",
-                    "sha1": "31a64fba9c5bf80303354647d2845e7dae89ddb2",
-                    "md5": "df8d46c37e157e17d0f6f89cf9d99b03",
+                    "fileName": "vertx-micrometer-metrics-5.2.3.jar",
+                    "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-micrometer-metrics\/5.2.3\/vertx-micrometer-metrics-5.2.3.jar"
+,"sha256": "43297047fde2d7d2524c6c0700640167b9ace160870a919ccc048fb467af49ce",
+                    "sha1": "00346894895c18f41a80cb0f23dc1ca8016f122f",
+                    "md5": "164147bdf880119d1ad23f483b373433",
                     "packageIds": [
                             {
-                                "id": "pkg:maven/io.vertx/vertx-micrometer-metrics@5.2.0"
+                                "id": "pkg:maven/io.vertx/vertx-micrometer-metrics@5.2.3"
                             }
                     ]
                 }
@@ -18314,51 +17768,51 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-core@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-core@5.2.3"
 ,"confidence": "HIGH"                    }
             ]                ,"vulnerabilityIds": [
                 {
-                    "id": "cpe:2.3:a:eclipse:vert.x:5.2.0:*:*:*:*:*:*:*"
-,"confidence": "HIGH","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aeclipse%3Avert.x%3A5.2.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+                    "id": "cpe:2.3:a:eclipse:vert.x:5.2.3:*:*:*:*:*:*:*"
+,"confidence": "HIGH","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aeclipse%3Avert.x%3A5.2.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-web-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-web\/5.2.0\/vertx-web-5.2.0.jar"
-,"md5": "44d67c8b61e6726c3e2eaa5fd8572a7d",
-            "sha1": "36923517c5d11d95ba495a827d10cead0a110232",
-            "sha256": "a33068d7ac3d6cb85627e18bd05e2e3d7f6e31e6cfa7f8496a98d7186d7b2c82","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt\nEclipse Public License - v 2.0: http:\/\/www.eclipse.org\/legal\/epl-v20.html"            ,"projectReferences": [
+            "fileName": "vertx-web-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-web\/5.2.3\/vertx-web-5.2.3.jar"
+,"md5": "3903212b533f2c3de22a9312fe6bb341",
+            "sha1": "34a78feb99db64f1d9ea6ad692901ffc68fa759b",
+            "sha256": "a73888a49795dd75fc48d36e809d9674b4ea8e15855689f1972df2952e9bdc9e","license": "The Apache Software License, Version 2.0: http:\/\/www.apache.org\/licenses\/LICENSE-2.0.txt\nEclipse Public License - v 2.0: http:\/\/www.eclipse.org\/legal\/epl-v20.html"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.5" }
+                { "reference":"pkg:maven\/uk.co.spudsoft\/vertx-resteasy-helpers@0.2.6" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -18546,47 +18000,47 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-web@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-web@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         },{
             "isVirtual": false,
-            "fileName": "vertx-web-common-5.2.0.jar",
-            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-web-common\/5.2.0\/vertx-web-common-5.2.0.jar"
-,"md5": "499ffe707efed58c64d0d6077fd57552",
-            "sha1": "da1b9ff518f43a66e1c21c57d141773ad6fe56ff",
-            "sha256": "d3a4f874d4f8ed0a984c53e35452bdcb0d40b6817d36164b14824048031ac45e"            ,"projectReferences": [
+            "fileName": "vertx-web-common-5.2.3.jar",
+            "filePath": "\/home\/runner\/.m2\/repository\/io\/vertx\/vertx-web-common\/5.2.3\/vertx-web-common-5.2.3.jar"
+,"md5": "2055ca94931ebd47f1ab29e9d1396f31",
+            "sha1": "1ca254101a886b61d74177c40300074509102b6a",
+            "sha256": "3d38746aaa97f4418ddd63c9351a005a9511f60cccd5319f46c926d4b5ebf9d6"            ,"projectReferences": [
                 "Vertx RESTEasy Helpers:compile"
             ]
             ,"includedBy": [
-                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.0" }
+                { "reference":"pkg:maven\/io.vertx\/vertx-web@5.2.3" }
             ]
             ,"evidenceCollected": {
                 "vendorEvidence": [
@@ -18774,34 +18228,34 @@
                         "confidence": "HIGH",
                         "source": "file",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGH",
                         "source": "Manifest",
                         "name": "Implementation-Version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "MEDIUM",
                         "source": "Manifest",
                         "name": "maven-version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
 ,                    {
                         "type": "version",
                         "confidence": "HIGHEST",
                         "source": "pom",
                         "name": "version",
-                        "value": "5.2.0"
+                        "value": "5.2.3"
                     }
                 ]
             }
                 ,"packages": [
                     {
-                        "id": "pkg:maven\/io.vertx\/vertx-web-common@5.2.0"
+                        "id": "pkg:maven\/io.vertx\/vertx-web-common@5.2.3"
 ,"confidence": "HIGH"                    }
             ]
         }    ]

@@ -7,27 +7,27 @@
         <engineVersion>13.0.0</engineVersion>
         <dataSource>
             <name>NVD API Last Checked</name>
-            <timestamp>2026-10-03T07:00:58Z</timestamp>
+            <timestamp>2026-11-18T15:59:55Z</timestamp>
         </dataSource>
         <dataSource>
             <name>NVD API Last Modified</name>
-            <timestamp>2026-10-03T01:00:07-04</timestamp>
+            <timestamp>2026-11-18T10:00:13-05</timestamp>
         </dataSource>
         <dataSource>
             <name>NVD Cache Last Checked</name>
-            <timestamp>2026-10-03T07:00:58Z</timestamp>
+            <timestamp>2026-11-18T15:59:55Z</timestamp>
         </dataSource>
         <dataSource>
             <name>NVD Cache Last Modified</name>
-            <timestamp>2026-10-03T01:00:07-04</timestamp>
+            <timestamp>2026-11-18T10:00:13-05</timestamp>
         </dataSource>
     </scanInfo>
     <projectInfo>
         <name>Vertx RESTEasy Helpers</name>
         <groupID>uk.co.spudsoft</groupID>
         <artifactID>vertx-resteasy-helpers</artifactID>
-        <version>0.2.5</version>
-        <reportDate>2026-10-03T07:02:22.881570910Z</reportDate>
+        <version>0.2.6</version>
+        <reportDate>2026-11-18T16:01:26.447778738Z</reportDate>
         <credits>This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov, Github Advisory Database (via NPM Audit API): https://github.com/advisories/, and the RetireJS community.</credits>
     </projectInfo>
     <dependencies>
@@ -51,7 +51,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-micrometer-metrics@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-micrometer-metrics@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -1375,34 +1375,41 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>commons-lang3-3.19.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/org/apache/commons/commons-lang3/3.19.0/commons-lang3-3.19.0.jar</filePath>
-            <md5>2ac2db154e365d55d167ec1215125a3a</md5>
-            <sha1>d6524b169a6574cd253760c472d419b47bfd37e6</sha1>
-            <sha256>32733ab4bc90b45b63eb72677d886961003fd4ed113e07b1028f9877cb2ac735</sha256>
+            <fileName>commons-lang3-3.21.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/org/apache/commons/commons-lang3/3.21.0/commons-lang3-3.21.0.jar</filePath>
+            <md5>74a94a62f74cf1566767a085b3b9c758</md5>
+            <sha1>7bad013a5acee0a078d75fc352a906baa57acb74</sha1>
+            <sha256>a2af247ec4db6eb8947e18e23e0433e4871a7c5d0a40e1f92e46ede54ae1defe</sha256>
             <description>
-  Apache Commons Lang, a package of Java utility classes for the
-  classes that are in java.lang&apos;s hierarchy, or are considered to be so
-  standard as to justify existence in java.lang.
+  Apache Commons Lang is a package of Java utility classes for the Java lang packages,
+  classes that could be considered standard to justify their existence in java.lang.
 
-  The code is tested using the latest revision of the JDK for supported
-  LTS releases: 8, 11, 17 and 21 currently.
+  The code is tested using the latest revision of the JDK for supported LTS releases: 8, 11, 17, 21, and 25.
   See https://github.com/apache/commons-lang/blob/master/.github/workflows/maven.yml
-  
+
   Please ensure your build environment is up-to-date and kindly report any build issues.
+
+  Starting with Commons Lang 3.9, we target Java 8 and use those features.
+
+  For advice on upgrading from 2.x to 3.x, see https://commons.apache.org/lang/article3_0.html
   </description>
             <license>https://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.rest-assured/rest-assured@6.0.1</reference>
+                <reference>pkg:maven/io.rest-assured/rest-assured@6.3.0</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
                     <source>file</source>
                     <name>name</name>
                     <value>commons-lang3</value>
+                </evidence>
+                <evidence type="vendor" confidence="HIGHEST">
+                    <source>jar</source>
+                    <name>package name</name>
+                    <value>9</value>
                 </evidence>
                 <evidence type="vendor" confidence="HIGHEST">
                     <source>jar</source>
@@ -1427,7 +1434,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>build-jdk-spec</name>
-                    <value>17</value>
+                    <value>25</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
@@ -1757,6 +1764,11 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="product" confidence="HIGHEST">
                     <source>jar</source>
                     <name>package name</name>
+                    <value>9</value>
+                </evidence>
+                <evidence type="product" confidence="HIGHEST">
+                    <source>jar</source>
+                    <name>package name</name>
                     <value>apache</value>
                 </evidence>
                 <evidence type="product" confidence="HIGHEST">
@@ -1777,7 +1789,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>build-jdk-spec</name>
-                    <value>17</value>
+                    <value>25</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
@@ -2102,45 +2114,45 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>3.19.0</value>
+                    <value>3.21.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>3.19.0</value>
+                    <value>3.21.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>3.19.0</value>
+                    <value>3.21.0</value>
                 </evidence>
                 <evidence type="version" confidence="LOW">
                     <source>pom</source>
                     <name>parent-version</name>
-                    <value>3.19.0</value>
+                    <value>3.21.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>3.19.0</value>
+                    <value>3.21.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/org.apache.commons/commons-lang3@3.19.0</id>
+                    <id>pkg:maven/org.apache.commons/commons-lang3@3.21.0</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:apache:commons_lang:3.19.0:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aapache%3Acommons_lang%3A3.19.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:apache:commons_lang:3.21.0:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aapache%3Acommons_lang%3A3.21.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>httpclient-4.5.13.jar</fileName>
-            <filePath>/home/runner/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar</filePath>
-            <md5>40d6b9075fbd28fa10292a45a0db9457</md5>
-            <sha1>e5f6cae5ca7ecaac1ec2827a9e2d65ae2869cada</sha1>
-            <sha256>6fe9026a566c6a5001608cf3fc32196641f6c1e5e1986d1037ccdbd5f31ef743</sha256>
+            <fileName>httpclient-4.5.14.jar</fileName>
+            <filePath>/home/runner/.m2/repository/org/apache/httpcomponents/httpclient/4.5.14/httpclient-4.5.14.jar</filePath>
+            <md5>2cb357c4b763f47e58af6cad47df6ba3</md5>
+            <sha1>1194890e6f56ec29177673f2f12d0b8e627dec98</sha1>
+            <sha256>c8bc7e1c51a6d4ce72f40d2ebbabf1c4b68bfe76e732104b04381b493478e9d6</sha256>
             <description>
    Apache HttpComponents Client
   </description>
@@ -2148,7 +2160,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.rest-assured/rest-assured@6.0.1</reference>
+                <reference>pkg:maven/io.rest-assured/rest-assured@6.3.0</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -2179,7 +2191,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>implementation-url</name>
-                    <value>http://hc.apache.org/httpcomponents-client</value>
+                    <value>http://hc.apache.org/httpcomponents-client-ga</value>
                 </evidence>
                 <evidence type="vendor" confidence="HIGH">
                     <source>Manifest</source>
@@ -2224,7 +2236,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="vendor" confidence="HIGHEST">
                     <source>pom</source>
                     <name>url</name>
-                    <value>http://hc.apache.org/httpcomponents-client</value>
+                    <value>http://hc.apache.org/httpcomponents-client-ga</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>file</source>
@@ -2264,7 +2276,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>implementation-url</name>
-                    <value>http://hc.apache.org/httpcomponents-client</value>
+                    <value>http://hc.apache.org/httpcomponents-client-ga</value>
                 </evidence>
                 <evidence type="product" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -2294,40 +2306,40 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="product" confidence="MEDIUM">
                     <source>pom</source>
                     <name>url</name>
-                    <value>http://hc.apache.org/httpcomponents-client</value>
+                    <value>http://hc.apache.org/httpcomponents-client-ga</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>4.5.13</value>
+                    <value>4.5.14</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>4.5.13</value>
+                    <value>4.5.14</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>4.5.13</value>
+                    <value>4.5.14</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/org.apache.httpcomponents/httpclient@4.5.13</id>
+                    <id>pkg:maven/org.apache.httpcomponents/httpclient@4.5.14</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:apache:httpclient:4.5.13:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpclient%3A4.5.13%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:apache:httpclient:4.5.14:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpclient%3A4.5.14%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>httpcore-4.4.13.jar</fileName>
-            <filePath>/home/runner/.m2/repository/org/apache/httpcomponents/httpcore/4.4.13/httpcore-4.4.13.jar</filePath>
-            <md5>e07a248f61c52776a2366c075dcd4963</md5>
-            <sha1>853b96d3afbb7bf8cc303fe27ee96836a10c1834</sha1>
-            <sha256>e06e89d40943245fcfa39ec537cdbfce3762aecde8f9c597780d2b00c2b43424</sha256>
+            <fileName>httpcore-4.4.16.jar</fileName>
+            <filePath>/home/runner/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar</filePath>
+            <md5>28d2cd9bf8789fd2ec774fb88436ebd1</md5>
+            <sha1>51cf043c87253c9f58b539c9f7e44c8894223850</sha1>
+            <sha256>6c9b3dd142a09dc468e23ad39aad6f75a0f2b85125104469f026e52a474e464f</sha256>
             <description>
    Apache HttpComponents Core (blocking I/O)
   </description>
@@ -2335,7 +2347,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.rest-assured/rest-assured@6.0.1</reference>
+                <reference>pkg:maven/io.rest-assured/rest-assured@6.3.0</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -2356,7 +2368,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>implementation-build</name>
-                    <value>${scmBranch}@r${buildNumber}; 2020-01-09 12:56:55+0000</value>
+                    <value>${scmBranch}@r${buildNumber}; 2022-11-26 09:44:32+0000</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
@@ -2436,7 +2448,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>implementation-build</name>
-                    <value>${scmBranch}@r${buildNumber}; 2020-01-09 12:56:55+0000</value>
+                    <value>${scmBranch}@r${buildNumber}; 2022-11-26 09:44:32+0000</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>Manifest</source>
@@ -2486,35 +2498,35 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>4.4.13</value>
+                    <value>4.4.16</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>4.4.13</value>
+                    <value>4.4.16</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>4.4.13</value>
+                    <value>4.4.16</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/org.apache.httpcomponents/httpcore@4.4.13</id>
+                    <id>pkg:maven/org.apache.httpcomponents/httpcore@4.4.16</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:apache:httpcomponents_core:4.4.13:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpcomponents_core%3A4.4.13%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:apache:httpcomponents_core:4.4.16:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aapache%3Ahttpcomponents_core%3A4.4.16%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-annotations-2.22.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.22/jackson-annotations-2.22.jar</filePath>
-            <md5>04c11c456fd1e21b9a21c25c665109cc</md5>
-            <sha1>15c67f9498d6934cff9510fc70c5a12e52290457</sha1>
-            <sha256>21ddb598807d3a51a876704eb979d9296e1c6a6f47ab1826ff88c6d6a127a2d0</sha256>
+            <fileName>jackson-annotations-2.23.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.23/jackson-annotations-2.23.jar</filePath>
+            <md5>78850750b7547966b8257217f9bd163d</md5>
+            <sha1>cce49304a57c900364a727847c98993ca332b7d5</sha1>
+            <sha256>e5b60c3088e0887b290ff9226394354589a1dad583743944b7f5538661056b4c</sha256>
             <description>Core annotations used for value types, used by Jackson data binding package.
   </description>
             <license>The Apache Software License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0.txt</license>
@@ -2522,7 +2534,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.22.3</reference>
+                <reference>pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.23.0</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -2693,45 +2705,45 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22</value>
+                    <value>2.23</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22</value>
+                    <value>2.23</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22</value>
+                    <value>2.23</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.22</id>
+                    <id>pkg:maven/com.fasterxml.jackson.core/jackson-annotations@2.23</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-core:2.22:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.22%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-core:2.23:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.23%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
                 <vulnerabilityIds confidence="LOW">
-                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.22:*:*:*:*:*:*:*</id>
+                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.23:*:*:*:*:*:*:*</id>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-core-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.22.3/jackson-core-2.22.3.jar</filePath>
-            <md5>75691eef4483b7eb0e1c43e08dcb6573</md5>
-            <sha1>8695aab38355c65b60e242ec62edf13c52916d88</sha1>
-            <sha256>8a501126a385b25841915d839508f8a66e2a0dbc8a6709d055ef3b3e852b094c</sha256>
+            <fileName>jackson-core-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.23.0/jackson-core-2.23.0.jar</filePath>
+            <md5>ac1ed6dcfa08b8e12969badbba07132f</md5>
+            <sha1>a9094d2712ae45481ea9152160a4fbdfdea20659</sha1>
+            <sha256>449798beb4c4ec26de9cc25b39ca2198036883fb905ca968cbef7136d19a25d9</sha256>
             <description>Core Jackson processing abstractions (aka Streaming API), implementation for JSON</description>
             <license>The Apache Software License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -2952,50 +2964,50 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.core/jackson-core@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.core/jackson-core@2.23.0</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-core:2.22.3:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-core:2.23.0:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
                 <vulnerabilityIds confidence="LOW">
-                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.22.3:*:*:*:*:*:*:*</id>
+                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.23.0:*:*:*:*:*:*:*</id>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-core-3.1.6.jar</fileName>
-            <filePath>/home/runner/.m2/repository/tools/jackson/core/jackson-core/3.1.6/jackson-core-3.1.6.jar</filePath>
-            <md5>7c1586307c87a909a0a549f6ed6b7f30</md5>
-            <sha1>6c6b0ebc04da57cf7b115dfc46807111bfd6c134</sha1>
-            <sha256>d4938937b819b48f273a25929dc4fbc72ac03b0753c9c6398f54c3905caf7d0e</sha256>
+            <fileName>jackson-core-3.1.8.jar</fileName>
+            <filePath>/home/runner/.m2/repository/tools/jackson/core/jackson-core/3.1.8/jackson-core-3.1.8.jar</filePath>
+            <md5>0c43ee016d67976b7a77dd27d6967975</md5>
+            <sha1>7d15ed4f722805d4d1413b9537b2f86ab76178a9</sha1>
+            <sha256>762caa009970e8c35527fcc2cfbde50afed0d6a195ee4a7fac22d80fea72c471</sha256>
             <description>Core Jackson processing abstractions (aka Streaming API), implementation for JSON</description>
             <license>The Apache Software License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -3231,47 +3243,47 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/tools.jackson.core/jackson-core@3.1.6</id>
+                    <id>pkg:maven/tools.jackson.core/jackson-core@3.1.8</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-core:3.1.6:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.6%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-core:3.1.8:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.8%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-databind-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.22.3/jackson-databind-2.22.3.jar</filePath>
-            <md5>e1fbe6bbbb606fad49068fd2670a5208</md5>
-            <sha1>d0d4b2cdb0a1440ac02178fc2ff01dfb05cd06a8</sha1>
-            <sha256>556db5439e206114346043f68d200497dc96a0bca62a360a81784092ebd0e0a9</sha256>
+            <fileName>jackson-databind-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.23.0/jackson-databind-2.23.0.jar</filePath>
+            <md5>23bcc15788a045368dfa1b68230313d0</md5>
+            <sha1>01f6b378f93126e1212a9344717740e4fd21b28f</sha1>
+            <sha256>abd1edd2736c764da03fe6cb7a9de70d48dd0a198aed131604c564bff62f9cc1</sha256>
             <description>General data-binding functionality for Jackson: works on core streaming API</description>
             <license>The Apache Software License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -3462,54 +3474,54 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.23.0</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-core:2.22.3:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-core:2.23.0:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-databind:2.22.3:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-databind:2.23.0:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
                 <vulnerabilityIds confidence="LOW">
-                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.22.3:*:*:*:*:*:*:*</id>
+                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.23.0:*:*:*:*:*:*:*</id>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-databind-3.1.6.jar</fileName>
-            <filePath>/home/runner/.m2/repository/tools/jackson/core/jackson-databind/3.1.6/jackson-databind-3.1.6.jar</filePath>
-            <md5>dd69652b321988436085d6765c197ef5</md5>
-            <sha1>0ffe06306171218710bd2b4b1aafb4e0ada77eea</sha1>
-            <sha256>f0ff64eaa9f1c4bca9d720cd70c542297b0b19fc8ad08531bc55e36c8eab8e4b</sha256>
+            <fileName>jackson-databind-3.1.8.jar</fileName>
+            <filePath>/home/runner/.m2/repository/tools/jackson/core/jackson-databind/3.1.8/jackson-databind-3.1.8.jar</filePath>
+            <md5>c1e2755c6781add356ab2098aff81d7d</md5>
+            <sha1>57f38eece00f227b26916130502ec4082c1b87a5</sha1>
+            <sha256>2e7583c96f3eaf11591a727c75278b25a0f1227d29a7c5e8306f252f441bfb58</sha256>
             <description>General data-binding functionality for Jackson: works on core streaming API</description>
             <license>The Apache Software License, Version 2.0: https://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -3680,44 +3692,44 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>3.1.6</value>
+                    <value>3.1.8</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/tools.jackson.core/jackson-databind@3.1.6</id>
+                    <id>pkg:maven/tools.jackson.core/jackson-databind@3.1.8</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-core:3.1.6:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.6%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-core:3.1.8:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-core%3A3.1.8%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-databind:3.1.6:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A3.1.6%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-databind:3.1.8:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-databind%3A3.1.8%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-dataformat-yaml-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.22.3/jackson-dataformat-yaml-2.22.3.jar</filePath>
-            <md5>ba1c8448785cea71b8cc68275d0e542b</md5>
-            <sha1>520097fe76cde11c7448c622e8cb6e07714c8c7c</sha1>
-            <sha256>2bcbc3b9abaefbeba11409b9e30ec35ed7071a61a47c8c2a9c688e40e45b90f9</sha256>
+            <fileName>jackson-dataformat-yaml-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.23.0/jackson-dataformat-yaml-2.23.0.jar</filePath>
+            <md5>d56b979aee765ad78f3a4a31d9a20591</md5>
+            <sha1>1763696914143f1baf11c283f3f89e850883cb54</sha1>
+            <sha256>971bce7e65b63c7f78965c29aa35370143f01e21a420d02bb3cde32069360689</sha256>
             <description>Support for reading and writing YAML-encoded data via Jackson abstractions.
   </description>
             <license>https://www.apache.org/licenses/LICENSE-2.0.txt</license>
@@ -3725,7 +3737,7 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -3906,47 +3918,47 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml@2.23.0</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:fasterxml:jackson-dataformat-xml:2.22.3:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-dataformat-xml%3A2.22.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:fasterxml:jackson-dataformat-xml:2.23.0:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Afasterxml%3Ajackson-dataformat-xml%3A2.23.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-datatype-jsr310-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.22.3/jackson-datatype-jsr310-2.22.3.jar</filePath>
-            <md5>1f14fa9b9779d0545287bba2bfb927df</md5>
-            <sha1>8d54f48cfe4865bdfa245b8a90fb15b56c8a4a3c</sha1>
-            <sha256>ec7052ee48c9d873bb8148338a643f02cf89c01d035dd219411473030d6d2b22</sha256>
+            <fileName>jackson-datatype-jsr310-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.23.0/jackson-datatype-jsr310-2.23.0.jar</filePath>
+            <md5>b62ba38693a0a11dc89a467bff26a821</md5>
+            <sha1>f133f886c8b0794496ef666f3f505d0b77c9c1e0</sha1>
+            <sha256>f348f4de49644afa0ccbff6b018709a5f0f1468c76852e4217051890a0b8528c</sha256>
             <description>Add-on module to support JSR-310 (Java 8 Date &amp; Time API) data types.</description>
             <license>http://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -4157,39 +4169,39 @@ BSD-2-Clause: https://opensource.org/licenses/BSD-2-Clause</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.datatype/jackson-datatype-jsr310@2.23.0</id>
                 </package>
                 <vulnerabilityIds confidence="LOW">
-                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.22.3:*:*:*:*:*:*:*</id>
+                    <id>cpe:2.3:a:fasterxml:jackson-modules-java8:2.23.0:*:*:*:*:*:*:*</id>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-jakarta-rs-base-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/jakarta/rs/jackson-jakarta-rs-base/2.22.3/jackson-jakarta-rs-base-2.22.3.jar</filePath>
-            <md5>e132693d221adda4b879f5a8dd7debb2</md5>
-            <sha1>84332c2f21e47534a0ef74a74023a44207ea4211</sha1>
-            <sha256>d1bbe9ca3637b62950d17cfe3c69c5f6c10825b4d3ce6cfec82cf90bca4b934b</sha256>
+            <fileName>jackson-jakarta-rs-base-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/jakarta/rs/jackson-jakarta-rs-base/2.23.0/jackson-jakarta-rs-base-2.23.0.jar</filePath>
+            <md5>facd6ba964ee385baa611b8bb0eac99c</md5>
+            <sha1>311ba66b903bdc22d098dddae5a9282ddf00a7da</sha1>
+            <sha256>f830f6128260c0b2cb9c7713f12c25231d04457aad0a185f499677d629e002d2</sha256>
             <description>Pile of code that is shared by all Jackson-based Jakarta-RS
 providers.
   </description>
@@ -4198,7 +4210,7 @@ providers.
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-json-provider@2.22.3</reference>
+                <reference>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-json-provider@2.23.0</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -4369,36 +4381,36 @@ providers.
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-base@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-base@2.23.0</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-jakarta-rs-json-provider-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/jakarta/rs/jackson-jakarta-rs-json-provider/2.22.3/jackson-jakarta-rs-json-provider-2.22.3.jar</filePath>
-            <md5>032270e95b744c0207c87760b23ee164</md5>
-            <sha1>5198a2370b42d8a4380dacb33416024ad355bedc</sha1>
-            <sha256>1538611c44c4abc067b41dfb8bb48908edb84905ccf406cf6c12d1868c33c47e</sha256>
+            <fileName>jackson-jakarta-rs-json-provider-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/jakarta/rs/jackson-jakarta-rs-json-provider/2.23.0/jackson-jakarta-rs-json-provider-2.23.0.jar</filePath>
+            <md5>0ca63fd87b50e57794c66da2d84cf0b9</md5>
+            <sha1>d5f9933858d9ab66e65db235f5707a00b2792049</sha1>
+            <sha256>8ec4838aafce88aea853fbcf9f64ad255ab8ef9ebe2aec50a0ec92d9e091115d</sha256>
             <description>Functionality to handle JSON input/output for Jakarta-RS implementations
 (like Jersey and RESTeasy) using standard Jackson data binding.
   </description>
@@ -4407,7 +4419,7 @@ providers.
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -4578,36 +4590,36 @@ providers.
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-json-provider@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-json-provider@2.23.0</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>jackson-module-jakarta-xmlbind-annotations-2.22.3.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/module/jackson-module-jakarta-xmlbind-annotations/2.22.3/jackson-module-jakarta-xmlbind-annotations-2.22.3.jar</filePath>
-            <md5>6c200c8acecd147379acf993d5a8e3cb</md5>
-            <sha1>c5858c73043ca2924f79bf23cefb092e415a5c2c</sha1>
-            <sha256>ce2bbc8d3f27e9321a80e30231288aa0c340c100c45eb413efffbab7b98f3c1e</sha256>
+            <fileName>jackson-module-jakarta-xmlbind-annotations-2.23.0.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/fasterxml/jackson/module/jackson-module-jakarta-xmlbind-annotations/2.23.0/jackson-module-jakarta-xmlbind-annotations-2.23.0.jar</filePath>
+            <md5>f13205f65c9d36f8c9013cf621262fbe</md5>
+            <sha1>7bd94071caef062146eee9f54c9aa385c3aa295f</sha1>
+            <sha256>d44943e1d2b2399e362fa6ace4c263ef959b6d8bd91a871da9e860cf85fa1504</sha256>
             <description>Support for using Jakarta XML Bind (aka JAXB 3.0) annotations as an alternative
   to &quot;native&quot; Jackson annotations, for configuring data-binding.
 </description>
@@ -4616,7 +4628,7 @@ providers.
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-json-provider@2.22.3</reference>
+                <reference>pkg:maven/com.fasterxml.jackson.jakarta.rs/jackson-jakarta-rs-json-provider@2.23.0</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -4797,27 +4809,27 @@ providers.
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.22.3</value>
+                    <value>2.23.0</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.fasterxml.jackson.module/jackson-module-jakarta-xmlbind-annotations@2.22.3</id>
+                    <id>pkg:maven/com.fasterxml.jackson.module/jackson-module-jakarta-xmlbind-annotations@2.23.0</id>
                 </package>
             </identifiers>
         </dependency>
@@ -5315,7 +5327,7 @@ GPL2 w/ CPE: https://www.gnu.org/software/classpath/license.html</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -6838,7 +6850,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -7083,7 +7095,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/com.github.spotbugs/spotbugs-annotations@4.10.4</reference>
+                <reference>pkg:maven/com.github.spotbugs/spotbugs-annotations@4.10.5</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -7179,18 +7191,18 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>micrometer-commons-1.17.1.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-commons/1.17.1/micrometer-commons-1.17.1.jar</filePath>
-            <md5>aa9291ad211473834d3d48453ae05ea1</md5>
-            <sha1>b1c3fdea68c5a81495cf1c16cf2905c5ad9f30d2</sha1>
-            <sha256>f2cee6ef046e72eec8128474c7f58c6217173b45ae373c30de0289f2a56ab0fd</sha256>
+            <fileName>micrometer-commons-1.17.2.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-commons/1.17.2/micrometer-commons-1.17.2.jar</filePath>
+            <md5>755b78d949ed4fbb396494d14658a7b9</md5>
+            <sha1>713614728673cc0f57a88ac0a3c7ab7ff5a60824</sha1>
+            <sha256>af8c85e879025ce30c381e6810e14c4f52b4150894e36c815860d14763271348</sha256>
             <description>Module containing common code</description>
             <license>The Apache Software License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -7220,53 +7232,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:39</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:39.516694470Z</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="vendor" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -7276,22 +7243,17 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
@@ -7351,7 +7313,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="HIGHEST">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>file</source>
@@ -7380,53 +7342,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:39</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:39.516694470Z</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="product" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -7441,27 +7358,22 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Title</name>
-                    <value>io.micrometer#micrometer-commons;1.17.1</value>
+                    <value>io.micrometer#micrometer-commons;1.17.2</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
@@ -7516,48 +7428,48 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="HIGH">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.micrometer/micrometer-commons@1.17.1</id>
+                    <id>pkg:maven/io.micrometer/micrometer-commons@1.17.2</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>micrometer-core-1.17.1.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-core/1.17.1/micrometer-core-1.17.1.jar</filePath>
-            <md5>512fe405dfbe1caa8e8870af3fc0d8a3</md5>
-            <sha1>2a9a38d3d0859022fdf2a93743c0d5fe44796a39</sha1>
-            <sha256>9ca47dfa831409b40253c8dc98c17b9d3e050ebbde4d1543c5521dca2b95ad56</sha256>
+            <fileName>micrometer-core-1.17.2.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-core/1.17.2/micrometer-core-1.17.2.jar</filePath>
+            <md5>7ac535cc2a2a99905dcd10d791977d00</md5>
+            <sha1>6fdf2e82cae6c7a302abcf68aef82da98b4fd008</sha1>
+            <sha256>e28ddecbd27477cc7020defd1c2061a3d8b6b2e543d90856186711fe7f346532</sha256>
             <description>Core module of Micrometer containing instrumentation API and implementation</description>
             <license>The Apache Software License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -7587,53 +7499,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:39</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:39.580113236Z</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="vendor" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -7643,22 +7510,17 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
@@ -7718,7 +7580,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="HIGHEST">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>file</source>
@@ -7747,53 +7609,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:39</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:39.580113236Z</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="product" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -7808,27 +7625,22 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Title</name>
-                    <value>io.micrometer#micrometer-core;1.17.1</value>
+                    <value>io.micrometer#micrometer-core;1.17.2</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
@@ -7883,48 +7695,48 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="HIGH">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.micrometer/micrometer-core@1.17.1</id>
+                    <id>pkg:maven/io.micrometer/micrometer-core@1.17.2</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>micrometer-observation-1.17.1.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-observation/1.17.1/micrometer-observation-1.17.1.jar</filePath>
-            <md5>f63baf5840fb4446b9313a3bd8773da1</md5>
-            <sha1>24c0b05bc06a9ab6f4e09a48949b6eccc179ca15</sha1>
-            <sha256>eb34f0cd84a879393ae5c21160fc06385ccdc74f36a4d1e31b199f59acfdaf71</sha256>
+            <fileName>micrometer-observation-1.17.2.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-observation/1.17.2/micrometer-observation-1.17.2.jar</filePath>
+            <md5>3ab8f7e74224319d4c01ef87bab8a0db</md5>
+            <sha1>b069be62d5d1a0f2f61fa8de6dede8f8f0ffc49a</sha1>
+            <sha256>d3ff53cfa0532dc1af0de349073f9aeb985e01f4b88c1d904350178805859695</sha256>
             <description>Module containing Observation related code</description>
             <license>The Apache Software License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -7954,53 +7766,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:39</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:39.958346319Z</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="vendor" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -8010,22 +7777,17 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
@@ -8085,7 +7847,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="HIGHEST">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>file</source>
@@ -8114,53 +7876,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:39</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:39.958346319Z</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="product" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -8175,27 +7892,22 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Title</name>
-                    <value>io.micrometer#micrometer-observation;1.17.1</value>
+                    <value>io.micrometer#micrometer-observation;1.17.2</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
@@ -8250,48 +7962,48 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="HIGH">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.micrometer/micrometer-observation@1.17.1</id>
+                    <id>pkg:maven/io.micrometer/micrometer-observation@1.17.2</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>micrometer-registry-prometheus-1.17.1.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-registry-prometheus/1.17.1/micrometer-registry-prometheus-1.17.1.jar</filePath>
-            <md5>2d25d73f9a8755694cbf01323649870e</md5>
-            <sha1>fa0a245ad6fee4763264dc76d2b3e0166a5f5e47</sha1>
-            <sha256>ac24d43f123e103828a23a86f092a8709d87d309ad3212e798305654e951a8ce</sha256>
+            <fileName>micrometer-registry-prometheus-1.17.2.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/micrometer/micrometer-registry-prometheus/1.17.2/micrometer-registry-prometheus-1.17.2.jar</filePath>
+            <md5>e516c5bbba6850ff9d59411186bad00a</md5>
+            <sha1>30bd3e81ebc93d8a5d63e45b966b9bfe3e8604fc</sha1>
+            <sha256>407d7da0bf04caaabc53203344835b8d0587f6c3c10b4358a7689bb0e584427b</sha256>
             <description>MeterRegistry implementation for Prometheus using io.prometheus:prometheus-metrics-core. If you have compatibility issues with this module, you can go back to io.micrometer:micrometer-registry-prometheus-simpleclient that uses io.prometheus:simpleclient_common.</description>
             <license>The Apache Software License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -8316,53 +8028,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:40</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:40.737685126Z</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="vendor" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -8372,22 +8039,17 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="vendor" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="vendor" confidence="LOW">
                     <source>Manifest</source>
@@ -8447,7 +8109,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="vendor" confidence="HIGHEST">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>file</source>
@@ -8471,53 +8133,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
-                    <name>branch</name>
-                    <value>release/1.17.1</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date</name>
-                    <value>2026-08-17_07:25:40</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-date-utc</name>
-                    <value>2026-08-17T07:25:40.737685126Z</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-host</name>
-                    <value>https://github.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-job</name>
-                    <value>build-release</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-number</name>
-                    <value>50</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-timezone</name>
-                    <value>Etc/UTC</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>build-url</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial/actions/runs/32005692132</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-os</name>
-                    <value>Linux</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>built-status</name>
-                    <value>integration</value>
+                    <name>build-jdk-spec</name>
+                    <value>25</value>
                 </evidence>
                 <evidence type="product" confidence="MEDIUM">
                     <source>Manifest</source>
@@ -8532,27 +8149,22 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>change</name>
-                    <value>f1b1924</value>
+                    <value>b52db89</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>full-change</name>
-                    <value>f1b1924bc8821adbc841df69eb433c933e17e1a5</value>
+                    <value>b52db89c3569a3649df0f1d86ca825d6e03c073b</value>
                 </evidence>
                 <evidence type="product" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Title</name>
-                    <value>io.micrometer#micrometer-registry-prometheus;1.17.1</value>
+                    <value>io.micrometer#micrometer-registry-prometheus;1.17.2</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
                     <name>module-email</name>
                     <value>tludwig@vmware.com,jivanov@vmware.com</value>
-                </evidence>
-                <evidence type="product" confidence="LOW">
-                    <source>Manifest</source>
-                    <name>module-origin</name>
-                    <value>https://github.com/micrometer-metrics/micrometer-commercial.git</value>
                 </evidence>
                 <evidence type="product" confidence="LOW">
                     <source>Manifest</source>
@@ -8607,38 +8219,38 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="product" confidence="HIGH">
                     <source>pom</source>
                     <name>url</name>
-                    <value>micrometer-metrics/micrometer-commercial</value>
+                    <value>micrometer-metrics/micrometer</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>1.17.1</value>
+                    <value>1.17.2</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</id>
+                    <id>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>netty-common-4.2.18.Final.jar (shaded: org.jctools:jctools-core-jdk11:4.0.7)</fileName>
-            <filePath>/home/runner/.m2/repository/io/netty/netty-common/4.2.18.Final/netty-common-4.2.18.Final.jar/META-INF/maven/org.jctools/jctools-core-jdk11/pom.xml</filePath>
+            <fileName>netty-common-4.2.20.Final.jar (shaded: org.jctools:jctools-core-jdk11:4.0.7)</fileName>
+            <filePath>/home/runner/.m2/repository/io/netty/netty-common/4.2.20.Final/netty-common-4.2.20.Final.jar/META-INF/maven/org.jctools/jctools-core-jdk11/pom.xml</filePath>
             <md5>ba1cbe90e8746a1d75c74505e58d98ca</md5>
             <sha1>ee1d8b096773616ad160c1f3d021a830b9c0d3da</sha1>
             <sha256>e32377eaa76f88c9271025fa5d4442bc1963e1de5f4055c5819c8cc73eda1936</sha256>
@@ -8701,8 +8313,8 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>netty-common-4.2.18.Final.jar (shaded: org.jctools:jctools-core:4.0.7)</fileName>
-            <filePath>/home/runner/.m2/repository/io/netty/netty-common/4.2.18.Final/netty-common-4.2.18.Final.jar/META-INF/maven/org.jctools/jctools-core/pom.xml</filePath>
+            <fileName>netty-common-4.2.20.Final.jar (shaded: org.jctools:jctools-core:4.0.7)</fileName>
+            <filePath>/home/runner/.m2/repository/io/netty/netty-common/4.2.20.Final/netty-common-4.2.20.Final.jar/META-INF/maven/org.jctools/jctools-core/pom.xml</filePath>
             <md5>47e1366562570dfcc088cab9bee0b9c7</md5>
             <sha1>4306deb28041ba8817a0c58e63e117a5eb3129bd</sha1>
             <sha256>aed8e685ad1b1115fd687395d53afee8a1f1c4aaf79af8b03470cd71099814b1</sha256>
@@ -8765,11 +8377,11 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>netty-tcnative-classes-2.0.84.Final.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/netty/netty-tcnative-classes/2.0.84.Final/netty-tcnative-classes-2.0.84.Final.jar</filePath>
-            <md5>6779bba2d822f4bd89bd461f9bb1cf80</md5>
-            <sha1>30d95c719f174c33e5146f923cda62d7bdb65650</sha1>
-            <sha256>7a4437abf98b0cec053af4443fe321177d2cfccfec7bcad4e7d8b75571bbec4d</sha256>
+            <fileName>netty-tcnative-classes-2.0.85.Final.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/netty/netty-tcnative-classes/2.0.85.Final/netty-tcnative-classes-2.0.85.Final.jar</filePath>
+            <md5>de94aa0fe56c794b67f10a786aa7929f</md5>
+            <sha1>08019d502460ace96b2734854964860718e92016</sha1>
+            <sha256>3c1bcba8d80d7002277effe67509979b3a7bd22341bab276b946837f0b76f831</sha256>
             <description>
     A Mavenized fork of Tomcat Native which incorporates various patches. This artifact is dynamically linked
     to OpenSSL and Apache APR.
@@ -8779,7 +8391,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -8950,217 +8562,217 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>2.0.84.Final</value>
+                    <value>2.0.85.Final</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>2.0.84.Final</value>
+                    <value>2.0.85.Final</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>2.0.84.Final</value>
+                    <value>2.0.85.Final</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.netty/netty-tcnative-classes@2.0.84.Final</id>
+                    <id>pkg:maven/io.netty/netty-tcnative-classes@2.0.85.Final</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>netty-transport-4.2.18.Final.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/netty/netty-transport/4.2.18.Final/netty-transport-4.2.18.Final.jar</filePath>
-            <md5>0281402fa35ef33f339f5e5db0a66d55</md5>
-            <sha1>14ad66183e0456621161e60b41ca2abdcf9bd15c</sha1>
-            <sha256>eac4f12068db4489e60c6520fad663e5d872f0436a7c641aa9e08db649947863</sha256>
+            <fileName>netty-transport-4.2.20.Final.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/netty/netty-transport/4.2.20.Final/netty-transport-4.2.20.Final.jar</filePath>
+            <md5>41d2d3b6633fa7972eceb501555516e9</md5>
+            <sha1>f4e01e4208b3799ef7f83c826c15fb9b3648c589</sha1>
+            <sha256>ff4f1f8158c714c1b485ef10cf2456fbd3c1b2930256b70287aeb7dc3ad94783</sha256>
             <description>Netty is an asynchronous event-driven network application framework for    rapid development of maintainable high performance protocol servers and    clients.</description>
             <license>https://www.apache.org/licenses/LICENSE-2.0</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <relatedDependencies>
                 <relatedDependency>
-                    <fileName>netty-buffer-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-buffer/4.2.18.Final/netty-buffer-4.2.18.Final.jar</filePath>
-                    <sha256>fdf236d2b76aa9710684401fdad7dff9dec56e43da5d39172c9a55ba5f14b360</sha256>
-                    <sha1>62e970871a61c58ff7164e076bb8032a1ea444af</sha1>
-                    <md5>34385ae3157b9f9c8d73383aad53e871</md5>
+                    <fileName>netty-buffer-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-buffer/4.2.20.Final/netty-buffer-4.2.20.Final.jar</filePath>
+                    <sha256>794136fc6be78e44a286c2b1420a182e135c6d06eb8c397030c1551ee50acccd</sha256>
+                    <sha1>12d223b605fe08ec593750fd25115297c4f3418a</sha1>
+                    <md5>7d5166b4d39c7024ab47d7781971fa94</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-buffer@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-buffer@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-base-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-base/4.2.18.Final/netty-codec-base-4.2.18.Final.jar</filePath>
-                    <sha256>7e4612bead7ba88ac6f7908fa722f90ad6835ea96505c9e40b2f93686c1f61f3</sha256>
-                    <sha1>058739f9f05f1806e1117401e1982b04d7a02f3b</sha1>
-                    <md5>1877d0d0e3a42b091d6fde46c8bd6a54</md5>
+                    <fileName>netty-codec-base-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-base/4.2.20.Final/netty-codec-base-4.2.20.Final.jar</filePath>
+                    <sha256>5a66da26b86d7eecedd9e0d8fe0e22ef1733bbf873e476cb9b860afbed22210c</sha256>
+                    <sha1>2a1724e0645dc4a99e7d9dfc989d596b93d2492b</sha1>
+                    <md5>8c3246480f05810f2751303708f9ec3c</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-base@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-base@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-classes-quic-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-classes-quic/4.2.18.Final/netty-codec-classes-quic-4.2.18.Final.jar</filePath>
-                    <sha256>d1c4c4327fde2bf6ec773b070344907a7a4844f1843528ae917905e2c3547478</sha256>
-                    <sha1>cc350fcbcd92876d5de11d54e68f63f0ebb6e10b</sha1>
-                    <md5>8bdbbd36ed1ebb7da9cf5f441ebf7db9</md5>
+                    <fileName>netty-codec-classes-quic-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-classes-quic/4.2.20.Final/netty-codec-classes-quic-4.2.20.Final.jar</filePath>
+                    <sha256>eb558b7906be9f37cfff0ef71acb0865aa3b7cf2e52ba0a646e6e79d487d1711</sha256>
+                    <sha1>a9b3eb06737a2f7a1f0ea931c3f358cd7000bfc3</sha1>
+                    <md5>4f71a902c7c792e0825205868258ba5b</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-classes-quic@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-classes-quic@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-compression-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-compression/4.2.18.Final/netty-codec-compression-4.2.18.Final.jar</filePath>
-                    <sha256>9d8a4b9a6a2a166ec5a4bbe51a78b4f6a726457c51d81495743c7e7ccb9f4765</sha256>
-                    <sha1>f6f9e4372da33ca4f96b7af528ec8c26932f9fde</sha1>
-                    <md5>44dd5f7d6e4c00871c0c329cf441cfb3</md5>
+                    <fileName>netty-codec-compression-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-compression/4.2.20.Final/netty-codec-compression-4.2.20.Final.jar</filePath>
+                    <sha256>7ebae4ac80c01e2d279d0e50d377bcdaf0cf8f2f65797e0578afc810a66ab57d</sha256>
+                    <sha1>921bf1c5e238dbfd54d19d344a3ef253080d2a66</sha1>
+                    <md5>dc072e459669ca89cc64b4de9be2d503</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-compression@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-compression@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-dns-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-dns/4.2.18.Final/netty-codec-dns-4.2.18.Final.jar</filePath>
-                    <sha256>6f4b6da1483a82a637804740c2fb61385c9337a5e7ae5e357720cc03ba60b728</sha256>
-                    <sha1>b89710bfb47ad07d5fd936829aba9a06fcfbcd0a</sha1>
-                    <md5>82bbdd94118354399b9b5f04cea0cd30</md5>
+                    <fileName>netty-codec-dns-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-dns/4.2.20.Final/netty-codec-dns-4.2.20.Final.jar</filePath>
+                    <sha256>8296127e74eb871eea6e17520ad5d12aec37700252a61165057b28df6e5f9499</sha256>
+                    <sha1>e1c7d0cad4edbb2edbe2533731552cac002e4e17</sha1>
+                    <md5>1490bd70ec5c00ec9c190d27b3b41a3f</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-dns@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-dns@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-http-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-http/4.2.18.Final/netty-codec-http-4.2.18.Final.jar</filePath>
-                    <sha256>2d50765eb58591ce35146c54ca032a257808d2165d8985a8522c70ea1470e8d7</sha256>
-                    <sha1>25d8eed33ee14c6691250df4115604cf6a41340a</sha1>
-                    <md5>28f394665ff94da8415c501340f57535</md5>
+                    <fileName>netty-codec-http-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-http/4.2.20.Final/netty-codec-http-4.2.20.Final.jar</filePath>
+                    <sha256>d08b0d473c48c61ebb2bc4d145111fa1777832aee4d2be1024891e904e36eaf5</sha256>
+                    <sha1>2d7b07f88c991d0bd30755afe367fe1bd8610b7d</sha1>
+                    <md5>6fc905438d58b5b431deb10736a513f1</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-http@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-http@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-http2-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-http2/4.2.18.Final/netty-codec-http2-4.2.18.Final.jar</filePath>
-                    <sha256>a45a2b06c377b9c87c21ae2b37f04c8d808192590a73d977e7a60fd59921f283</sha256>
-                    <sha1>a0f08f3697a570cb1eae4abfd6637f6facb2fe57</sha1>
-                    <md5>a9ea2ce366e5200bdd8adcee82b8e663</md5>
+                    <fileName>netty-codec-http2-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-http2/4.2.20.Final/netty-codec-http2-4.2.20.Final.jar</filePath>
+                    <sha256>168790c8d10d2e7cc53fa08906162e3d6c23b4528e7d062eea328d4a281484c6</sha256>
+                    <sha1>1f4843426ecea666d875d64f37af8456566d2d9a</sha1>
+                    <md5>65e84c26a8e2fa6d94762f45b9c30737</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-http2@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-http2@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-http3-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-http3/4.2.18.Final/netty-codec-http3-4.2.18.Final.jar</filePath>
-                    <sha256>cc1652ece111e35a7677c8260499cc6709950061998f9d1a36496b352f456273</sha256>
-                    <sha1>2776049d9acabac6a2da9346c5ffb9ac1436fc29</sha1>
-                    <md5>ad79db1986be55731ed4883f0b46113d</md5>
+                    <fileName>netty-codec-http3-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-http3/4.2.20.Final/netty-codec-http3-4.2.20.Final.jar</filePath>
+                    <sha256>9d3698b9787ddb46226c3e3e4d1d51415503b18eb3be9da19b4918b4cb6e63bf</sha256>
+                    <sha1>55c951c513e725d0e8906dce474001230fe3d49f</sha1>
+                    <md5>8d8f4e7d4a2887ee906bcae1dfe2e2ab</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-http3@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-http3@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-codec-socks-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-socks/4.2.18.Final/netty-codec-socks-4.2.18.Final.jar</filePath>
-                    <sha256>25dea7bc1ad990ab8959065f0690b63574d8db4f51033cd98458fc84c59367f3</sha256>
-                    <sha1>4a3bf2cc5051c3c35076d0dd8528ebcce440258e</sha1>
-                    <md5>6d88960ef3fb5c7f673a3f738f093e9b</md5>
+                    <fileName>netty-codec-socks-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-codec-socks/4.2.20.Final/netty-codec-socks-4.2.20.Final.jar</filePath>
+                    <sha256>8510f0ceee40a4254760b2927431e2403a6588c4068022e2440356acfc5e24c1</sha256>
+                    <sha1>02f06f8e7b4ce860de4114f73f23422118d985f3</sha1>
+                    <md5>909d628c813a300c568c2f7e6a368389</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-codec-socks@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-codec-socks@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-common-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-common/4.2.18.Final/netty-common-4.2.18.Final.jar</filePath>
-                    <sha256>5d97cae5669685872339698efe13f74fe3cdb2dccdb36963b2352bd95acf7070</sha256>
-                    <sha1>aa06ef3310c8ad1e506ec14ab3794f9e26438121</sha1>
-                    <md5>d9a640f410fd5db89ae10992860c499a</md5>
+                    <fileName>netty-common-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-common/4.2.20.Final/netty-common-4.2.20.Final.jar</filePath>
+                    <sha256>5807fef7eb619bc0a5d1c0e6c83199ea9bca8503203a3eb73cfdccec2d215743</sha256>
+                    <sha1>e87b2bbdc7b7ebcb59ab5c29576e40a423e0661b</sha1>
+                    <md5>4a7d0c2209de7343131912a1031e5f84</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-common@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-common@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-handler-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-handler/4.2.18.Final/netty-handler-4.2.18.Final.jar</filePath>
-                    <sha256>6d5a08d9dd6d7d0211202e22dbb1629b23a62550335c7e80892da1d4cb115540</sha256>
-                    <sha1>b946698c37ab69603a4f0df8180f9594d89cf4b7</sha1>
-                    <md5>e44f75ee547b2b97d13fd5651d05ba19</md5>
+                    <fileName>netty-handler-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-handler/4.2.20.Final/netty-handler-4.2.20.Final.jar</filePath>
+                    <sha256>211dbbba074298046b37f841ad9ca89ed91968f6b9e97400c99ab4e6177b1f96</sha256>
+                    <sha1>937cf68d314ea0edbf077643a3db42988e872f87</sha1>
+                    <md5>8f911e550da0f2a9d8576ed2b98e9a9d</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-handler@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-handler@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-handler-proxy-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-handler-proxy/4.2.18.Final/netty-handler-proxy-4.2.18.Final.jar</filePath>
-                    <sha256>d7786de71c0d405b80b4262e0c585618e6f20e7fd3188cb4f599ffc4029ee9ea</sha256>
-                    <sha1>56176147f9e2d8186a277695a49cff2dab70d747</sha1>
-                    <md5>47dcfd1ad78ef02513d3aec464663860</md5>
+                    <fileName>netty-handler-proxy-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-handler-proxy/4.2.20.Final/netty-handler-proxy-4.2.20.Final.jar</filePath>
+                    <sha256>9fd508051bb39829117e4dbfa2d0b485aafb88d2d627ae6ec1fed5a3faa3842a</sha256>
+                    <sha1>2c661a4b757d2961986451ebec88badc2d226c8a</sha1>
+                    <md5>20b440304056b098abe9df2942bef148</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-handler-proxy@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-handler-proxy@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-resolver-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-resolver/4.2.18.Final/netty-resolver-4.2.18.Final.jar</filePath>
-                    <sha256>68373ec544cf769ba17bf2ef455166d98f2c260dff536edf35ef57067a9c155f</sha256>
-                    <sha1>9d21e01c476a1f92b9dc07d968d2a02810b2fba1</sha1>
-                    <md5>cc5b70a75432db82fe251489cb0626f2</md5>
+                    <fileName>netty-resolver-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-resolver/4.2.20.Final/netty-resolver-4.2.20.Final.jar</filePath>
+                    <sha256>cb7a6027e4f366fb28dcea7e1f7088ca16bd23c2cc38e8ddfdac77a77bd144dc</sha256>
+                    <sha1>c4305893023f9705eb85db85be3c65149666c004</sha1>
+                    <md5>bd4474897d966c719a8f9b199a758ec2</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-resolver@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-resolver@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-resolver-dns-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-resolver-dns/4.2.18.Final/netty-resolver-dns-4.2.18.Final.jar</filePath>
-                    <sha256>7dd3ec96bef04abc91a0f461f8acc19ebc0738c257ea653aea9dd0ad67b3b1ce</sha256>
-                    <sha1>139f12718e993ebb19f64ef5eb95167f69dc97bf</sha1>
-                    <md5>d81ff340684dc5a9dca2a20b850fae20</md5>
+                    <fileName>netty-resolver-dns-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-resolver-dns/4.2.20.Final/netty-resolver-dns-4.2.20.Final.jar</filePath>
+                    <sha256>9a1dc5abc7f146bf0ff0938dceb384f7c972dc052cd9cd2f367cb30a0718fa71</sha256>
+                    <sha1>a0982f800ba0e3692f0ebc06caaa261b211c5fb7</sha1>
+                    <md5>3c6896acfb041dea01b8598f43623b06</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-resolver-dns@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-resolver-dns@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>netty-transport-native-unix-common-4.2.18.Final.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/netty/netty-transport-native-unix-common/4.2.18.Final/netty-transport-native-unix-common-4.2.18.Final.jar</filePath>
-                    <sha256>cada7023d09136af128511ca94421d69dc84d0f1f64c9e1f127a1271bb62932a</sha256>
-                    <sha1>b9dbd51d2802e447630ef2b8bba56bb5aaad1f82</sha1>
-                    <md5>00baea2ea6f0e3392a033171ff1be3d9</md5>
+                    <fileName>netty-transport-native-unix-common-4.2.20.Final.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/netty/netty-transport-native-unix-common/4.2.20.Final/netty-transport-native-unix-common-4.2.20.Final.jar</filePath>
+                    <sha256>6f600d5cbd3ce39e50680de66b00d7e6a9652dac7d08a5b022101d717cb7fb52</sha256>
+                    <sha1>34e59d72bab77ba8fc1ff899a267d52ccb4e3312</sha1>
+                    <md5>f4889b008a291741a32141bbb03e2457</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.netty/netty-transport-native-unix-common@4.2.18.Final</id>
+                            <id>pkg:maven/io.netty/netty-transport-native-unix-common@4.2.20.Final</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
@@ -9329,26 +8941,26 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>4.2.18.Final</value>
+                    <value>4.2.20.Final</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>4.2.18.Final</value>
+                    <value>4.2.20.Final</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>4.2.18.Final</value>
+                    <value>4.2.20.Final</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.netty/netty-transport@4.2.18.Final</id>
+                    <id>pkg:maven/io.netty/netty-transport@4.2.20.Final</id>
                 </package>
                 <vulnerabilityIds confidence="HIGHEST">
-                    <id>cpe:2.3:a:netty:netty:4.2.18:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Anetty%3Anetty%3A4.2.18%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:netty:netty:4.2.20:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Anetty%3Anetty%3A4.2.20%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
@@ -9366,7 +8978,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -9535,7 +9147,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -9704,7 +9316,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:runtime</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -9873,7 +9485,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:runtime</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -10032,7 +9644,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -10201,7 +9813,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.1</reference>
+                <reference>pkg:maven/io.micrometer/micrometer-registry-prometheus@1.17.2</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -11174,7 +10786,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -11320,7 +10932,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -11467,7 +11079,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -11624,7 +11236,7 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -11849,18 +11461,18 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>spotbugs-annotations-4.10.4.jar</fileName>
-            <filePath>/home/runner/.m2/repository/com/github/spotbugs/spotbugs-annotations/4.10.4/spotbugs-annotations-4.10.4.jar</filePath>
-            <md5>472925cb4e5451c8f7a1aeeefe286622</md5>
-            <sha1>7eb4c58212378becfb6ea6d236ec24a2352a316e</sha1>
-            <sha256>28fa4befaddce5d7b79b07c68e7c12fa27c5d9282c4229528717971606661ea3</sha256>
+            <fileName>spotbugs-annotations-4.10.5.jar</fileName>
+            <filePath>/home/runner/.m2/repository/com/github/spotbugs/spotbugs-annotations/4.10.5/spotbugs-annotations-4.10.5.jar</filePath>
+            <md5>1252eef45ba52209b89fe0203bf9a633</md5>
+            <sha1>5cf6042318b3d7c43fa159dd86796fc8cc31bb3c</sha1>
+            <sha256>2f28af17ad61a7daad0f3df070198c4a5807d3ffd98a5408f670cd19fc2dce84</sha256>
             <description>Annotations the SpotBugs tool supports</description>
             <license>GNU LESSER GENERAL PUBLIC LICENSE, Version 2.1: https://www.gnu.org/licenses/old-licenses/lgpl-2.1.en.html</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -12116,22 +11728,22 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>4.10.4</value>
+                    <value>4.10.5</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Bundle-Version</name>
-                    <value>4.10.4</value>
+                    <value>4.10.5</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>4.10.4</value>
+                    <value>4.10.5</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/com.github.spotbugs/spotbugs-annotations@4.10.4</id>
+                    <id>pkg:maven/com.github.spotbugs/spotbugs-annotations@4.10.5</id>
                 </package>
             </identifiers>
         </dependency>
@@ -12401,16 +12013,16 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-auth-common-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-auth-common/5.2.0/vertx-auth-common-5.2.0.jar</filePath>
-            <md5>678ffde78887146849f2ba1b85411940</md5>
-            <sha1>8163b6c35d803c14cd33448a6cb925b7426f71d4</sha1>
-            <sha256>b033ff64f5c361c8972bb9d1a229f44708807ba5bc36aedde298e26b3158b596</sha256>
+            <fileName>vertx-auth-common-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-auth-common/5.2.3/vertx-auth-common-5.2.3.jar</filePath>
+            <md5>2576fb7b7571078752f4830e1acc74fe</md5>
+            <sha1>5a225407254ab13e3242109dc28be197a646d2ce</sha1>
+            <sha256>2a938038d4893f27d6d5485df7f407ba03c07fbc0f5e5b61e41b62a1172268a1</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -12541,41 +12153,41 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-auth-common@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-auth-common@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-codegen-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen/5.2.0/vertx-codegen-5.2.0.jar</filePath>
-            <md5>923d4955aff9df4ea390f0053f99ff45</md5>
-            <sha1>9bedc3ac70a383f6682a0ef0e266a7787d6d31a0</sha1>
-            <sha256>68474abf715514a80a2b914bf2d39dc22346618b6c79a061db2c1d449b27091c</sha256>
+            <fileName>vertx-codegen-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen/5.2.3/vertx-codegen-5.2.3.jar</filePath>
+            <md5>4b51185c8065f3dc99583a596ce6cfd2</md5>
+            <sha1>af3fd4fc0951834f5453980e0af7d48c9f9a8e1d</sha1>
+            <sha256>ac7a05570751265bf7a3953c16917671107bb7de1f119bb1bbbb4e91558081c4</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -12706,41 +12318,41 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-codegen@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-codegen@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-codegen-api-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen-api/5.2.0/vertx-codegen-api-5.2.0.jar</filePath>
-            <md5>15ef4e1587f6b3b58cb574c3ef5b7e84</md5>
-            <sha1>bc8cb6ffa1c4deee111214969571269b5e96d7ae</sha1>
-            <sha256>4b30be71ca7e847a01d01a5e30f34ab710f0dd9a5ed641ee14fdd66f2efcad19</sha256>
+            <fileName>vertx-codegen-api-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen-api/5.2.3/vertx-codegen-api-5.2.3.jar</filePath>
+            <md5>ada9c6b59407695eb082f67e30e19e45</md5>
+            <sha1>4e043c678fb3647a4d46a3329f9a890541006ede</sha1>
+            <sha256>07d07c13af8163563e870defd202e6eb681200ef62757404f62d644761ebbbee</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-codegen@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-codegen@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -12871,41 +12483,41 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-codegen-api@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-codegen-api@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-codegen-json-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen-json/5.2.0/vertx-codegen-json-5.2.0.jar</filePath>
-            <md5>4b9f4cfbf38fa85266bcbb616bea650a</md5>
-            <sha1>f6b43b97799b49806fe1b01def3c0ca85b1e3a53</sha1>
-            <sha256>d453a8717a4f851293e097c46a6f333ee0a0c72fade4ee7a4fdac62a27a598a6</sha256>
+            <fileName>vertx-codegen-json-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen-json/5.2.3/vertx-codegen-json-5.2.3.jar</filePath>
+            <md5>813fdc1f1734c91d9322462175a32c77</md5>
+            <sha1>4058ab2bad6816a854e07902378c6d4a02d18426</sha1>
+            <sha256>03bf7029ba09dc445d5d39b69f4dada3aa30287737fd9f5abdeaed03a58d55fc</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-codegen@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-codegen@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -13046,41 +12658,41 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-codegen-json@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-codegen-json@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-codegen-processor-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen-processor/5.2.0/vertx-codegen-processor-5.2.0.jar</filePath>
-            <md5>2ab462c1cd879376e753ddbc87a421d4</md5>
-            <sha1>e232fcc2af83e2f3b3b8e93703e19a7a3046157f</sha1>
-            <sha256>3158adbc13cde27de9e6dbd0b0107bb42fcd6ae91ce133654ba96ea3afc5ae4b</sha256>
+            <fileName>vertx-codegen-processor-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-codegen-processor/5.2.3/vertx-codegen-processor-5.2.3.jar</filePath>
+            <md5>ca85d551c9aee02db0d220e3abf0f1d9</md5>
+            <sha1>468f7469ea199754414fe16df419725c7b8cdf33</sha1>
+            <sha256>816ab37a58def5cd73b72319dc7cb36f37cb66543e1bae3a0d9928366cfd6f34</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-codegen@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-codegen@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -13221,88 +12833,88 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-codegen-processor@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-codegen-processor@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-core-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-core/5.2.0/vertx-core-5.2.0.jar</filePath>
-            <md5>a6c3497d329b6c433c94f9981838f267</md5>
-            <sha1>da57447fd65163f9bbc3414a2f571d563a3c121a</sha1>
-            <sha256>827e14d27a1a21a624b125651a59c5243b079514fbc387559fe0f3c5c3812299</sha256>
+            <fileName>vertx-core-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-core/5.2.3/vertx-core-5.2.3.jar</filePath>
+            <md5>526e2ce3aeedd856931de1546711cee4</md5>
+            <sha1>91d29e416c3be791a3fdca5ace2fa9ba935ccddc</sha1>
+            <sha256>08039d0e9c197fa3c1bfce3f86be7824602a2e1c22d0f482d2ac63de1a3c59f6</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <relatedDependencies>
                 <relatedDependency>
-                    <fileName>vertx-bridge-common-5.2.0.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-bridge-common/5.2.0/vertx-bridge-common-5.2.0.jar</filePath>
-                    <sha256>1ac6afabdc055ce10f537723509cc9e282d4a80b40d439ebefa6549845c44e14</sha256>
-                    <sha1>3529b4be475fffebc1af4d8a81befdfb3402de61</sha1>
-                    <md5>c1fefe69ef8b9f3aac2d2a1eb04597d6</md5>
+                    <fileName>vertx-bridge-common-5.2.3.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-bridge-common/5.2.3/vertx-bridge-common-5.2.3.jar</filePath>
+                    <sha256>eb419813e2944f19aff35d22ef019911d6710ca3d9df18738fa75d4295f27f61</sha256>
+                    <sha1>dd82fc9cbc18966f414e73437b8b30d2d5823b6d</sha1>
+                    <md5>adcb21abca497d649940711c31d7638b</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.vertx/vertx-bridge-common@5.2.0</id>
+                            <id>pkg:maven/io.vertx/vertx-bridge-common@5.2.3</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>vertx-core-logging-5.2.0.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-core-logging/5.2.0/vertx-core-logging-5.2.0.jar</filePath>
-                    <sha256>db3dff150e53b0960f41b9d009d466a4a0eda047eeaa7337ec4922007f18c45b</sha256>
-                    <sha1>bf64c54160edce659a4f5876e6119cddf75f4237</sha1>
-                    <md5>2d01b76f45cc979358bca00c418799c6</md5>
+                    <fileName>vertx-core-logging-5.2.3.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-core-logging/5.2.3/vertx-core-logging-5.2.3.jar</filePath>
+                    <sha256>6e9a97fcebf674770f65051a1fe681863c54a86da48d3ca9722b5773eba345af</sha256>
+                    <sha1>b4328dbffcc5ce4611e178ea3faed40f04db0104</sha1>
+                    <md5>696ba435860e9c9f2f9c4b4920645852</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.vertx/vertx-core-logging@5.2.0</id>
+                            <id>pkg:maven/io.vertx/vertx-core-logging@5.2.3</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>vertx-eventbus-bridge-common-5.2.0.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-eventbus-bridge-common/5.2.0/vertx-eventbus-bridge-common-5.2.0.jar</filePath>
-                    <sha256>6cd14ba90c7d64030f6d8a344f180d9d0dd1f5cad40b8be7b4c08525074d15de</sha256>
-                    <sha1>1021d7d4d3aef03fe367d4a9dd90204d00da2816</sha1>
-                    <md5>3cd1b01473e87008bcb82ae7e0537b34</md5>
+                    <fileName>vertx-eventbus-bridge-common-5.2.3.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-eventbus-bridge-common/5.2.3/vertx-eventbus-bridge-common-5.2.3.jar</filePath>
+                    <sha256>9ba99a984f2b83465cfd9eab28abda7c6389dd01bea22066123d1b6dbe8eab8f</sha256>
+                    <sha1>53da9210332190645fa734da85945cb7b46bde07</sha1>
+                    <md5>17f513c670c6d1c3d63e3da1fdf1913f</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.vertx/vertx-eventbus-bridge-common@5.2.0</id>
+                            <id>pkg:maven/io.vertx/vertx-eventbus-bridge-common@5.2.3</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
                 <relatedDependency>
-                    <fileName>vertx-micrometer-metrics-5.2.0.jar</fileName>
-                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-micrometer-metrics/5.2.0/vertx-micrometer-metrics-5.2.0.jar</filePath>
-                    <sha256>2fb026c1edd012587c8f8971ae0fb199be03ed816cfaeb74e227ac218ea8e15d</sha256>
-                    <sha1>31a64fba9c5bf80303354647d2845e7dae89ddb2</sha1>
-                    <md5>df8d46c37e157e17d0f6f89cf9d99b03</md5>
+                    <fileName>vertx-micrometer-metrics-5.2.3.jar</fileName>
+                    <filePath>/home/runner/.m2/repository/io/vertx/vertx-micrometer-metrics/5.2.3/vertx-micrometer-metrics-5.2.3.jar</filePath>
+                    <sha256>43297047fde2d7d2524c6c0700640167b9ace160870a919ccc048fb467af49ce</sha256>
+                    <sha1>00346894895c18f41a80cb0f23dc1ca8016f122f</sha1>
+                    <md5>164147bdf880119d1ad23f483b373433</md5>
                     <identifiers>
                         <package>
-                            <id>pkg:maven/io.vertx/vertx-micrometer-metrics@5.2.0</id>
+                            <id>pkg:maven/io.vertx/vertx-micrometer-metrics@5.2.3</id>
                         </package>
                     </identifiers>
                 </relatedDependency>
@@ -13446,47 +13058,47 @@ Apache License 2.0: https://www.apache.org/licenses/LICENSE-2.0</license>
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-core@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-core@5.2.3</id>
                 </package>
                 <vulnerabilityIds confidence="HIGH">
-                    <id>cpe:2.3:a:eclipse:vert.x:5.2.0:*:*:*:*:*:*:*</id>
-                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aeclipse%3Avert.x%3A5.2.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
+                    <id>cpe:2.3:a:eclipse:vert.x:5.2.3:*:*:*:*:*:*:*</id>
+                    <url>https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aeclipse%3Avert.x%3A5.2.3%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A</url>
                 </vulnerabilityIds>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-web-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-web/5.2.0/vertx-web-5.2.0.jar</filePath>
-            <md5>44d67c8b61e6726c3e2eaa5fd8572a7d</md5>
-            <sha1>36923517c5d11d95ba495a827d10cead0a110232</sha1>
-            <sha256>a33068d7ac3d6cb85627e18bd05e2e3d7f6e31e6cfa7f8496a98d7186d7b2c82</sha256>
+            <fileName>vertx-web-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-web/5.2.3/vertx-web-5.2.3.jar</filePath>
+            <md5>3903212b533f2c3de22a9312fe6bb341</md5>
+            <sha1>34a78feb99db64f1d9ea6ad692901ffc68fa759b</sha1>
+            <sha256>a73888a49795dd75fc48d36e809d9674b4ea8e15855689f1972df2952e9bdc9e</sha256>
             <license>The Apache Software License, Version 2.0: http://www.apache.org/licenses/LICENSE-2.0.txt
 Eclipse Public License - v 2.0: http://www.eclipse.org/legal/epl-v20.html</license>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.5</reference>
+                <reference>pkg:maven/uk.co.spudsoft/vertx-resteasy-helpers@0.2.6</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -13617,41 +13229,41 @@ Eclipse Public License - v 2.0: http://www.eclipse.org/legal/epl-v20.html</licen
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-web@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-web@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
         <dependency isVirtual="false">
-            <fileName>vertx-web-common-5.2.0.jar</fileName>
-            <filePath>/home/runner/.m2/repository/io/vertx/vertx-web-common/5.2.0/vertx-web-common-5.2.0.jar</filePath>
-            <md5>499ffe707efed58c64d0d6077fd57552</md5>
-            <sha1>da1b9ff518f43a66e1c21c57d141773ad6fe56ff</sha1>
-            <sha256>d3a4f874d4f8ed0a984c53e35452bdcb0d40b6817d36164b14824048031ac45e</sha256>
+            <fileName>vertx-web-common-5.2.3.jar</fileName>
+            <filePath>/home/runner/.m2/repository/io/vertx/vertx-web-common/5.2.3/vertx-web-common-5.2.3.jar</filePath>
+            <md5>2055ca94931ebd47f1ab29e9d1396f31</md5>
+            <sha1>1ca254101a886b61d74177c40300074509102b6a</sha1>
+            <sha256>3d38746aaa97f4418ddd63c9351a005a9511f60cccd5319f46c926d4b5ebf9d6</sha256>
             <projectReferences>
                 <projectReference>Vertx RESTEasy Helpers:compile</projectReference>
             </projectReferences>
             <includedBy>
-                <reference>pkg:maven/io.vertx/vertx-web@5.2.0</reference>
+                <reference>pkg:maven/io.vertx/vertx-web@5.2.3</reference>
             </includedBy>
             <evidenceCollected>
                 <evidence type="vendor" confidence="HIGH">
@@ -13782,27 +13394,27 @@ Eclipse Public License - v 2.0: http://www.eclipse.org/legal/epl-v20.html</licen
                 <evidence type="version" confidence="HIGH">
                     <source>file</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGH">
                     <source>Manifest</source>
                     <name>Implementation-Version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="MEDIUM">
                     <source>Manifest</source>
                     <name>maven-version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
                 <evidence type="version" confidence="HIGHEST">
                     <source>pom</source>
                     <name>version</name>
-                    <value>5.2.0</value>
+                    <value>5.2.3</value>
                 </evidence>
             </evidenceCollected>
             <identifiers>
                 <package confidence="HIGH">
-                    <id>pkg:maven/io.vertx/vertx-web-common@5.2.0</id>
+                    <id>pkg:maven/io.vertx/vertx-web-common@5.2.3</id>
                 </package>
             </identifiers>
         </dependency>
